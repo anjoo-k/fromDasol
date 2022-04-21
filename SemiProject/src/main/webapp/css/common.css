@@ -52,15 +52,15 @@ table {
 	font-family: 'Noto Sans KR', sans-serif !important;
 	color:#363636;
 }
-/*글자 드래그하면 색깔 변하는거 boram3 color로 지정*/
+/*湲��옄 �뱶�옒洹명븯硫� �깋源� 蹂��븯�뒗嫄� boram3 color濡� 吏��젙*/
 p::selection{
 	background-color: #f1f9ff;
     color: #3ea4ff;
   }
 
-/* 메인 css */
+/* 硫붿씤 css */
 
-/* header 시작 */
+/* header �떆�옉 */
 div.header{
 	width: 100%;
 	height: 75px;
@@ -82,9 +82,9 @@ div.header > div.headercontent > a.logo{
 div.header > div.headercontent > a.logo img{
 	width: 100%;
 }
-/* header 시작 */
+/* header �떆�옉 */
 
-/* main 시작 */
+/* main �떆�옉 */
 div.main{
 	width: 970px;
 	margin: 0 auto;
@@ -94,14 +94,14 @@ div.main  p.title{
 	font-size: 22px;
 }
 
-/* swiper banner 시작 */
-.swiper .mySwiper{
+/* swiper banner �떆�옉 */
+.swiper.mySwiper{
 	width: 100%;
 	height: 262px;
 	border-radius: 5px;
   }
 
-  .swiper-slide .banner{
+  .swiper-slide.banner{
 	text-align: center;
 	font-size: 18px;
 	background: #fff;
@@ -121,7 +121,7 @@ div.main  p.title{
 	align-items: center;
   }
 
-  .swiper-slide .banner img {
+  .swiper-slide.banner img {
 	display: block;
 	width: 100%;
 	height: 100%;
@@ -161,9 +161,9 @@ div.main  p.title{
     --swiper-theme-color: #1a93ff;
 }
 
-/* swiper banner 끝 */
+/* swiper banner �걹 */
 
-/* category 시작 */
+/* category �떆�옉 */
 div.main div.category{
 	height: 190px;
 	display: flex;
@@ -173,9 +173,9 @@ div.main div.category{
     align-items: center;
 }
 
-/* category 끝 */
+/* category �걹 */
 
-/* section01 시작 */
+/* section01 �떆�옉 */
 div.main div.section01{
 	height: 320px;
 }
@@ -216,12 +216,13 @@ div.main div.section01{
 	border-radius: 5px;
   }
 
-  .swiper-slide .main img {
+
+.swiper-slide .main img {
 	display: block;
 	width: 100%;
 	height: 100%;
 	object-fit: cover;
-  }
+ }
 
   div.swiper-slide.main > p.swipertitle{
 	position: absolute;
@@ -238,9 +239,9 @@ div.main div.section01{
   }
 
 
-/* section01 끝 */
+/* section01 �걹 */
 
-/* section02 시작 */
+/* section02 �떆�옉 */
 div.main div.section02{
 	height: 95px;
     display: flex;
@@ -265,16 +266,16 @@ div.main div.section02 > div > span{
 	line-height: 28px;
 	padding-left: 24px;
 }
-/* section02 끝 */
+/* section02 �걹 */
 
 
-/* section03 시작 */
+/* section03 �떆�옉 */
 div.main div.section03{
 }
 
-/* section03 끝 */
+/* section03 �걹 */
 
-/* section04 시작 */
+/* section04 �떆�옉 */
 div.main div.section04{
 	height: 226px;
 }
@@ -291,10 +292,10 @@ div.main div.section04 div.se04layout{
 
 
 
-/* section04끝 */
+/* section04�걹 */
 
 
-/* main 끝 */
+/* main �걹 */
 
 div.footer{
 	width: 100%;
