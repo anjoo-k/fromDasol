@@ -3,9 +3,136 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-
+<!-- Link (메인베너)Swiper's CSS -->
+<link rel="stylesheet"  href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="../css/common.css">
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 </head>
+
 <body>
-<p>메인화면</p>
+
+
+    <div class="header">
+        <div class="headercontent">            
+            <a href="#" class="logo">
+                    <img src="../image/logo.png" alt="">
+            </a>            
+
+            <div class="searchbar">
+                <input type="submit">
+                <input type="search" placeholder="무엇을 배우고 싶나요?">
+            </div>
+
+            <div>
+                <a href="">로그인</a>
+                <button type="button">회원가입</button>
+            </div>
+         </div>
+    </div>
+
+    <div class="main"> <!--메인 시작-->
+
+        <!--베너-->
+            
+            <div class="swiper mySwiper">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                      <img src="../image/banner-01.png" alt="">
+                  </div>
+                  <div class="swiper-slide">
+                     <img src="../image/banner-02.png" alt="">   
+                  </div>
+                  <div class="swiper-slide">
+                    <img src="../image/banner-03.png" alt="">   
+                 </div>
+                 <div class="swiper-slide">
+                    <img src="../image/banner-04.png" alt="">   
+                 </div>
+                 <div class="swiper-slide">
+                    <img src="../image/banner-05.png" alt="">   
+                 </div>
+                 <div class="swiper-slide">
+                    <img src="../image/banner-06.png" alt="">   
+                 </div>
+                 <div class="swiper-slide">
+                    <img src="../image/banner-07.png" alt="">   
+                 </div>
+
+                </div>
+                
+                <!--
+                    <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                -->
+                <div class="swiper-pagination"></div>
+              </div>
+
+        <div class="category">
+            <a href="#">
+                <span class="c01"></span>
+            </a>
+            <a href="#">
+                <span class="c02"></span>
+            </a>
+            <a href="#">
+                <span class="c03"></span>
+            </a>
+            <a href="#">
+                <span class="c04"></span>
+            </a>
+            <a href="#">
+                <span class="c05"></span>
+            </a>
+            <a href="#">
+                <span class="c06"></span>
+            </a>
+            <a href="#">
+                <span class="c07"></span>
+            </a>
+            <a href="#">
+                <span class="c08"></span>
+            </a>
+        </div>
+
+        <div class="section01">
+            <p>지금바로 원하는 클래스를 찾아보세요!</p>
+            <div class="tags">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+                <img src="" alt="">
+            </div>
+        <!--메인 슬라이드-->
+        </div>
+
+    </div><!--메인 끝-->
+
+    <div class="footer">
+
+
+    </div>
+
+
+
+    <script>
+       
+         var swiper = new Swiper(".mySwiper", {
+          spaceBetween: 30,
+          centeredSlides: true,
+          autoplay: {
+            delay: 3000,
+            disableOnInteraction: false,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+          },
+          navigation: {
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
+          },
+        });
+       
+      </script>
 </body>
 </html>
