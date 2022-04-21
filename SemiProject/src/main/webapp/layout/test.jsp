@@ -21,6 +21,10 @@ for(int j=0; j<6; j++)
 	<div>test<%=j %></div>
 <%}
 
+for(int j=0; j<3; j++)
+{%>
+	<div>test<%=j %></div>
+<%}
 %>
 </body>
 </html>
