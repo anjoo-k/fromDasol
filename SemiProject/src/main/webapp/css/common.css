@@ -212,16 +212,15 @@ div.main div.section01{
 	/*margin-right: 15px !important;*/
     position: relative;
     transition-property: transform;
-	background-color: #e2e2e2;
-	border-radius: 5px;
+    border-radius: 5px;
+    border: 1px solid #f4f4f4;
   }
 
 
-.swiper-slide .main img {
-	display: block;
+.swiper-slide.main > img.swiper-img{
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	border-radius: 5px;
  }
 
   div.swiper-slide.main > p.swipertitle{
@@ -311,18 +310,16 @@ div.main div.section03{
 	/*margin-right: 15px !important;*/
     position: relative;
     transition-property: transform;
-	background-color: #e2e2e2;
+	border: 1px solid #f4f4f4;
 	border-radius: 5px;
   }
 
 
-.swiper-slide .sub01 img {
-	display: block;
+.swiper-slide.sub01 > img.swiper-img{
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	border-radius: 5px;
  }
-
  div.swiper-slide.sub01 > p.swipertitle{
 	position: absolute;
     top: 140px;
@@ -378,12 +375,10 @@ div.main div.section03-2{
 	border-radius: 5px;
   }
 
-
-.swiper-slide .sub02 img {
-	display: block;
+.swiper-slide.sub02 > img.swiper-img{
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	border-radius: 5px;
  }
  
  div.swiper-slide.sub02 > p.swipertitle{
@@ -458,15 +453,11 @@ div.main div.section05{
 	background-color: #e2e2e2;
 	border-radius: 5px;
   }
-
-
-.swiper-slide .sub03 img {
-	display: block;
+.swiper-slide.sub03 > img.swiper-img{
 	width: 100%;
 	height: 100%;
-	object-fit: cover;
+	border-radius: 5px;
  }
- 
   div.swiper-slide.sub03 > p.swipertitle{
 	position: absolute;
     top: 140px;
