@@ -59,6 +59,16 @@ p::selection{
     color: #3ea4ff;
   }
 
+a::selection{
+	background-color: #f1f9ff;
+    color: #3ea4ff;
+  }
+  
+spn::selection{
+	background-color: #f1f9ff;
+    color: #3ea4ff;
+  }
+
 /* header 시작 */
 div.header{
 	width: 100%;
@@ -99,6 +109,7 @@ div.main  p.title{
 	width: 100%;
 	height: 262px;
 	border-radius: 5px;
+	padding-top: 30px;
   }
 
   .swiper-slide.banner{
@@ -165,14 +176,28 @@ div.main  p.title{
 
 /* category 시작 */
 div.main div.category{
-	height: 190px;
-	display: flex;
-	flex-direction: row;
+	height: 200px;
+    display: flex;
+    flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
+    padding-bottom: 30px;
 }
 
+div.main div.category > a{
+	text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+
+}
+
+div.main div.category > a > span > img{
+	padding-bottom:26px;
+}
+
+   
 /* category 끝 */
 
 /* section01 시작 */
@@ -180,6 +205,13 @@ div.main div.section01{
 	height: 320px;
 }
 
+div.main div.section01 > div.tags{
+	padding-bottom:24px;
+}
+
+div.main div.section01 > div.tags > img{
+	    padding-right: 10px;
+}
 .swiper.main{
 	width: 100%;
 	height: 190px;
@@ -239,6 +271,8 @@ div.main div.section01{
 	top: 168px;
 	left: 0;
 	width: 220px;
+	font-size: 18px;
+  	font-weight: 500;
   }
 
 
@@ -253,6 +287,7 @@ div.main div.section02{
     align-items: center;
     align-content: center;
     padding-bottom: 80px;
+    padding-top: 100px;
 }
 
 div.main div.section02 > div{
@@ -263,12 +298,17 @@ div.main div.section02 > div{
     align-content: center;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: center;    
+    align-items: center;   
+    justify-content: space-between; 
 }
 
 div.main div.section02 > div > span{
 	line-height: 28px;
 	padding-left: 24px;
+}
+
+div.main div.section02 > div > img{
+	padding-right: 28px;
 }
 /* section02 끝 */
 
@@ -396,20 +436,46 @@ div.main div.section03-2{
 
 /* section04 시작 */
 div.main div.section04{
-	height: 226px;
+	height: 328px;
 }
 
 div.main div.section04 div.se04layout{
 	display: flex;
-	flex-direction: row;
+    flex-direction: row;
     align-items: center;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: space-around;
     text-align: center;
     line-height: 24px;
+    padding-top: 30px;
 }
 
+div.main div.section04 div.se04layout > span > img:hover{
+/*	transform: scale(1.0);
+    border: 1px solid #1a93ff;
+    border-radius: 100px; */
+	
+}
 
+div.main div.section04 div.se04layout p.name{
+	padding-top:10px;
+	font-size: 16px;
+    font-weight: 500;
+}
+
+div.main div.section04 div.se04layout p.job{
+	font-size: 14px;
+    color: #a5a5a5;
+}
+
+div.main div.section04 div.se04layout p.mark{
+	font-size: 14px;
+    font-weight: 500;
+}
+
+div.main div.section04 div.se04layout p.mark > img{
+	padding-right: 6px;
+}
 
 /* section04 끝 */
 
@@ -499,6 +565,22 @@ div.footer > div.footercontent > div.topfooter{
    	font-size: 14px;
 }
 
+
+div.footer > div.footercontent > div.topfooter > span > a{
+	width:136px;
+	height: 36px;
+    background-color: #1a93ff;
+    display: inline-block;
+    border-radius: 100px;
+    margin-right: 8px;
+    color:#fff;
+    line-height: 36px;
+    font-size: 12px;
+  	font-weight: 500;
+}
+
+
+
 div.footer > div.footercontent > div.topfooter p.footer-hp{
 	font-size: 20px;
     line-height: 30px;
@@ -509,6 +591,7 @@ div.footer > div.footercontent > div.topfooter p.footer-hp{
 div.footer > div.footercontent > div.topfooter p.footer-time{
 	line-height: 24px;
     color: #767676;
+    padding-bottom: 30px;
 }
 
 div.footer > div.footercontent > div.topfooter > span.topfooter-right{
@@ -521,6 +604,9 @@ div.footer > div.footercontent > div.topfooter > span.topfooter-right{
 	font-size: 14px;
 	letter-spacing: -0.2px;
 }
+
+
+
 div.footer > div.footer-bottom{
 	width: 970px;
     margin: 0 auto;
