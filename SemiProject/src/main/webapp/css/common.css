@@ -47,20 +47,19 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+/* 리셋 css 끝*/
 
+/* 전체적용 css */
 *{
 	font-family: 'Noto Sans KR', sans-serif !important;
 	color:#363636;
 }
-/*湲��옄 �뱶�옒洹명븯硫� �깋源� 蹂��븯�뒗嫄� boram3 color濡� 吏��젙*/
 p::selection{
 	background-color: #f1f9ff;
     color: #3ea4ff;
   }
 
-/* 硫붿씤 css */
-
-/* header �떆�옉 */
+/* header 시작 */
 div.header{
 	width: 100%;
 	height: 75px;
@@ -82,9 +81,9 @@ div.header > div.headercontent > a.logo{
 div.header > div.headercontent > a.logo img{
 	width: 100%;
 }
-/* header �떆�옉 */
+/* header 끝 */
 
-/* main �떆�옉 */
+/* main 시작 */
 div.main{
 	width: 970px;
 	margin: 0 auto;
@@ -94,7 +93,7 @@ div.main  p.title{
 	font-size: 22px;
 }
 
-/* swiper banner �떆�옉 */
+/* swiper banner 시작 */
 .swiper.mySwiper{
 	width: 100%;
 	height: 262px;
@@ -161,9 +160,9 @@ div.main  p.title{
     --swiper-theme-color: #1a93ff;
 }
 
-/* swiper banner �걹 */
+/* swiper banner 시작 */
 
-/* category �떆�옉 */
+/* category 시작 */
 div.main div.category{
 	height: 190px;
 	display: flex;
@@ -173,9 +172,9 @@ div.main div.category{
     align-items: center;
 }
 
-/* category �걹 */
+/* category 끝 */
 
-/* section01 �떆�옉 */
+/* section01 시작 */
 div.main div.section01{
 	height: 320px;
 }
@@ -239,9 +238,9 @@ div.main div.section01{
   }
 
 
-/* section01 �걹 */
+/* section01 끝 */
 
-/* section02 �떆�옉 */
+/* section02 시작 */
 div.main div.section02{
 	height: 95px;
     display: flex;
@@ -266,16 +265,16 @@ div.main div.section02 > div > span{
 	line-height: 28px;
 	padding-left: 24px;
 }
-/* section02 �걹 */
+/* section02 끝 */
 
 
-/* section03 �떆�옉 */
+/* section03 시작 */
 div.main div.section03{
 }
 
-/* section03 �걹 */
+/* section03 끝 */
 
-/* section04 �떆�옉 */
+/* section04 시작 */
 div.main div.section04{
 	height: 226px;
 }
@@ -292,10 +291,10 @@ div.main div.section04 div.se04layout{
 
 
 
-/* section04�걹 */
+/* section04 끝 */
 
 
-/* main �걹 */
+/* main 끝 */
 
 div.footer{
 	width: 100%;
