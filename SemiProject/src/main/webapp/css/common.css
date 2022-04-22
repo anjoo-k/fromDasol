@@ -64,7 +64,7 @@ a::selection{
     color: #3ea4ff;
   }
   
-spn::selection{
+span::selection{
 	background-color: #f1f9ff;
     color: #3ea4ff;
   }
@@ -247,7 +247,30 @@ div.main div.section01 > div.tags > img{
     border-radius: 5px;
     border: 1px solid #f4f4f4;
   }
+  
+  
+.swiper-button-next.main, .swiper-button-prev.main {
+    position: absolute;
+    top: 50%;
+    width: 20px;
+    height: var(--swiper-navigation-size);
+    margin-top: calc(0px - (var(--swiper-navigation-size)/ 2));
+    z-index: 10;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--swiper-navigation-color,var(--swiper-theme-color));
+	opacity: 1;
+}
 
+
+div.swiper-button-next.main{
+	right: 0;
+}
+div.swiper-button-prev.main{
+	    left:0;
+}
 
 .swiper-slide.main > img.swiper-img{
 	width: 100%;
@@ -268,12 +291,12 @@ div.main div.section01 > div.tags > img{
 
   div.swiper-slide.main > p.money{
 	position: absolute;
-	top: 168px;
+	top: 166px;
 	left: 0;
 	width: 220px;
-	font-size: 18px;
-  	font-weight: 500;
-  }
+  	font-size: 16px;
+    font-weight: 600;
+}
 
 
 /* section01 끝 */
@@ -304,8 +327,20 @@ div.main div.section02 > div{
 
 div.main div.section02 > div > span{
 	line-height: 28px;
-	padding-left: 24px;
+    padding-left: 24px;
+    font-weight: 500;
 }
+
+div.main div.section02 > div > span.gray{
+	line-height: 28px;
+    padding-left: 24px;
+    font-weight: 500;
+}
+
+div.main div.section02 > div > span > b{
+	color: #ababab;
+}
+    
 
 div.main div.section02 > div > img{
 	padding-right: 28px;
