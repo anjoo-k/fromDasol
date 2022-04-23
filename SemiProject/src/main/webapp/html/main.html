@@ -10,9 +10,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
-
 <body>
 
 
@@ -502,6 +501,20 @@
 
 
 <script>
+	
+		//header 영역 스크롤 내려도 고정되게
+		let header = document.querySelector(".header");
+		let headerHeight = header.offsetHeight;
+		
+		window.onscroll = function () {
+		  let windowTop = window.scrollY;
+		  if (windowTop >= headerHeight) {
+		    header.classList.add("drop");
+		  } else {
+		    header.classList.remove("drop");
+		  }
+		};
+
         //메인베너
          var swiper = new Swiper(".mySwiper.banner", {
           spaceBetween: 30,
