@@ -85,7 +85,7 @@ div.header{
 
 div.header.drop {
  position: fixed;
-  animation: dropHeader 0.3s;
+ animation: dropHeader 0.3s;
  border-bottom: 1px solid #f2f2f2;
 }
 
@@ -114,10 +114,6 @@ div.header > div.headercontent > a.logo{
 div.header > div.headercontent > a.logo img{
 	width: 100%;
 }
-
-
-
-
 
 /* [임현정] header 끝 */
 
@@ -221,6 +217,11 @@ div.main div.category > a{
     font-weight: 500;
     letter-spacing: -0.5px;
 
+}
+
+div.main div.category > a:hover{
+	color: #1a93ff;
+	transition: 0.3s ease; 
 }
 
 div.main div.category > a > span > img{
