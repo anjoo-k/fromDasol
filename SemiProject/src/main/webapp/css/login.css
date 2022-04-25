@@ -1,5 +1,9 @@
 @charset "UTF-8";
 /* [강나리] login css */
+*{
+	font-family: 'Noto Sans KR', sans-serif !important;
+	color:#363636;
+}
 .main_login {
   align-items: center;
   display: flex;
