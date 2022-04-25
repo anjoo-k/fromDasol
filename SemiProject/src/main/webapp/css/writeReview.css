@@ -1,0 +1,108 @@
+@charset "UTF-8";
+/* [이다솔] 수강리뷰 작성 CSS */
+*{
+	font-family: 'Noto Sans KR', sans-serif !important;
+	color:#363636;
+}
+div.review{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+    margin-bottom: 50px;
+}
+div.review table.review{
+  width: 800px;
+  margin-left: 100px; 
+  margin-top: 100px;
+ }
+div.review table.review tr *{
+	margin-top:15px;
+}
+div.review table.review caption{
+	margin-bottom:10px;
+}
+div.review table.review tr.review *{
+	margin-top:5px;
+}
+div.review caption.review{
+  width: 429px;
+  height: 24px;
+  font-size: 24px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 0.83;
+  letter-spacing: -0.48px;
+  text-align: left;
+}
+
+div.review table.review th>span{
+  width: 464px;
+  height: 16px;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #323232;
+}
+div.review button.review{
+  height: 45px;
+  padding: 12px 69px 14px 74px;
+  border-radius: 5px;
+  box-shadow: 0px 3px 7px 0 rgba(255, 75, 78, 0.23);
+  border: solid 1px #1b93ff;
+  background-color: #f6fafe;
+}
+button.review:hover{
+	cursor: pointer;
+}
+div.review button.review>span{
+  width: 57px;
+  height: 16px;
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #1b93ff;
+}
+/* 별점 CSS */
+
+div.review .star-rating {
+  display:flex;
+  flex-direction: row-reverse;
+  font-size:1.2em;
+  justify-content:space-around;
+  padding:0 .2em;
+  text-align:center;
+  width:5em;
+}
+
+div.review .star-rating input {
+  display:none;
+}
+
+div.review .star-rating label {
+  color:#ccc;
+  cursor:pointer;
+}
+
+div.review .star-rating :checked ~ label {
+  color:#fc0;
+}
+
+div.review .star-rating label:hover,
+.star-rating label:hover ~ label {
+  color:#f90;
+}
