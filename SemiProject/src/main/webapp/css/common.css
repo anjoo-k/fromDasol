@@ -68,6 +68,8 @@ span::selection{
 	background-color: #f1f9ff;
     color: #3ea4ff;
   }
+  
+
 
 /* [임현정][조아라] header 시작 */
 div.header{
@@ -116,21 +118,46 @@ div.header > div.headercontent > a.logo img{
 	width: 100%;
 }
 div.header > div.headercontent > div.headerlogin{
-	margin-top: 10px;
-	font-size: 15px;
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 160px;
+    justify-content: space-between;
 }
-
 div.header > div.headercontent > div.headerlogout{
-	margin-top: 10px;
-	font-size: 15px;
+	
+    font-size: 16px;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 280px;
+    justify-content: space-between;
 }
+div.header > div.headercontent > div.headerlogout > a > span.cnt{
+width: 20px;
+    height: 20px;
+    display: inline-block;
+    background: #f6fafe;
+    border: solid 1px #1b93ff;
+    border-radius: 100px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #1a93ff;}
+
+
 div.header > div.headercontent > div.headerlogin >button.gaipbtn{
  	width: 90px;
     height: 40px;
     color: white;
     border-radius: 5px;
     background-color: #1a93ff;
-    font-size: 15px;
+    font-size: 16px;
     margin-left: 10px;
     border: 0;
     font-family: NotoSansKR-Regular !important;
@@ -138,14 +165,13 @@ div.header > div.headercontent > div.headerlogin >button.gaipbtn{
     letter-spacing: -0.8px;
 }
 
-div.header > div.headercontent > div.headerlogout >button.mypagebtn{
- 	width: 90px;
+div.header > div.headercontent > div.headerlogout >button.mypage{
+ 	width: 94px;
     height: 40px;
     color: white;
     border-radius: 5px;
     background-color: #1a93ff;
-    font-size: 15px;
-    margin-left: 10px;
+    font-size: 16px;
     border: 0;
     font-family: NotoSansKR-Regular !important;
     outline: 0;

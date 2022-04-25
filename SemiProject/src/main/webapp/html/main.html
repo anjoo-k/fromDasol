@@ -13,15 +13,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </head>
 <body>
-
-
     <div class="header">
         <div class="headercontent">            
             <a href="#" class="logo">
                <img src="../image/logo.png" alt="">
-            </a>            
-
-
+            </a>
+            
             <div class="searchbar">
                	<form action="#" method="#">
     			 	<div class="searchinput">
@@ -36,10 +33,16 @@
     			 	</div>
 				</form>
             </div>
-
-            <div class="headerlogin">
-                <a href="">로그인</a>&nbsp;&nbsp;&nbsp;
+			<!-- 로그인 전 버튼 -->
+            <div class="headerlogin" style="display: none;">
+                <a href="" class="loginbtn">로그인</a>
                 <button type="button" class="gaipbtn">회원가입</button>
+            </div>
+            <!-- 로그인 후 버튼 -->
+              <div class="headerlogout" >
+                <a href="" class="logoutbtn">로그아웃</a>
+                <a href="">장바구니 <span class="cnt">0</span></a>
+                <button type="button" class="mypage">마이페이지</button>
             </div>
          </div>
     </div>
@@ -516,22 +519,11 @@
 
 <script>
 	
-		//[임현정] header 검색창 클릭시 이벤트
+		//[임현정] search 클릭시 이벤트
 		$("div.searchinput").click( function(){
 			$("div.searchinput").css("border","1px solid #1a93ff");
+			
 		})
-	
-		let search = document.querySelector('div.searchinput');
-		
-		search.addEventListener('click', () => {
-		  let searchblue = document.querySelector('.dropdown');
-		  dropdown.style.display = 'block';
-		});
-		
-		button.addEventListener('blur', () => {
-		  const dropdown = document.querySelector('.dropdown');
-		  dropdown.style.display = '';
-		});
 	
 		//[임현정] header 영역 스크롤 내려도 고정되게
 		let header = document.querySelector(".header");
