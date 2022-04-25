@@ -1,0 +1,96 @@
+@charset "UTF-8";
+
+*{
+	/* 폰트 'Noto Sans KR', sans-serif(고딕체) 두 가지 적용 */
+	/* !important 강제적용 */
+	font-family: 'Noto Sans KR', sans-serif !important;
+	color: #363636;
+}
+
+/* 회원가입 페이지 */
+.signupdiv {
+	align-items: center;
+  	display: flex;
+  	flex-direction: column;
+  	position: relative;
+  	z-index: 1;
+  	width: 100%;
+  	height: 100%;
+  	background-color: #fafafa;
+}
+/* BORAM3에 오신것을 환영합니다(헤더,타이틀) */
+.signupHead {
+  	width: 500px;
+  	height: 40px;
+	font-family: Noto Sans KR;
+	font-size: 34px;
+	font-weight: 550;
+	color: #565656;
+	text-align: center;
+	margin-top: 150px;
+	margin-bottom: 50px;
+}
+
+/* 회원가입 양식 div */
+.signupFrame {
+	width: 422px;
+  	height: 580px;
+  	border-radius: 5px;
+  	border: solid 1px #f2f2f2;
+  	background-color: #fff;
+  	margin-bottom: 100px;
+}
+
+/* 입력 폼 */
+.signupForm {
+	font-family: Noto Sans KR;
+	padding-top: 45px;
+	padding-left: 30px;
+}
+th {
+	font-size: 15pt;
+}
+
+/* input박스 */
+.inputbox {
+	width: 335px;
+	height: 44px;
+	margin-top: 6px;
+	padding-left: 10px;
+	font-size: 15pt;
+	border-width: 1px;
+	border-radius: 5px;
+	border: 1px solid #e2e2e2;
+}
+/* placeholder속성 */
+.signupTable::placeholder {
+	font-size: 15pt;
+}
+
+/* 이용약관 동의 체크박스&텍스트 */
+.chkbox > td > input[type=checkbox] {
+	width: 20px;
+	height: 20px;
+}
+/* 밑줄 */
+.chkbox u {
+	color: #1b93ff;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+td.signupBtn {
+	padding-top: 54px;
+}
+/* 회원가입 버튼 */
+td.signupBtn > span {
+	cursor: pointer;
+  	padding: 12px 143px; 
+  	border-radius: 5px;
+  	border-color: #1b93ff;
+  	background-color: #1b93ff;
+  	font-family: Noto Sans KR;
+	font-size: 18px;
+	font-weight: 500;
+	color: #fff;
+}
