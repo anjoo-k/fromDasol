@@ -47,6 +47,8 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
+
+
 /* [임현정] 리셋 css 끝*/
 
 /* [임현정] 전체적용 css */
@@ -139,7 +141,7 @@ div.header > div.headercontent > div.headerlogout{
     justify-content: space-between;
 }
 div.header > div.headercontent > div.headerlogout > a > span.cnt{
-width: 20px;
+	min-width: 20px;
     height: 20px;
     display: inline-block;
     background: #f6fafe;
@@ -414,12 +416,21 @@ div.main div.section01 > div.tags > img{
 }
 
 
-div.swiper-button-next.mainswiper{
-	right: 0;
+.swiper-button-next.mainswiper {
+  background: url(/godiva/img/common/next.png) no-repeat;
+  background-size: 50% auto;
+  background-position: center;
 }
-div.swiper-button-prev.mainswiper{
-	    left:0;
+
+.swiper-button-prev.mainswiper {
+  background: url(/godiva/img/common/prev.png) no-repeat;
 }
+
+.swiper-button-next.mainswiper::after,
+.swiper-button-prev.mainswiper::after {
+  display: none;
+}
+
 
 .swiper-slide.mainswiper > img.swiper-img{
 	width: 100%;
