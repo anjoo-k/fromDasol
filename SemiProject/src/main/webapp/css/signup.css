@@ -42,7 +42,6 @@
 
 /* 입력 폼 */
 .signupForm {
-	font-family: Noto Sans KR;
 	padding-top: 45px;
 	padding-left: 38px;
 }
@@ -64,13 +63,21 @@ th {
     outline: none;
 }
 
+/* [현정] input 클릭 했을때 선색깔, 글씨 색깔 바뀌게 */
 .inputbox:focus {
 	color: #1b93ff;
     border: 1px solid #1b93ff;
 }
 
+/* placeholder 속성 */
+.inputbox::placeholder {
+	font-family: NotoSansKR-Regular !important;
+	font-size: 16px;
+	color: #c1c1c1;
+}
 
 /* placeholder속성 */
+/* [현정] placeholder는 input에 바로 줘야지만 적용되용 */
 .signupTable::placeholder {
 	font-size: 15pt;
 }
