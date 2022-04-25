@@ -1,12 +1,5 @@
 @charset "UTF-8";
 
-/* [차동현] myprofile css */
-
-*{
-	font-family: 'Noto Sans KR', sans-serif !important;
-	color:#363636;
-}
-
 div.main-myprofile{
   align-items: center;
   display: flex;
@@ -18,7 +11,7 @@ div.main-myprofile{
 }
 
 body{
-   background-color: #f5f5f5;
+   background-color: #fafafa;
 }
 
 #welcomename{
@@ -38,6 +31,7 @@ body{
    font-size: 16px;
    line-height: 20px;
    margin: 0 16px 0 0;
+   cursor: pointer;
 }
 
 #myclass{
@@ -48,6 +42,7 @@ body{
    line-height: 20px;
    margin: 0;
    color: #808080;
+   cursor: pointer;
 }
 
 #myreview{
@@ -58,16 +53,16 @@ body{
    line-height: 20px;
    margin: 0 700px 0 16px;
    color: #808080;
+   cursor: pointer;
+}
+
+#myprofile:hover, #myclass:hover, #myreview:hover{
+	color: #1a93ff;
 }
 
 div.toptoolbar{
    margin: 185px 0 65px 0;
-
-}
-
-div.toptoolbar > hr{
-   border-bottom: 1px solid #1a93ff; 
-   width: 100%;
+   border-bottom: 1px solid #1a93ff;
 }
 
 div.personaldata{
@@ -114,7 +109,7 @@ input::placeholder{
    color: #c1c1c1;
 }
 
-#dropbutton{
+.dropbutton{
    width: 348px;
    height: 48px;
    margin: 25px 20px 48px 6px;
@@ -122,13 +117,8 @@ input::placeholder{
    border-radius: 5px;
    background-color: #e6e6e6;
    box-shadow: 0px 2px 5px 0 rgba(051, 051, 255, 0.23);
-}
-
-div.personaldata > #dropbutton > span{
-   width: 56px;
-   height: 16px;
    font-size: 16px;
    font-weight: 550;
    color: #565656;
+   cursor: pointer;
 }
-/* [차동현] myprofile css 끝 */
