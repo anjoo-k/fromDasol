@@ -516,6 +516,12 @@
 
 <script>
 	
+		//[임현정] header 검색창 클릭시 이벤트
+		$("div.searchinput").click( function(){
+			$("div.searchinput").css("border","1px solid #1a93ff");
+		})
+	
+	
 		//[임현정] header 영역 스크롤 내려도 고정되게
 		let header = document.querySelector(".header");
 		let headerHeight = header.offsetHeight;
