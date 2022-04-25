@@ -246,7 +246,6 @@ div.main{
 div.main  p.title{
 	font-weight: bold;
 	font-size: 22px;
-	padding-bottom: 24px;
 }
 
 /* swiper banner 시작 */
@@ -357,11 +356,11 @@ div.main div.section01{
 }
 
 div.main div.section01 > div.tags{
-	padding-bottom:24px;
+	padding-top: 30px;
 }
 
 div.main div.section01 > div.tags > img{
-	    padding-right: 10px;
+	padding-right: 10px;
 }
 
 div.po-slider{
