@@ -521,6 +521,17 @@
 			$("div.searchinput").css("border","1px solid #1a93ff");
 		})
 	
+		let search = document.querySelector('div.searchinput');
+		
+		search.addEventListener('click', () => {
+		  let searchblue = document.querySelector('.dropdown');
+		  dropdown.style.display = 'block';
+		});
+		
+		button.addEventListener('blur', () => {
+		  const dropdown = document.querySelector('.dropdown');
+		  dropdown.style.display = '';
+		});
 	
 		//[임현정] header 영역 스크롤 내려도 고정되게
 		let header = document.querySelector(".header");
