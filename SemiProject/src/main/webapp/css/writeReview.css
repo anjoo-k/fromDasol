@@ -11,9 +11,11 @@ div.review{
     position: relative;
     z-index: 1;
     width: 100%;
-    height: 100%;
+    min-height: 740px;
     background-color: #fafafa;
-    margin-bottom: 50px;
+    /* margin-bottom: 50px; */
+    margin-top: 60px;
+    max-height: 100%;
 }
 div.review table.review{
   width: 800px;
@@ -54,12 +56,12 @@ div.review table.review th>span{
   color: #323232;
 }
 div.review button.review{
-  height: 45px;
-  padding: 12px 69px 14px 74px;
-  border-radius: 5px;
-  box-shadow: 0px 3px 7px 0 rgba(255, 75, 78, 0.23);
-  border: solid 1px #1b93ff;
-  background-color: #f6fafe;
+     height: 45px;
+    border-radius: 5px;
+    border: solid 1px #1b93ff;
+    background-color: #f6fafe;
+    width: 200px;
+    font-size: 16px;
 }
 button.review:hover{
 	cursor: pointer;

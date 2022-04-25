@@ -732,6 +732,7 @@ div.footer{
     align-items: center;
     border-top: 2px solid #e2e2e2;
     padding-top: 22px;
+    background-color: #fff;
 }
 div.footer > div.footercontent{
 	width: 970px;
