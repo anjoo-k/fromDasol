@@ -17,7 +17,7 @@ body{
 #welcomename{
    width: 200px;
    height: 50px;
-   font-weight: 600;
+   font-weight: 500;
    text-align: left;
    font-size: 25px;
    line-height: 20px;
@@ -27,7 +27,7 @@ body{
 #myprofile{
    width: 76px;
    height: 16px;
-   font-weight: 600;
+   font-weight: 500;
    font-size: 16px;
    line-height: 20px;
    margin: 0 16px 0 0;
@@ -37,18 +37,18 @@ body{
 #myclass{
    width: 76px;
    height: 16px;
-   font-weight: 600;
+   font-weight: 500;
    font-size: 16px;
    line-height: 20px;
    margin: 0;
-   color: #808080;
+   color: #737373;
    cursor: pointer;
 }
 
 #myreview{
    width: 76px;
    height: 16px;
-   font-weight: 600;
+   font-weight: 500;
    font-size: 16px;
    line-height: 20px;
    margin: 0 700px 0 16px;
@@ -61,64 +61,63 @@ body{
 }
 
 div.toptoolbar{
-   margin: 185px 0 65px 0;
+   margin: 140px 0 55px 0;
    border-bottom: 1px solid #1a93ff;
 }
 
 div.personaldata{
    border: 1px solid #f2f2f2;
    border-radius: 5px;
-   width: 365px;
-   height: 500px;
-   margin: 0 0 100px 0;
+   width: 314px;
+   height: 390px;
+   margin: 0 0 200px 0;
    padding: 50px 40px 50px 40px;
    background-color: #fff;
 }
 
 span.myprofile-info{
-   width: 30px;
-   height: 15px;
-   font-weight: 550;
-   font-size: 16px; 
-   margin: 0 300px 10px 1px;
-   color: #565656;
+   font-weight: 500;
+    font-size: 16px;
+    color: #565656;
+    display: inline-block;
+    padding-bottom: 10px;
 }
 
 input.writeinfo{
-   width: 348px;
-   height: 48px;
-   margin: 9px 0 55px;
+   width: 300px;
+   height: 40px;
+   margin: 8px 0 28px 0;
    border: 1px solid #e7e7e7;
    border-radius: 5px;
    background-color: #fff;
-   box-shadow: 0px 2px 5px 0 rgba(051, 051, 255, 0.23);
    padding-left: 10px;
    font-size: 16px;
    font-weight: 500;
 }
 
-input[type=text]:focus{
-  outline: 1px solid #1a93ff;    
+/* outline 에 1px solid 주면 안먹어용 border에 해야되용 */
+input:focus{
+  outline: none;
+  border: 1px solid #1a93ff;
+  color: #1a93ff;
+  
 }
 
-input[type=password]:focus{
-  outline: 1px solid #1a93ff;    
-}
 
 input::placeholder{
    color: #c1c1c1;
+   font-family: NotoSansKR-Regular !important;
 }
 
 .dropbutton{
-   width: 348px;
-   height: 48px;
-   margin: 25px 20px 48px 6px;
-   border: 1px solid #e7e7e7;
-   border-radius: 5px;
-   background-color: #e6e6e6;
-   box-shadow: 0px 2px 5px 0 rgba(051, 051, 255, 0.23);
-   font-size: 16px;
-   font-weight: 550;
-   color: #565656;
-   cursor: pointer;
+    width: 314px;
+    height: 46px;
+    margin-top: 20px;
+    border: 1px solid #E6E6E5;
+    border-radius: 5px;
+    background-color: #e6e6e6;
+    font-size: 16px;
+    font-weight: 500;
+    color: #565656;
+    cursor: pointer;
 }

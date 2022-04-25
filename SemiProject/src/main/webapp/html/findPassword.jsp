@@ -165,5 +165,19 @@
             
     </div>
 </div>
+<script>
+		//[임현정] header 영역 스크롤 내려도 고정되게
+		let header = document.querySelector(".header");
+		let headerHeight = header.offsetHeight;
+		
+		window.onscroll = function () {
+		  let windowTop = window.scrollY;
+		  if (windowTop >= headerHeight) {
+		    header.classList.add("drop");
+		  } else {
+		    header.classList.remove("drop");
+		  }
+		};
+</script>
 </body>
 </html>
