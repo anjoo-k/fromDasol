@@ -74,7 +74,7 @@ div.toptoolbar{
 
 
 div.toptoolbar{
-   margin: 140px 0 55px 0;
+   margin: 140px 0 0 0;
    border-bottom: 1px solid #1a93ff;
 }
 
@@ -83,7 +83,7 @@ div.personaldata{
    border-radius: 5px;
    width: 314px;
    height: 390px;
-   margin: 0 0 200px 0;
+   margin:50px 0 200px 0;
    padding: 50px 40px 50px 40px;
    background-color: #fff;
 }
@@ -134,3 +134,77 @@ input::placeholder{
     color: #565656;
     cursor: pointer;
 }
+
+
+/*[임현정] 마이페이지 > 나의 리뷰 시작*/
+
+div.myreviewlist{
+	width: 970px;
+    text-align: left;
+    padding-bottom: 200px;
+}
+
+div.myreviewlist table{
+	width: 100%;
+}
+
+div.myreviewlist table tbody {
+	
+}
+
+div.myreviewlist table tbody tr{
+	
+}
+
+div.myreviewlist table tbody tr th{
+	display: flex;
+    justify-content: space-between;
+	padding-top: 26px;
+    padding-bottom: 16px;
+    font-size: 14px;
+    font-weight: 500;
+}
+div.myreviewlist table tbody tr th > a.reviewDetail{
+	width: 750px;
+	line-height: 20px;	
+}
+
+div.myreviewlist table tbody tr th > a.reviewDetail:hover{
+	color:#1b93ff;
+	transition: 0.3s ease; 
+}
+
+div.myreviewlist table tbody tr th > a.reviewDetail:active{
+	color:#1b93ff;
+}
+
+
+div.myreviewlist table tbody tr th div.star-review > span{
+	color: #737373;
+	padding-right: 10px;
+}
+
+div.myreviewlist table tbody tr th div.star-review a{
+	
+}
+
+div.myreviewlist table tbody tr td{
+	display: flex;
+    justify-content: space-between;
+    padding-bottom: 26px;
+    border-bottom: 1px solid #737373;
+    font-size: 14px;
+    color: #929292;
+    font-weight: 500;
+}
+
+div.myreviewlist table tbody tr td span.time{
+	color: #737373;
+    font-size: 14px;
+}
+
+/*[임현정] 마이페이지 > 나의 리뷰 끝 */
+
+
+
+
