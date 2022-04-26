@@ -215,18 +215,13 @@
 	         </td>
 	      </tr>
 	      <!-- 별점(평점) -->
-	      <!-- CSS문제점: (4.0)을 넣으면 별점이 자꾸 페이지 왼쪽으로 넘어감  -->
 	      <tr>
 	         <td>
-	            <div class="star-ratings">
-	               <!-- for속성이 무엇인지? -->
-	               <label for="5-stars" class="star">&#9733;</label>
-	               <label for="4-stars" class="star">&#9733;</label>
-	               <label for="3-stars" class="star">&#9733;</label>
-	               <label for="2-stars" class="star">&#9733;</label>
-	               <label for="1-star" class="star">&#9733;</label>
-	               <div class="floatnum">(4.0)</div>
-	            </div>
+	            <div class="star-rating">
+					<!-- calc() 괄호 안의 연산식을 넣어 속성값을 지정할수있다. -->
+					<span class="star-fill" style="width: 70%;"></span>
+				</div>
+				<span class="floatnum">(4.0)</span>
 	         </td>
 	      </tr>
 	      <!-- title -->

@@ -78,7 +78,7 @@ th {
 
 /* placeholder속성 */
 /* [현정] placeholder는 input에 바로 줘야지만 적용되용 */
-.signupTable::placeholder {
+.signupForm::placeholder {
 	font-size: 15pt;
 }
 
