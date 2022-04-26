@@ -6,6 +6,7 @@
 <!-- Link (메인베너)Swiper's CSS -->
 <link rel="stylesheet"  href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
 <link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../css/category.css?after">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
@@ -43,17 +44,74 @@
 <!-- 헤더 끝 -->
 
 <!-- 본문 시작 -->
-<div>
+<div class="category-main">
+
     <!-- 베너 -->
-    <div>
-        
-
+    <div class="category_banner">
+      <img alt="" src="../image/banner-01.png">
     </div>
+    
     <!-- 카테고리아이콘 -->
-    <div>
+<div class="category-icon">
+         <a href="#">
+             <span class="c01">
+             	 <img src="../image/ico-c-1.png" alt="">   
+             </span>
+             <br>
+             운동
+         </a>
+         <a href="#">
+             <span class="c02">
+             	 <img src="../image/ico-c-2.png" alt="">   
+             </span>
+             <br>
+             요리
+         </a>
+         <a href="#">
+             <span class="c03">
+             	 <img src="../image/ico-c-3.png" alt="">   
+             </span>
+             <br>
+             미술
+         </a>
+         <a href="#">
+             <span class="c04">
+             	 <img src="../image/ico-c-4.png" alt="">   
+             </span>
+              <br>
+             사진/영상
+         </a>
+         <a href="#">
+     		<span class="c05">
+             	 <img src="../image/ico-c-5.png" alt="">   
+             </span>
+              <br>
+             개발
+         </a>
+         <a href="#">
+             <span class="c06">
+             	 <img src="../image/ico-c-6.png" alt="">   
+             </span>
+              <br>
+             음악
+         </a>
+         <a href="#">
+            <span class="c07">
+             	 <img src="../image/ico-c-7.png" alt="">   
+             </span>
+              <br>
+             외국어
+         </a>
+         <a href="#">
+             <span class="c08">
+             	 <img src="../image/ico-c-8.png" alt="">   
+             </span>
+              <br>
+             기타
+         </a>
+</div>
 
-    </div>
-    <!-- 검색/정렬 -->
+    <!-- 정렬 -->
     <div>
 
     </div>
@@ -139,19 +197,6 @@
 </div>
 </div>
 <!-- 푸터 끝 -->
-<script>
-		//[임현정] header 영역 스크롤 내려도 고정되게
-		let header = document.querySelector(".header");
-		let headerHeight = header.offsetHeight;
-		
-		window.onscroll = function () {
-		  let windowTop = window.scrollY;
-		  if (windowTop >= headerHeight) {
-		    header.classList.add("drop");
-		  } else {
-		    header.classList.remove("drop");
-		  }
-		};
-</script>
+
 </body>
 </html>
