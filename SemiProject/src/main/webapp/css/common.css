@@ -326,13 +326,13 @@ div.main  p.title{
 
 /* [임현정] category 시작 */
 div.main div.category{
-	height: 200px;
+	height: 220px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 
 div.main div.category > a{
@@ -661,14 +661,6 @@ div.main div.section04 div.se04layout p.name{
     font-weight: 500;
 }
 
-
-div.main div.section04 div.se04layout p.name:hover{
-	
-}
-
-div.main div.section04 div.se04layout p.name:active{
-	color: #1b93ff;
-}
 
 div.main div.section04 div.se04layout p.job{
 	font-size: 14px;
