@@ -84,33 +84,37 @@ hr {
 /* 카테고리 */
 div.decisionFrame p.category {
    color: #808280;
-   line-height: 3em;
+   line-height: 2em;
    padding-left: 5px;
 }
+
 /* 별점 */
-div.decisionFrame .star-ratings {
-   display:flex;
-     flex-direction: row;
-     font-size:1.2em;
-     justify-content: flex-start;
-     padding:0 .2em;
-     text-align:center;
-     /* Feedback: 페이지 왼쪽으로 짤리는 문제 */
-   /* margin-left: 20px; */
+div.star-rating {
+	margin-left: 5px;
+	width: 65px;
 }
-div.decisionFrame .star-ratings label {
-  color: #ccc;
+div.star-rating,.star-rating span.star-fill {
+	/* overflow: hidden; 요소 안에 컨텐츠가 넘칠때 감추겠다 */
+	display: inline-block;
+	overflow: hidden;
+	background: url(../image/starpoint.png) no-repeat;
+	height: 13px;
+}
+div.star-rating span.star-fill {
+	background-position: left bottom;
+	line-height: 0;
+	vertical-align: top;
 }
 /* 평점 숫자(소수점) 반환(4.0) */
-div.decisionFrame .star-ratings .floatnum {
+span.floatnum {
    margin-left: 5px;
    color: #737373;
-   font-size: 12pt;
+   font-size: 13px;
 }
 
 /* 클래스제목 */
 div.decisionFrame .title {
-   padding: 10px 5px;
+   padding: 15px 5px;
    line-height: 1.3;
    font-size: 20px;
 }
