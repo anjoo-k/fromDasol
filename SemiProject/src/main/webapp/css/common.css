@@ -247,6 +247,7 @@ div.main{
 	width: 970px;
 	margin: 0 auto;
 	padding-top: 80px;
+	padding-bottom: 100px;
 }
 div.main  p.title{
 	font-weight: bold;
