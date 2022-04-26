@@ -1,5 +1,5 @@
 @charset "UTF-8";
-/* [이다솔,차동현] category css */
+/* [차동현] category css */
 *{
 	font-family: 'Noto Sans KR', sans-serif !important;
 	color:#363636;
@@ -9,6 +9,7 @@
 	width: 970px;
 	margin: 0 auto;
 	padding-top: 80px;
+	padding-bottom: 200px;
 }
 
 .category_banner{
@@ -20,7 +21,7 @@
 }
 
 div.category-main div.category-icon{
-	height: 200px;
+	height: 220px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -34,7 +35,6 @@ div.category-main div.category-icon > a{
     font-size: 16px;
     font-weight: 500;
     letter-spacing: -0.5px;
-
 }
 
 div.category-main div.category-icon > a:hover{
@@ -44,4 +44,93 @@ div.category-main div.category-icon > a:hover{
 
 div.category-main div.category-icon > a > span > img{
 	padding-bottom:26px;
+}
+
+/* 이다솔 css */
+select:focus{
+	outline: none;
+}
+div.categoryBar{
+	position: relative;
+    display: table;
+    border-collapse: separate;
+}
+
+div.categoryBar>span.lessonCnt{
+	font-size: 16px;
+	font-weight: 500;
+	font-stretch: normal;
+	font-style: normal;
+	line-height: 1.25;
+	letter-spacing: normal;
+	text-align: left;
+	color: #323232;
+}
+div.categoryBar>span.lessonCnt>span{
+	color: #1b93ff;
+}
+
+/* select css */
+span.sortSelect{
+    width: 150px;
+    height: 45px;
+    padding: 7px 0 7px 0;
+    border-radius: 5px;
+    border: solid 1px #e6e6e6;
+    background-color: #fff;
+    font-size: 14px;
+    font-weight: 500;
+    color: #323232;
+    background:url('../image/arrow-down.png') no-repeat 93% 50%/15px auto;
+}
+span.sortSelect select{
+    width: 150px;
+    height: 45px;
+    padding-left: 40px;
+	border:0;
+    -webkit-appearance:none;
+    appearance:none;
+    box-sizing: border-box;
+    background:transparent;
+    
+    font-size: 14px;
+    font-weight: 500;
+    color: #323232;
+}
+span.sortSelect>select>option{
+  width: 58px;
+  height: 16px;
+  padding: 0 32px 0 0;
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.25;
+  letter-spacing: normal;
+  text-align: left;
+  color: #323232;
+}
+
+.category-img {
+  width: 230px;
+  height: 150px;
+  border-radius: 10px;
+}
+.category-lesson>p {
+  font-family: NotoSansKR;
+  font-size: 16px;
+  font-weight: 500;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #363636;
+}
+table.category-lesson tr *{
+	margin: 5px 4px 5px 3px;
+}
+table.category-lesson tr{
+	margin-top: 50px;
 }

@@ -16,7 +16,7 @@
 <!-- [조아라] 검색결과 페이지 -->
 <div class="header">
         <div class="headercontent">            
-            <a href="#" class="logo">
+            <a href="main.html" class="logo">
                <img src="../image/logo.png" alt="">
             </a>
             
