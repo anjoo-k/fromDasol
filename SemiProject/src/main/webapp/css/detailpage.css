@@ -19,7 +19,7 @@
 	width: 550px;
 	height: 370px;
 	border-radius: 10px;
-	margin: 100px 70px 50px 0;
+	margin: 100px 400px 50px 0;
 }
 .btn_detail_content, .btn_detail_review{
 	width: 100px;
@@ -51,18 +51,6 @@ hr {
 /* [신지환] detail css 시작 */
 
 /* 클래스 상세페이지_스크롤 */
-/* .decisionFrame {
-   display: flex;
-   flex-direction: column;
-   align-content: start;
-   justify-content: start;
-   align-items: stretch;
-   width: 350px;
-   height: 400px;
-   margin-top: 100px;
-   position: fixed;
-} */
-
 .decisionFrame {
    display: flex;
    flex-direction: column;
@@ -73,9 +61,8 @@ hr {
    height: 400px;
    margin-top: 100px;
    position: fixed;
+   margin: 100px 0 0 550px;
 }
-
-
 
 
 /* 카테고리 */
@@ -172,3 +159,4 @@ td.decisionBtn {
 
 
 /* [신지환] detail css 끝 */
+
