@@ -205,6 +205,71 @@ div.myreviewlist table tbody tr td span.time{
 
 /*[임현정] 마이페이지 > 나의 리뷰 끝 */
 
+/* [조아라] myclass.css */
+div.main-myclass{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+}
+
+div.toolbar{
+   margin: 140px 0 30px 0;
+   border-bottom: 1px solid #1a93ff;
+}
+
+div.selectclass{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+    margin-bottom: 50px;
+    margin-top: 150px;
+}
+.selectclass-img {
+  width: 235px;
+  height: 140px;
+  border-radius: 5px;
+  
+}
+.selectclass-lesson>div.bottomclass{
+  margin-bottom: 25px;
+}
+.selectclass-lesson>div.bottomclass>p.lesson-name{
+  font-size: 15px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #363636;
+}
+table.selectclass-lesson tr *{
+   margin: 4px;
+}
+table.selectclass-lesson tr{
+   margin-top: 50px;
+}
+
+div.selectclass-lesson>div.bottomclass>a.writereview{
+	color: #1a93ff;
+	font-weight: 650;
+	font-size: 14px;
+}
+
+div.selectclasslist{
+	margin-bottom: 40px;
+}
+
 
 
 
