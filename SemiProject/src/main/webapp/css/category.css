@@ -1,0 +1,47 @@
+@charset "UTF-8";
+/* [이다솔,차동현] category css */
+*{
+	font-family: 'Noto Sans KR', sans-serif !important;
+	color:#363636;
+}
+
+.category-main{
+	width: 970px;
+	margin: 0 auto;
+	padding-top: 80px;
+}
+
+.category_banner{
+	padding-top: 30px;
+}
+
+.category_banner > img{
+	border-radius: 5px;
+}
+
+div.category-main div.category-icon{
+	height: 200px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-around;
+    align-items: center;
+    padding-bottom: 30px;
+}
+
+div.category-main div.category-icon > a{
+	text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    letter-spacing: -0.5px;
+
+}
+
+div.category-main div.category-icon > a:hover{
+	color: #1a93ff;
+	transition: 0.3s ease; 
+}
+
+div.category-main div.category-icon > a > span > img{
+	padding-bottom:26px;
+}

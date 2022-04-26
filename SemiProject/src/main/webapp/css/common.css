@@ -140,7 +140,12 @@ div.header > div.headercontent > div.headerlogout{
     width: 280px;
     justify-content: space-between;
 }
-div.header > div.headercontent > div.headerlogout > a > span.cnt{
+
+div.header > div.headercontent > div.headerlogout a.cart{
+	line-height: 34px;
+}
+        
+div.header > div.headercontent > div.headerlogout > a.cart > span.cnt{
 	min-width: 20px;
     height: 20px;
     display: inline-block;
@@ -321,13 +326,13 @@ div.main  p.title{
 
 /* [임현정] category 시작 */
 div.main div.category{
-	height: 200px;
+	height: 220px;
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
     justify-content: space-around;
     align-items: center;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 
 div.main div.category > a{
@@ -342,6 +347,12 @@ div.main div.category > a:hover{
 	color: #1a93ff;
 	transition: 0.3s ease; 
 }
+
+
+div.main div.category > a:active{
+	color: #1a93ff;
+}
+
 
 div.main div.category > a > span > img{
 	padding-bottom:26px;
@@ -644,18 +655,12 @@ div.main div.section04 div.se04layout{
     padding-top: 30px;
 }
 
-div.main div.section04 div.se04layout > span > img:hover{
-/*	transform: scale(1.0);
-    border: 1px solid #1a93ff;
-    border-radius: 100px; */
-	
-}
-
 div.main div.section04 div.se04layout p.name{
 	padding-top:10px;
 	font-size: 16px;
     font-weight: 500;
 }
+
 
 div.main div.section04 div.se04layout p.job{
 	font-size: 14px;
