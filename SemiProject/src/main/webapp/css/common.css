@@ -254,7 +254,7 @@ div.main  p.title{
 	font-size: 22px;
 }
 
-/* swiper banner 시작 */
+/* [임현정] swiper banner 시작 */
 .swiper.mySwiper{
 	width: 100%;
 	height: 262px;
@@ -323,7 +323,7 @@ div.main  p.title{
     --swiper-theme-color: #1a93ff;
 }
 
-/* [임현정] swiper banner 시작 */
+/* [임현정] swiper banner 끝 */
 
 /* [임현정] category 시작 */
 div.main div.category{
