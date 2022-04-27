@@ -3,6 +3,7 @@
 	font-family: 'Noto Sans KR', sans-serif !important;
 	color:#363636;
 }
+
 div.myCart{
     align-items: center;
     display: flex;
@@ -12,8 +13,8 @@ div.myCart{
     width: 100%;
     height: 100%;
     background-color: #fafafa;
-    margin-bottom: 150px;
-    margin-top: 150px;
+   	padding-bottom: 150px;
+    padding-top: 150px;
 }
 table.myCart caption{
   font-size: 26px;
