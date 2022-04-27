@@ -81,7 +81,8 @@
 			</tr>
 			<tr class="chkbox">
 				<td style="padding-top: 20px; padding-top: 20px; display: flex; align-items: center;">
-					<input type="checkbox">
+					<!-- [조아라] required 추가 -->
+					<input type="checkbox" required="required">
 					<span><u>이용약관</u>,<u>개인정보 수집 및 이용</u> 동의(필수)</span>
 				</td>
 			</tr>
