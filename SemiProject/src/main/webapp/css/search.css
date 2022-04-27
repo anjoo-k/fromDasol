@@ -43,3 +43,47 @@ div.searchresult > div.searchclass >span.search_nofind{
   text-align: center;
 	
 }
+
+/* [조아라] searchok css */
+div.searchclass{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background-color: #fafafa;
+    margin-bottom: 50px;
+    margin-top: 50px;
+}
+.searchclass-img {
+  width: 235px;
+  height: 140px;
+  border-radius: 5px;
+  
+}
+.searchclass-lesson>div.classbottom{
+  margin-bottom: 30px;
+}
+.searchclass-lesson>div.bottomclass>p{
+  font-size: 15px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.5;
+  letter-spacing: normal;
+  text-align: left;
+  color: #363636;
+}
+table.searchclass-lesson tr *{
+   margin: 4px;
+}
+table.searchclass-lesson tr{
+   margin-top: 60px;
+}
+
+
+div.searchclass-lesson{
+	margin-bottom: 120px;
+}
