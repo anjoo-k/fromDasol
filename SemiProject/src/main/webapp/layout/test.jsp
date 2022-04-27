@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-test
+test<br>
 <%
 
 for(int i=0; i<5;i++){
@@ -16,15 +16,10 @@ for(int i=0; i<5;i++){
 	<%
 }
 
-for(int j=0; j<6; j++)
-{%>
-	<div>test<%=j %></div>
-<%}
-
-for(int j=0; j<3; j++)
-{%>
-	<div>test<%=j %></div>
-<%}
-%>
+for(int j=0; j<3; j++){
+	%>
+	<b>test<%=j %></b><br>
+	<%
+}%>
 </body>
 </html>
