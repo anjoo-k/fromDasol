@@ -156,14 +156,14 @@
                 (점심시간 13:00 - 14:00 제외 주말/공휴일 제외)
             </p>
             
-            <a href="#">
-                <img src="https://assets.cdn.soomgo.com/icons/icon-download-appstore.svg" alt="앱스토어" class="footerbtn">
-                APP STORE
-            </a>
-            <a href="#">
-                <img src="https://assets.cdn.soomgo.com/icons/icon-download-palystore.svg" alt="플레이스토어" class="footerbtn">
-                PLAY STORE
-            </a>
+            	<a href="https://www.apple.com/kr/app-store/">
+                    <img src="https://assets.cdn.soomgo.com/icons/icon-download-appstore.svg" alt="앱스토어" class="footerbtn">
+                    APP STORE
+                </a>
+                <a href="https://play.google.com/store/apps">
+                    <img src="https://assets.cdn.soomgo.com/icons/icon-download-palystore.svg" alt="플레이스토어" class="footerbtn">
+                    PLAY STORE
+                </a>
         </span>
         <span class="topfooter-right">
             <span>
