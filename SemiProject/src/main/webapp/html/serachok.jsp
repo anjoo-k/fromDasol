@@ -42,7 +42,7 @@
             <!-- 로그인 후 버튼 -->
               <div class="headerlogout" style="display: none;">
                 <a href="" class="logoutbtn">로그아웃</a>
-                <a href="">장바구니 <span class="cnt">0</span></a>
+                 <a href="#" class="cart">장바구니 <span class="cnt">0</span></a>
                 <button type="button" class="mypage">마이페이지</button>
               </div>
          </div>
