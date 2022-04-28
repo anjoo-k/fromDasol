@@ -18,7 +18,7 @@
 	<%}else{%>
 		<jsp:include page="loginform.jsp"/>
 		<script type="text/javascript">
-			alert("로그인 되었습니다");
+			alert("로그인 되었습니다 ");
 		</script>
 	<%}
 
