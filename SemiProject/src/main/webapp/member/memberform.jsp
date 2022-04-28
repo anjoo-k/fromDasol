@@ -14,7 +14,7 @@
 <div class="signupdiv">
 <span class="signupHead">BORAM3에 오신것을 환영합니다</span>
 <div class="signupFrame">
-	<form action="member/memberadd.jsp" method="post" class="signupForm">
+	<form action="member/memberadd.jsp" method="post" class="signupForm" onsubmit="return check(this)" name="mfrm">
 		<table>
 			<tr>
 				<th align="left">이름</th>
