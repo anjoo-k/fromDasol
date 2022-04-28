@@ -30,8 +30,9 @@
 			<tr>
 				<td class="emailform">
 					<input type="text" required="required" class="form-control inputbox emailinput" name="email" placeholder="이메일을 입력해주세요">
-					<a href="member/emailcheck.jsp" class="emailcheck">중복체크</a>
-					<!-- <button type="button" class="emailcheck" onclick="echeck(this)">중복체크</button> -->
+					<!-- <a href="member/emailcheck.jsp" class="emailcheck">중복체크</a> -->
+					<button class="emailcheck" onclick="location.href='member/emailcheck.jsp'">중복체크</button>
+					
 				</td>
 			</tr>
 			<tr>
