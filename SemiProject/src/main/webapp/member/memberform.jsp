@@ -21,7 +21,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="text" required="required" class="form-control inputbox" placeholder="이름을 입력해주세요">
+					<input type="text" required="required" name="name" class="form-control inputbox" placeholder="이름을 입력해주세요">
 				</td>
 			</tr>
 			<tr>
@@ -29,7 +29,7 @@
 			</tr>
 			<tr>
 				<td class="emailform">
-					<input type="text" required="required" class="form-control inputbox emailinput" placeholder="이메일을 입력해주세요">
+					<input type="text" required="required" class="form-control inputbox emailinput" name="email" placeholder="이메일을 입력해주세요">
 					<a href="member/emailcheck.jsp" class="emailcheck">중복체크</a>
 					<!-- <button type="button" class="emailcheck" onclick="echeck(this)">중복체크</button> -->
 				</td>
@@ -39,7 +39,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="password" required="required" class="form-control inputbox" placeholder="비밀번호을 입력해주세요">
+					<input type="password" required="required" name="password" class="form-control inputbox" placeholder="비밀번호을 입력해주세요">
 				</td>
 			</tr>
 			<tr class="chkbox">
