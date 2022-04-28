@@ -8,7 +8,7 @@
 <body>
     <div class="header">
         <div class="headercontent">            
-            <a href="main.html" class="logo">
+            <a href="index.jsp" class="logo">
                <img src="image/logo.png" alt="로고">
             </a>
             
