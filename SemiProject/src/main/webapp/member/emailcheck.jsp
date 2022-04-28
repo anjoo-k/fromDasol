@@ -12,21 +12,15 @@
 <body>
 <% 
 request.setCharacterEncoding("utf-8");
+/* String key=request.getParameter("key"); */
+//id db체크
+
 String email=request.getParameter("email");
 MemberDao dao=new MemberDao();
 boolean b=dao.isemailCheck(email);
 
 if(b){%>
 	<script type="text/javascript">
-	/* $().ready(function () {
-        $(this).click(function () {
-            Swal.fire({
-                icon: 'success',
-                title: 'Alert가 실행되었습니다.',
-                text: '이곳은 내용이 나타나는 곳입니다.',
-            });
-        });
-    }); */
     alert("이미 가입된 email입니다");
 	history.back();
 	</script>
@@ -41,5 +35,6 @@ if(b){%>
 %>
 
 </script>
+
 </body>
 </html>

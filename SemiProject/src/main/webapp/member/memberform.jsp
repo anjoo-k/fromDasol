@@ -8,7 +8,6 @@
 <title>Insert title here</title>
 
 </head>
-
 <body>
 
 <div class="signupdiv">
@@ -29,9 +28,8 @@
 			</tr>
 			<tr>
 				<td class="emailform">
-					<input type="text" required="required" class="form-control inputbox emailinput" name="email" placeholder="이메일을 입력해주세요">
-					<!-- <a href="member/emailcheck.jsp" class="emailcheck">중복체크</a> -->
-					<button class="emailcheck" onclick="location.href='member/emailcheck.jsp'">중복체크</button>
+					<input type="text" required="required" class="form-control inputbox emailinput" name="email" id="email" placeholder="이메일을 입력해주세요">
+					<button class="emailcheck" onclick="location.href='index.jsp?boramMain=member/emailcheck.jsp'">중복체크</button>
 					
 				</td>
 			</tr>
@@ -58,6 +56,7 @@
 	</form>
 </div>
 </div>
+
 
 </body>
 </html>
