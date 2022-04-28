@@ -313,42 +313,42 @@
              	<img src="image/dasol.png" alt="">
                 <p class="name">이다솔</p>
                 <p class="job">백엔드 개발자</p>
-                <p class="mark"><img src="../image/ico-star.png" alt="">5.0(25)</p>
+                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
                 <img src="image/hyun.png" alt="">
                 <p class="name">임현정</p>
                 <p class="job">백엔드 개발자</p>
-                <p class="mark"><img src="../image/ico-star.png" alt="">5.0(25)</p>
+                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
                 <img src="image/ara.png" alt="">
                 <p class="name">조아라</p>
                 <p class="job">백엔드 개발자</p>
-                <p class="mark"><img src="../image/ico-star.png" alt="">5.0(25)</p>
+                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
                  <img src="image/nari.png" alt="">
                 <p class="name">강나리</p>
                 <p class="job">백엔드 개발자</p>
-                <p class="mark"><img src="../image/ico-star.png" alt="">5.0(25)</p>
+                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
                 <img src="image/jihwan.png" alt="">
                 <p class="name">신지환</p>
                 <p class="job">백엔드 개발자</p>
-                <p class="mark"><img src="../image/ico-star.png" alt="">5.0(25)</p>
+                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
                 <img src="image/dong.png" alt="">
                 <p class="name">차동현</p>
                 <p class="job">백엔드 개발자</p>
-                <p class="mark"><img src="../image/ico-star.png" alt="">5.0(25)</p>
+                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
         </div>
         </div>
