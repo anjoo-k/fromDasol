@@ -9,7 +9,7 @@
     <div class="header">
         <div class="headercontent">            
             <a href="main.html" class="logo">
-               <img src="image/logo.png" alt="">
+               <img src="image/logo.png" alt="로고">
             </a>
             
             <div class="searchbar">
@@ -28,7 +28,7 @@
             </div>
 			<!-- 로그인 전 버튼 -->
             <div class="headerlogin">
-                <a href="login.html" class="loginbtn">로그인</a>
+                <a href="index.jsp?main=login/login.jsp" class="loginbtn">로그인</a>
                 <button type="button" class="gaipbtn">회원가입</button>
             </div>
             <!-- 로그인 후 버튼 -->

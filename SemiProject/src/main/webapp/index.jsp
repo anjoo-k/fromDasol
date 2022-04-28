@@ -45,7 +45,7 @@ if(request.getParameter("main")!=null){
 	<jsp:include page="layout/header.jsp" />
 </div>
 
-<div>
+<div class="main">
 	<jsp:include page="<%=mainPage %>" />
 </div>
 
