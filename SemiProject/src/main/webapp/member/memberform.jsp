@@ -50,7 +50,7 @@
 			</tr>
 			<tr>
 				<td class="signupBtn">
-					<button type="submit" id="gaipBtn">회원가입</button>
+					<button type="submit" class="gaipBtn">회원가입</button>
 				</td>
 			</tr>
 		</table>
