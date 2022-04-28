@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>BORAM3 회원가입</title>
 <link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/signup.css">
+<link rel="stylesheet" href="../css/memberform.css">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
