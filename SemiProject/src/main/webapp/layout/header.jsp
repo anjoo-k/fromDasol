@@ -37,7 +37,10 @@
             	<%}else{%>
             		<!-- 로그인 후 버튼 -->
 	              <div class="headerlogout">
-	              	<a href="#" class="logoutbtn">로그아웃</a>
+	              <form action="login/logoutaction.jsp">
+	              	<button type="submit" class="logoutbtn">로그아웃</button>
+	              	<!-- <a href="index.jsp?boramMain=login/logoutaction.jsp" class="logoutbtn">로그아웃</a> -->
+	              </form>
 	                <a href="#" class="cart">장바구니 <span class="cnt">0</span></a>
 	                <button type="button" class="mypage">마이페이지</button>
 	            </div>
