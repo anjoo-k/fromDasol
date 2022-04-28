@@ -79,6 +79,14 @@ table.myCart td.cartPrice{
 	padding-right: 10px;
 }
 
+table.myCart td > div > span.cartTitle{
+	width: 560px;
+    /* background: red; */
+    display: inline-block;
+    vertical-align: middle;
+    line-height: 20px;
+}
+
 div.allPrice{
   font-family: NotoSansKR;
   font-size: 20px;
