@@ -33,8 +33,8 @@ String root=request.getContextPath();
 String mainPage="layout/main.jsp";	//기본페이지
 
 //url을 통해서 main값을 읽어 메인페이지에 출력한다.
-if(request.getParameter("main")!=null){
-	mainPage=request.getParameter("main");
+if(request.getParameter("boramMain")!=null){
+	mainPage=request.getParameter("boramMain");
 }
 
 %>
@@ -45,7 +45,7 @@ if(request.getParameter("main")!=null){
 	<jsp:include page="layout/header.jsp" />
 </div>
 
-<div class="main">
+<div class="boramMain">
 	<jsp:include page="<%=mainPage %>" />
 </div>
 
