@@ -42,7 +42,7 @@
 		 
 	String emailok =(String)session.getAttribute("emailok");
 	MemberDao dao = new MemberDao();
-	String name = dao.getName(emailok); 
+	String name = dao.getName(emailok);
 
 %>
 <body>
