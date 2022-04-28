@@ -310,42 +310,42 @@
 
         <div class="se04layout">
             <span>
-             	<a href="https://github.com/Leedasol2" target="_blank"><img src="../image/dasol.png" alt=""></a>
+             	<a href="https://github.com/Leedasol2" target="_blank"><img src="image/dasol.png" alt=""></a>
                 <p class="name">이다솔</p>
                 <p class="job">백엔드 개발자</p>
                 <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
-                <a href="https://github.com/cocohyuncoco" target="_blank"><img src="../image/hyun.png" alt=""></a>
+                <a href="https://github.com/cocohyuncoco" target="_blank"><img src="image/hyun.png" alt=""></a>
                 <p class="name">임현정</p>
                 <p class="job">백엔드 개발자</p>
                 <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
-                <a href="https://github.com/cdkfk96" target="_blank"><img src="../image/ara.png" alt=""></a>
+                <a href="https://github.com/cdkfk96" target="_blank"><img src="image/ara.png" alt=""></a>
                 <p class="name">조아라</p>
                 <p class="job">백엔드 개발자</p>
                 <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
-                <a href="https://github.com/Wyna2" target="_blank"><img src="../image/nari.png" alt=""></a>
+                <a href="https://github.com/Wyna2" target="_blank"><img src="image/nari.png" alt=""></a>
                 <p class="name">강나리</p>
                 <p class="job">백엔드 개발자</p>
                 <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
-                <a href="https://github.com/sjihwan" target="_blank"><img src="../image/jihwan.png" alt=""></a>
+                <a href="https://github.com/sjihwan" target="_blank"><img src="image/jihwan.png" alt=""></a>
                 <p class="name">신지환</p>
                 <p class="job">백엔드 개발자</p>
                 <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
             </span>
 
             <span>
-                <a href="https://github.com/donghyun0502" target="_blank"><img src="../image/dong.png" alt=""></a>
+                <a href="https://github.com/donghyun0502" target="_blank"><img src="image/dong.png" alt=""></a>
                 <p class="name">차동현</p>
                 <p class="job">백엔드 개발자</p>
                 <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>

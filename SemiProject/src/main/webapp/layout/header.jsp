@@ -1,3 +1,4 @@
+<%@page import="dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,6 +6,15 @@
 <head>
 <meta charset="UTF-8">
 </head>
+<%
+	String loginok = (String)session.getAttribute("loginok");
+	String emailok = (String)session.getAttribute("emailok");
+	
+	MemberDao dao = new MemberDao();
+	String name = dao.getName(emailok);
+	
+	
+%>
 <body>
     <div class="header">
         <div class="headercontent">            
@@ -22,17 +32,21 @@
     			 	</div>
 				</form>
             </div>
-			<!-- 로그인 전 버튼 -->
-            <div class="headerlogin">
-                <a href="index.jsp?boramMain=login/loginform.jsp" class="loginbtn">로그인</a>
-                <button type="button" class="gaipbtn" onclick="location.href='index.jsp?boramMain=member/memberform.jsp'">회원가입</button>
-            </div>
-            <!-- 로그인 후 버튼 -->
-              <div class="headerlogout" style="display: none;">
-                <a href="#" class="logoutbtn">로그아웃</a>
-                <a href="#" class="cart">장바구니 <span class="cnt">0</span></a>
-                <button type="button" class="mypage">마이페이지</button>
-            </div>
+            <%
+            	if(loginok==null){%>
+            		<!-- 로그인 전 버튼 -->
+		            <div class="headerlogin">
+		                <a href="index.jsp?boramMain=login/loginform.jsp" class="loginbtn">로그인</a>
+		                <button type="button" class="gaipbtn" onclick="location.href='index.jsp?boramMain=member/memberform.jsp'">회원가입</button>
+		            </div>
+            	<%}else{%>
+            		<!-- 로그인 후 버튼 -->
+	              <div class="headerlogout">
+	                <a href="#" class="logoutbtn">로그아웃</a>
+	                <a href="#" class="cart">장바구니 <span class="cnt">0</span></a>
+	                <button type="button" class="mypage">마이페이지</button>
+	            </div>
+				<%}%>
          </div>
     </div>
 

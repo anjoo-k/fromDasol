@@ -6,9 +6,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
+<%
+	
+	String email = (String)session.getAttribute("emailok");
+%>
 <body>
 
-    
+    <form action="login/loginaction.jsp" method="post">
     <div class="main_login">
     	<span class="f_login">로그인</span>
 		<div class="box_main_white">
@@ -25,15 +29,17 @@
 			<div class="f_pw_search">비밀번호 찾기</div>
 			
 			<div>
-			  <button type="button" class="bt_email_login">이메일 로그인</button>
+			  <button type="submit" class="bt_email_login">이메일 로그인</button>
 			  <button type="button" class="bt_kakao_login" id="kakaoLogin"><img src="image/ico-kakao.png"> Kakao로 시작하기</button>
 			  <button type="button" class="bt_gaip_login" onclick="location.href='index.jsp?boramMain=member/memberform.jsp'">계정이 없으신가요?</button>
 			</div>
 		</div>
     </div>
+    </form>
     
     <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
     <script>
+   
         function saveToDos(token) { //item을 localStorage에 저장합니다. 
             typeof(Storage) !== 'undefined' && sessionStorage.setItem('AccessKEY', JSON.stringify(token)); 
         };
