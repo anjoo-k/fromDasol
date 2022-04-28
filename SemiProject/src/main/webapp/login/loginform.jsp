@@ -18,12 +18,12 @@
 		<div class="box_main_white">
 			<div>
 			  <span class="f_email">이메일</span>
-			  <input type="text" name="email" class="email_input" placeholder="이메일을 입력해주세요.">
+			  <input type="text" name="email" class="email_input" placeholder="이메일을 입력해주세요." required="required">
 			</div>
 			
 			<div>
 			  <span class="f_password">비밀번호</span>
-			  <input type="password" name="password" class="password_input" placeholder="비밀번호를 입력해주세요.">
+			  <input type="password" name="password" class="password_input" placeholder="비밀번호를 입력해주세요." required="required">
 			</div>
 					
 			<div class="f_pw_search">비밀번호 찾기</div>

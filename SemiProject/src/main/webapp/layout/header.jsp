@@ -8,11 +8,7 @@
 </head>
 <%
 	String loginok = (String)session.getAttribute("loginok");
-	String emailok = (String)session.getAttribute("emailok");
-	
-	MemberDao dao = new MemberDao();
-	String name = dao.getName(emailok);
-	
+	String email = (String)session.getAttribute("emailok");
 	
 %>
 <body>

@@ -39,11 +39,7 @@
 	if(request.getParameter("boramMain")!=null){
 		mainPage=request.getParameter("boramMain");
 	}
-		 
-	String emailok =(String)session.getAttribute("emailok");
-	MemberDao dao = new MemberDao();
-	String name = dao.getName(emailok);
-
+	
 %>
 <body>
 <!-- webapp에 있는 파일임 -->

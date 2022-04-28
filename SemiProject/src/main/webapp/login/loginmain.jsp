@@ -8,17 +8,14 @@
 </head>
 <body>
 <%
-	//프로젝트 경로구하기
-	String root=request.getContextPath();
-
 	String loginok = (String)session.getAttribute("loginok");
+	
 
 	if(loginok==null || loginok.equals("")){%>
 		<jsp:include page="loginform.jsp"/>
 	<%}else{%>
-		<jsp:include page="loginform.jsp"/>
 		<script type="text/javascript">
-			alert("로그인 되었습니다 ");
+			location.href="http://localhost:8081/SemiProject/index.jsp";
 		</script>
 	<%}
 
