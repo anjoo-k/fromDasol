@@ -74,7 +74,7 @@ td.emailform{
 	width: 214px;
 }
 
-a.emailcheck{
+.emailcheck{
 	display: inline-block;
     width: 80px;
     height: 44px;
@@ -83,6 +83,9 @@ a.emailcheck{
     line-height: 44px;
     text-align: center;
     border-radius: 5px;
+    border: 0;
+    outline: 0;
+    font-size: 14px;
 }
 
 /* [현정] input 클릭 했을때 선색깔, 글씨 색깔 바뀌게 */
