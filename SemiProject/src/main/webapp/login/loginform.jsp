@@ -6,10 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<%
-	
-	String email = (String)session.getAttribute("emailok");
-%>
+
 <body>
 
     <form action="login/loginaction.jsp" method="post">
