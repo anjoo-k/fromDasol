@@ -1,3 +1,4 @@
+<%@page import="dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,15 +6,9 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-$(function(){
-	//회원가입 버튼이벤트....가입되었습니다 alert창
-	&("#gaipBtn").click(function(){
-		alert("환영합니다. BORAM3 클래스에 가입되었습니다");
-	});
-});
-</script>
+
 </head>
+
 <body>
 
 <div class="signupdiv">
@@ -35,7 +30,8 @@ $(function(){
 			<tr>
 				<td class="emailform">
 					<input type="text" required="required" class="form-control inputbox emailinput" placeholder="이메일을 입력해주세요">
-					<a href="#" class="emailcheck">중복체크</a>
+					<a href="member/emailcheck.jsp" class="emailcheck">중복체크</a>
+					<!-- <button type="button" class="emailcheck" onclick="echeck(this)">중복체크</button> -->
 				</td>
 			</tr>
 			<tr>
@@ -61,5 +57,6 @@ $(function(){
 	</form>
 </div>
 </div>
+
 </body>
 </html>
