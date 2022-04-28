@@ -67,8 +67,9 @@
 				<th align="left" style="padding-top: 43px;">이메일</th>
 			</tr>
 			<tr>
-				<td>
-					<input type="text" required="required" class="form-control inputbox" placeholder="이메일을 입력해주세요">
+				<td class="emailform">
+					<input type="text" required="required" class="form-control inputbox emailinput" placeholder="이메일을 입력해주세요">
+					<a href="#" class="emailcheck">중복체크</a>
 				</td>
 			</tr>
 			<tr>

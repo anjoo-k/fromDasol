@@ -52,6 +52,12 @@ th {
     color: #565656;
 }
 
+td.emailform{
+	display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 /* input박스 */
 .inputbox {
 	width: 300px;
@@ -61,6 +67,21 @@ th {
     border-radius: 5px;
     border: 1px solid #e6e6e6;
     outline: none;
+}
+
+.inputbox.emailinput{
+	width: 214px;
+}
+
+a.emailcheck{
+	display: inline-block;
+    width: 80px;
+    height: 44px;
+    background: #1a93ff;
+    color: #fff;
+    line-height: 44px;
+    text-align: center;
+    border-radius: 5px;
 }
 
 /* [현정] input 클릭 했을때 선색깔, 글씨 색깔 바뀌게 */
