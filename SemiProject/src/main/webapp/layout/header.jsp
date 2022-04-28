@@ -8,7 +8,6 @@
 </head>
 <%
 	String loginok = (String)session.getAttribute("loginok");
-	String email = (String)session.getAttribute("emailok");
 	
 %>
 <body>
@@ -38,7 +37,7 @@
             	<%}else{%>
             		<!-- 로그인 후 버튼 -->
 	              <div class="headerlogout">
-	                <a href="#" class="logoutbtn">로그아웃</a>
+	              	<a href="#" class="logoutbtn">로그아웃</a>
 	                <a href="#" class="cart">장바구니 <span class="cnt">0</span></a>
 	                <button type="button" class="mypage">마이페이지</button>
 	            </div>

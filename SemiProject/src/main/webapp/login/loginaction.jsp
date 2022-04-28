@@ -12,6 +12,7 @@
 	if(b){
 		//로그인중인지 알수잇는 세션저장
 		session.setAttribute("loginok", "yes");
+		session.setAttribute("emailok", email);
 		
 		session.setMaxInactiveInterval(60*60*24); //24시간동안 로그인유지
 
