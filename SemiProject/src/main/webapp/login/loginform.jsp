@@ -27,7 +27,7 @@
 			<div>
 			  <button type="button" class="bt_email_login">이메일 로그인</button>
 			  <button type="button" class="bt_kakao_login" id="kakaoLogin"><img src="image/ico-kakao.png"> Kakao로 시작하기</button>
-			  <button type="button" class="bt_gaip_login">계정이 없으신가요?</button>
+			  <button type="button" class="bt_gaip_login" onclick="location.href='index.jsp?boramMain=member/memberform.jsp'">계정이 없으신가요?</button>
 			</div>
 		</div>
     </div>
