@@ -26,7 +26,7 @@ MemberDao dao=new MemberDao();
 dao.insertMember(dto);
 
 //가입되면...로그인페이지로
-response.sendRedirect("../index.jsp?boramMain=login/login.jsp");
+response.sendRedirect("../index.jsp?boramMain=login/loginform.jsp");
 %>
 </body>
 </html>
