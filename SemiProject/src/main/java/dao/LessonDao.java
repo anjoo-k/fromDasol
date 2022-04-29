@@ -284,7 +284,30 @@ public class LessonDao {
 		}
 	}
 	
-	
+	public int getTotalCount(String category)
+	{
+		int n=0;
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt=null;
+		ResultSet rs=null;
+		
+		String sql="select count(*) from lesson where category=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, category);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+				n=rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return n;
+	}
 	
 	
 }
