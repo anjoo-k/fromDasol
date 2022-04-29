@@ -3,6 +3,7 @@ package dao;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,8 +23,30 @@ public class SignupDao {
 		PreparedStatement psmt=null;
 		ResultSet rs=null;
 		
-		String sql="select l.lnum, l.title, l.photo from ";
+		String sql="select l.lnum, l.title, l.photo from lesson l,signup s where s.lnum=? and s.mnum=?";
 		
+		try {
+			psmt=conn.prepareStatement(sql);
+			
+			//바인딩
+			psmt.setString(1, lnum);
+			psmt.setString(2, mnum);
+			
+			rs=psmt.executeQuery();
+			
+			while(rs.next()) {
+				LessonDto dto=new LessonDto();
+				
+				dto.setLnum(rs.getString("lnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setPhoto(rs.getString("photo"));
+				
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 		return list;
 	}
