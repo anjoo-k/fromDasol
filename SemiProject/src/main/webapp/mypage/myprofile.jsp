@@ -60,9 +60,9 @@
 		
 		//삭제확인 이벤트
 		$("button.dropbutton").click(function () {		
-		alert(<%=num%>);
+		//alert(<%=num%>);
 		
-		//num값을 받아준다. 왜냐면 이름,이메일,비번 맞았을때 삭제메서드로 num값 보내서
+		//num값을 받아준다. 왜냐면 deleteMember메서드 파라미터 값이 num이라. 같이 보내야함
 		let mnum=$("#delnum").val();
 		
 		//이름, 이메일, 비밀번호 읽기
