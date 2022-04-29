@@ -1,108 +1,89 @@
+<%@page import="java.util.List"%>
+<%@page import="dto.LessonDto"%>
+<%@page import="dao.LessonDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<body>
 <%
+LessonDao ldao = new LessonDao();
+LessonDto ldto = new LessonDto();
 
+List<LessonDto> list = ldao.getAllDatas();
+List<LessonDto> catelist = ldao.getCategoryData(ldto.getCategory());
 %>
+<body>
+
     <div class="main"> <!--메인 시작-->
 
-        <!--베너-->
-            
-            <div class="swiper mySwiper banner">
-                <div class="swiper-wrapper">
-                  <div class="swiper-slide banner">
-                      <img src="image/banner-01.png" alt="">
-                  </div>
-                  <div class="swiper-slide banner">
-                     <img src="image/banner-02.png" alt="">   
-                  </div>
-                  <div class="swiper-slide banner">
-                    <img src="image/banner-03.png" alt="">   
-                 </div>
-                 <div class="swiper-slide banner">
-                    <img src="image/banner-04.png" alt="">   
-                 </div>
-                 <div class="swiper-slide banner">
-                    <img src="image/banner-05.png" alt="">   
-                 </div>
-                 <div class="swiper-slide banner">
-                    <img src="image/banner-06.png" alt="">   
-                 </div>
-                 <div class="swiper-slide banner">
-                    <img src="image/banner-07.png" alt="">   
-                 </div>
+		<!-- 상단 배너 시작 -->
+			<div class="swiper mySwiper banner">
+				<div class="swiper-wrapper">
+					<div class="swiper-slide banner">
+						<img src="image/banner-01.png" alt="">
+					</div>
+                	<div class="swiper-slide banner">
+                  		<img src="image/banner-02.png" alt="">   
+                	</div>
+                	<div class="swiper-slide banner">
+                  		<img src="image/banner-03.png" alt="">   
+                	</div>
+                	<div class="swiper-slide banner">
+                  		<img src="image/banner-04.png" alt="">   
+                	</div>
+                	<div class="swiper-slide banner">
+                  		<img src="image/banner-05.png" alt="">   
+                	</div>
+                	<div class="swiper-slide banner">
+                  		<img src="image/banner-06.png" alt="">   
+                	</div>
+                	<div class="swiper-slide banner">
+                  		<img src="image/banner-07.png" alt="">   
+                	</div>
+              	</div>
 
-                </div>
-                
-                <!--
-                    <div class="swiper-button-next"></div>
-                <div class="swiper-button-prev"></div>
-                -->
-                <div class="swiper-pagination "></div>
-              </div>
+              	<div class="swiper-pagination "></div>
+			</div>
+		<!-- 상단 배너 끝 -->
 
-        <div class="category">
-            <a href="index.jsp?boramMain=category/category.jsp">
-                <span class="c01">
-                	 <img src="image/ico-c-1.png" alt="">   
-                </span>
-                <br>
-                운동
-            </a>
-            <a href="index.jsp?boramMain=category/category.jsp">
-                <span class="c02">
-                	 <img src="image/ico-c-2.png" alt="">   
-                </span>
-                <br>
-                요리
-            </a>
-            <a href="index.jsp?boramMain=category/category.jsp">
-                <span class="c03">
-                	 <img src="image/ico-c-3.png" alt="">   
-                </span>
-                <br>
-                미술
-            </a>
-            <a href="index.jsp?boramMain=category/category.jsp">
-                <span class="c04">
-                	 <img src="image/ico-c-4.png" alt="">   
-                </span>
-                 <br>
-                사진/영상
-            </a>
-            <a href="index.jsp?boramMain=category/category.jsp">
-        		<span class="c05">
-                	 <img src="image/ico-c-5.png" alt="">   
-                </span>
-                 <br>
-                개발
-            </a>
-            <a href="index.jsp?boramMain=category/category.jsp">
-                <span class="c06">
-                	 <img src="image/ico-c-6.png" alt="">   
-                </span>
-                 <br>
-                음악
-            </a>
-            <a href="index.jsp?boramMain=category/category.jsp">
-               <span class="c07">
-                	 <img src="image/ico-c-7.png" alt="">   
-                </span>
-                 <br>
-                외국어
-            </a>
-            <a href="index.jsp?boramMain=category/category.jsp">
-                <span class="c08">
-                	 <img src="image/ico-c-8.png" alt="">   
-                </span>
-                 <br>
-                기타
-            </a>
-        </div>
+		<!-- 카테고리 아이콘 시작 -->			
+	        <div class="category">
+	            <a href="index.jsp?boramMain=category/category.jsp?category=a">
+	                <span class="c01"><img src="image/ico-c-1.png" alt=""></span><br>
+	                운동
+	            </a>
+	            <a href="index.jsp?boramMain=category/category.jsp?category=b">
+	                <span class="c02"><img src="image/ico-c-2.png" alt=""></span><br>
+	                요리
+	            </a>
+	            <a href="index.jsp?boramMain=category/category.jsp?category=c">
+	                <span class="c03"><img src="image/ico-c-3.png" alt=""></span><br>
+	                미술
+	            </a>
+	            <a href="index.jsp?boramMain=category/category.jsp?category=d">
+	                <span class="c04"><img src="image/ico-c-4.png" alt=""></span><br>
+	                사진/영상
+	            </a>
+	            <a href="index.jsp?boramMain=category/category.jsp?category=e">
+	        		<span class="c05"><img src="image/ico-c-5.png" alt=""></span><br>
+	                개발
+	            </a>
+	            <a href="index.jsp?boramMain=category/category.jsp?category=f">
+	                <span class="c06"><img src="image/ico-c-6.png" alt=""></span><br>
+	                음악
+	            </a>
+	            <a href="index.jsp?boramMain=category/category.jsp?category=g">
+	               <span class="c07"><img src="image/ico-c-7.png" alt=""></span><br>
+	                외국어
+	            </a>
+	            <a href="index.jsp?boramMain=category/category.jsp?category=h">
+	                <span class="c08"><img src="image/ico-c-8.png" alt=""></span><br>
+	                기타
+	            </a>
+	        </div>
+		<!-- 카테고리 아이콘 끝 -->
 
         <div class="section01">
             <p class="title">지금바로 원하는 클래스를 찾아보세요!</p>
