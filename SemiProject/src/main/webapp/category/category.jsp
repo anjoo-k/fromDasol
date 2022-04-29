@@ -28,27 +28,28 @@ $(function() {
 LessonDao ldao = new LessonDao();
 LessonDto ldto = new LessonDto();
 
-String category = null;
-String cate = (String)request.getParameter(category);
+String category = request.getParameter("category");
+request.setAttribute("category", category);
 
-if(cate=="운동")
-   category="운동";
-else if(cate=="요리")
-   category="요리";
-else if(cate=="미술")
-   category="미술";
-else if(cate=="사진/영상")
-   category="사진/영상";
-else if(cate=="개발")
-   category="개발";
-else if(cate=="음악")
-	   category="음악";
-else if(cate=="외국어")
-	   category="외국어";
-else if(cate=="기타")
-   category="기타";
+if(request.getAttribute("category").equals("a"))
+	category="운동";
+else if(request.getAttribute("category").equals("b"))
+	category="요리";
+else if(request.getAttribute("category").equals("c"))
+	category="미술";
+else if(request.getAttribute("category").equals("d"))
+	category="사진";
+else if(request.getAttribute("category").equals("e"))
+	category="개발";
+else if(request.getAttribute("category").equals("f"))
+	category="음악";
+else if(request.getAttribute("category").equals("g"))
+	category="외국어";
+else if(request.getAttribute("category").equals("h"))
+	category="기타";
 else
-   category="기타";
+	category="기타";
+
 List<LessonDto> list = ldao.getCategoryData(category);
 %>
 <body>
