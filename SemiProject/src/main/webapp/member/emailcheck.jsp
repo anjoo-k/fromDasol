@@ -37,7 +37,7 @@ if(key==null){
 	
 	if(b){%>
 		<script type="text/javascript">
-		alert("이미 등록된 아이디 입니다");
+		alert("이미 등록된 이메일입니다");
 		location.href='emailcheck.jsp';
 		</script>
 	<%}else{%>
