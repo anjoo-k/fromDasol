@@ -46,6 +46,8 @@ public class SignupDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, psmt, conn);
 		}
 		
 		return list;
