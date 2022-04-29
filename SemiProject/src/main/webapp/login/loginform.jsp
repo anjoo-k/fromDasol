@@ -23,7 +23,7 @@
 			  <input type="password" name="password" class="password_input" placeholder="비밀번호를 입력해주세요." required="required">
 			</div>
 					
-			<div class="f_pw_search">비밀번호 찾기</div>
+			<div class="f_pw_search" onclick="location.href='index.jsp?boramMain=login/findPassword.jsp'">비밀번호 찾기</div>
 			
 			<div>
 			  <button type="submit" class="bt_email_login">이메일 로그인</button>
