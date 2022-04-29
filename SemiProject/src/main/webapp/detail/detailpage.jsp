@@ -389,7 +389,7 @@ String lnum = request.getParameter("lnum");
 			/* dao.insertcart */
 			<%
 			LessonDao dao = new LessonDao();
-			/* dao.insertCart(lnum, mnum); */
+			dao.insertCart("2", "");
 			%>
 		});
 	});
