@@ -52,7 +52,7 @@ $(function(){
 		location.href='index.jsp?boramMain=login/loginform.jsp';
 		<%}else{%>
 		<!-- 로그인 상태 -->
-		location.href='index.jsp?boramMain=form/mycartform.jsp';
+		location.href='index.jsp?boramMain=cart/mycartform.jsp';
 		<%}%>
 	});
 	
