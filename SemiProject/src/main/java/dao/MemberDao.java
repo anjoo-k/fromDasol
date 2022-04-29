@@ -152,6 +152,33 @@ public class MemberDao {
  			return name;
  		}
  	
+ 	//email에 따른 mnum값 반환
+ 	public String getMnum(String email) {
+			
+			String mnum="";
+			
+			Connection conn = db.getConnection();
+			PreparedStatement pstmt = null;
+			ResultSet rs = null;	
+			
+			String sql="select * from member where email=?";
+			
+			try {
+				pstmt=conn.prepareStatement(sql);
+				pstmt.setString(1, email);
+				rs=pstmt.executeQuery();
+				
+				if (rs.next())
+					mnum=rs.getString("mnum");
+				
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}finally {
+				db.dbClose(rs, pstmt, conn);
+			}
+			return mnum;
+		}
 
 
    
