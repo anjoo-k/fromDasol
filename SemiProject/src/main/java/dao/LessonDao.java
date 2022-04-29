@@ -130,6 +130,36 @@ public class LessonDao {
 		return dto;
 	}
 	
+	// 중복클래스 체크
+	public boolean checkClass(String lnum, String mnum)
+	{
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from cart where lnum=? and mnum=?";
+		boolean flag = false;
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, lnum);
+			pstmt.setString(2, mnum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				flag = true;
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return flag;
+	}
+	
 	// 장바구니 담기
 	public void insertCart(String lnum, String mnum)
 	{
