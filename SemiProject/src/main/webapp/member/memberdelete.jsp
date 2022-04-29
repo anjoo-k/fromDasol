@@ -19,8 +19,11 @@
 	boolean b = dao.ismemNameEmailPass(name, email, password);
 			
 	if(b){
-		dao.deleteMember(mnum);
-		response.sendRedirect("../index.jsp?boramMain=member/memberform.jsp");
+		dao.deleteMember(mnum);%>
+		<script type="text/javascript">
+			alert("탈퇴 되었습니다");
+		</script>
+		<%response.sendRedirect("../index.jsp?boramMain=login/logoutaction.jsp");
 	}else{%>
 		<script type="text/javascript">
 			alert("계정정보가 맞지 않습니다");
