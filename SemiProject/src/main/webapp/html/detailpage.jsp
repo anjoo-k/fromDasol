@@ -1,3 +1,4 @@
+<%@page import="dao.LessonDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -16,6 +17,12 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<%
+/* (세션)현재 로그인 중인 회원의 mnum 받기 */
+
+/* request.getParameter("lnum") */
+String lnum = request.getParameter("lnum");
+%>
 <body>
 	<div class="header">
         <div class="headercontent">            
@@ -66,7 +73,7 @@
 			</div>
 			
 			<hr>
-			
+			<!-- 클래스 소개 -->
 			<div class="detail_content" id="detail_c">
 			  <span>
 			  <br>
@@ -247,7 +254,7 @@
 	      <tr>
 	         <td class="decisionBtn">
 	            <button type="button" class="btn_kakao_share"><img src="../image/ico-kakao.png">Kakao로 공유하기</button>
-	            <button type="button" class="btn_intoCart"><img src="../image/ico-cart.png">장바구니 담기</button>
+	            <button type="button" class="btn_intoCart" id="addCart"><img src="../image/ico-cart.png">장바구니 담기</button>
 	         </td>
 	      </tr>
 	   </table>
@@ -374,6 +381,16 @@
 				$("#detail_c").show();
 				$("#detail_r").hide();
 			}
+		});
+		
+		/* 장바구니 담기 버튼 클릭시 */
+		$("#addCart").click(function(){
+			alert("장바구니에 클래스가 담겼습니다");
+			/* dao.insertcart */
+			<%
+			LessonDao dao = new LessonDao();
+			/* dao.insertCart(lnum, mnum); */
+			%>
 		});
 	});
 	

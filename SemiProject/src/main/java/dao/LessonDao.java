@@ -128,6 +128,28 @@ public class LessonDao {
 		return dto;
 	}
 	
+	// 장바구니 담기
+	public void insertCart(String lnum, String mnum)
+	{
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "insert into cart values (null,?,?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, lnum);
+			pstmt.setString(2, mnum);
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
 	//장바구니 삭제
 	public void deleteCart(String cnum)
 	{
