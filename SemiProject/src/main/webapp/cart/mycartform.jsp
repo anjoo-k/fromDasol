@@ -1,5 +1,4 @@
 <%@page import="dto.LessonDto"%>
-<%@page import="java.util.Map"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
@@ -49,14 +48,14 @@ $(function(){
 		
 		$(".cnum:checked").each(function(i,element) {
 			
-			var idx = $(this).attr("idx");
+			var idx = $(this).attr("cnum");
 			
 			//선택한 장바구니 모두 삭제
 			$.ajax({
 				type: "get",
 				url: "cart/cartdelete.jsp",
 				dataType: "html",
-				data: {"idx":idx},
+				data: {"cnum":cnum},
 				success: function(){
 					//새로고침
 			    	location.reload(); 
@@ -106,6 +105,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 				HashMap<String,String> map=list.get(i);
 				int price = Integer.parseInt(map.get("price"));
 				%>
+				
 				<tr>
 					<td class="mycartCb">
 						<input type="checkbox" name="cnum" cnum="<%= map.get("cnum") %>" class="cnum" checked="checked">
@@ -118,7 +118,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 					</td>
 					<td class="cartPrice lesson">
 						<span><%= nf.format(map.get("price")) %>원</span>
-					</td>
+					</td> 
 					<% allmoney+=price; %>
 				</tr>
 				
