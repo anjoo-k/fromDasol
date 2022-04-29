@@ -18,7 +18,7 @@
 
 </head>
 <body>
-<div class="header">
+	<div class="header">
         <div class="headercontent">            
             <a href="main.html" class="logo">
                <img src="../image/logo.png" alt="">
@@ -44,13 +44,13 @@
                 <button type="button" class="gaipbtn">회원가입</button>
             </div>
             <!-- 로그인 후 버튼 -->
-              <div class="headerlogout" style="display: none;">
+            <div class="headerlogout" style="display: none;">
                 <a href="" class="logoutbtn">로그아웃</a>
-                 <a href="#" class="cart">장바구니 <span class="cnt">0</span></a>
+                <a href="#" class="cart">장바구니 <span class="cnt">0</span></a>
                 <button type="button" class="mypage">마이페이지</button>
             </div>
-         </div>
-    </div>
+        </div>
+	</div>
     
     
     <!-- detail page 시작 -->
@@ -352,12 +352,17 @@
 	//[강나리] '클래스 정보/후기' 클릭시 각 내용 보이게 하기
 	$(function(){
 		$('#btn_r').click(function() {
+			$(this).addClass("detailActive");
+			$("#btn_c").removeClass("detailActive");
+			/* #detail_r요소가 보이지 않으면 */
 			if($("#detail_r").css("display")=="none"){
 				$("#detail_r").show();
 				$("#detail_c").hide();
 			}
 		});
 		$('#btn_c').click(function() {
+			$(this).addClass("detailActive");
+			$("#btn_r").removeClass("detailActive");
 			if($("#detail_c").css("display")=="none"){
 				$("#detail_c").show();
 				$("#detail_r").hide();
