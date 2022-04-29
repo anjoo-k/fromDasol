@@ -1,3 +1,5 @@
+<%@page import="java.util.List"%>
+<%@page import="dao.LessonDao"%>
 <%@page import="dto.LessonDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -22,6 +24,33 @@ $(function() {
 </script>
 
 </head>
+<%
+LessonDao ldao = new LessonDao();
+LessonDto ldto = new LessonDto();
+
+String category = null;
+String cate = (String)request.getParameter(category);
+
+if(cate=="운동")
+   category="운동";
+else if(cate=="요리")
+   category="요리";
+else if(cate=="미술")
+   category="미술";
+else if(cate=="사진/영상")
+   category="사진/영상";
+else if(cate=="개발")
+   category="개발";
+else if(cate=="음악")
+	   category="음악";
+else if(cate=="외국어")
+	   category="외국어";
+else if(cate=="기타")
+   category="기타";
+else
+   category="기타";
+List<LessonDto> list = ldao.getCategoryData(category);
+%>
 <body>
 
 <!-- 본문 시작 -->
@@ -29,63 +58,63 @@ $(function() {
 
     <!-- 베너 -->
     <div class="category_banner">
-      <img alt="" src="../image/banner-01.png">
+      <img alt="" src="image/banner-01.png">
     </div>
     
     <!-- 카테고리아이콘 -->
 	<div class="category-icon">
          <a href="#">
              <span class="c01">
-             	 <img src="../image/ico-c-1.png" alt="">   
+             	 <img src="image/ico-c-1.png" alt="">   
              </span>
              <br>
              운동
          </a>
          <a href="#">
              <span class="c02">
-             	 <img src="../image/ico-c-2.png" alt="">   
+             	 <img src="image/ico-c-2.png" alt="">   
              </span>
              <br>
              요리
          </a>
          <a href="#">
              <span class="c03">
-             	 <img src="../image/ico-c-3.png" alt="">   
+             	 <img src="image/ico-c-3.png" alt="">   
              </span>
              <br>
              미술
          </a>
          <a href="#">
              <span class="c04">
-             	 <img src="../image/ico-c-4.png" alt="">   
+             	 <img src="image/ico-c-4.png" alt="">   
              </span>
               <br>
              사진/영상
          </a>
          <a href="#">
      		<span class="c05">
-             	 <img src="../image/ico-c-5.png" alt="">   
+             	 <img src="image/ico-c-5.png" alt="">   
              </span>
               <br>
              개발
          </a>
          <a href="#">
              <span class="c06">
-             	 <img src="../image/ico-c-6.png" alt="">   
+             	 <img src="image/ico-c-6.png" alt="">   
              </span>
               <br>
              음악
          </a>
          <a href="#">
             <span class="c07">
-             	 <img src="../image/ico-c-7.png" alt="">   
+             	 <img src="image/ico-c-7.png" alt="">   
              </span>
               <br>
              외국어
          </a>
          <a href="#">
              <span class="c08">
-             	 <img src="../image/ico-c-8.png" alt="">   
+             	 <img src="image/ico-c-8.png" alt="">   
              </span>
               <br>
              기타
@@ -100,7 +129,7 @@ $(function() {
 				<td colspan="4" align="right">
 				    <div class="categoryBar">
 						<span class="lessonCnt">
-							클래스<span>8</span>개
+							클래스<span><%=ldto.getLnum()%></span>개
 						</span>
 						<span class="sortSelect">
 							<select class="sortSelect">
@@ -115,65 +144,27 @@ $(function() {
 				
 				</td>
 			</tr>
+			
 			<tr>
+			<%
+			int i=0;
+			for(LessonDto dto:list)
+			{
+			%>
 				<td>
 				   <div class="category-lesson">
-			        	<img src="../image/categori03/미술-11.jpg" alt="" class="category-img">                                           
-			            <p class="lesson-title">펜스케치를 멋있게 하는 방법</p>
-			            <p class="lesson-price">120,000원</p>
+			        	<img src="<%=dto.getPhoto() %>" alt="" class="category-img">                                           
+			            <p class="lesson-title"><%=dto.getTitle() %></p>
+			            <p class="lesson-price"><%=dto.getPrice() %>원</p>
 			        </div>
-				</td>
-				<td>
-				   <div class="category-lesson">
-			        	<img src="../image/categori03/미술-11.jpg" alt="" class="category-img">                                           
-			            <p class="lesson-title">펜스케치를 멋있게 하는 방법</p>
-			            <p class="lesson-price">120,000원</p>
-			        </div>
-				</td>
-				<td>
-				   <div class="category-lesson">
-			        	<img src="../image/categori03/미술-11.jpg" alt="" class="category-img">                                           
-			            <p class="lesson-title">펜스케치를 멋있게 하는 방법</p>
-			            <p class="lesson-price">120,000원</p>
-			        </div>
-				</td>
-				<td>
-				   <div class="category-lesson">
-			        	<img src="../image/categori03/미술-11.jpg" alt="" class="category-img">                                           
-			            <p class="lesson-title">펜스케치를 멋있게 하는 방법</p>
-			            <p class="lesson-price">120,000원</p>
-			        </div>
-				</td>
-			</tr>
-			<tr>
-				<td>
-				   <div class="category-lesson">
-			        	<img src="../image/categori03/미술-11.jpg" alt="" class="category-img">                                           
-			            <p class="lesson-title">펜스케치를 멋있게 하는 방법</p>
-			            <p class="lesson-price">120,000원</p>
-			        </div>
-				</td>
-				<td>
-				   <div class="category-lesson">
-			        	<img src="../image/categori03/미술-11.jpg" alt="" class="category-img">                                           
-			            <p class="lesson-title">펜스케치를 멋있게 하는 방법</p>
-			            <p class="lesson-price">120,000원</p>
-			        </div>
-				</td>
-				<td>
-				   <div class="category-lesson">
-			        	<img src="../image/categori03/미술-11.jpg" alt="" class="category-img">                                           
-			            <p class="lesson-title">펜스케치를 멋있게 하는 방법</p>
-			            <p class="lesson-price">120,000원</p>
-			        </div>
-				</td>
-				<td>
-				   <div class="category-lesson">
-			        	<img src="../image/categori03/미술-11.jpg" alt="" class="category-img">                                           
-			            <p class="lesson-title">펜스케치를 멋있게 하는 방법</p>
-			            <p class="lesson-price">120,000원</p>
-			        </div>
-				</td>
+			    </td>
+			<%
+				if((i+1)%4==0){%>	
+					</tr>
+					<tr>
+				<%}
+				i++;	
+			}%>
 			</tr>
 		</table>
     </div>
