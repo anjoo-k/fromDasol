@@ -41,7 +41,7 @@
 	              	<button type="submit" class="logoutbtn">로그아웃</button>
 	              	<!-- <a href="index.jsp?boramMain=login/logoutaction.jsp" class="logoutbtn">로그아웃</a> -->
 	              </form>
-	                <a href="index.jsp?boramMain=form/mycartform.jsp" class="cart">장바구니 <span class="cnt">0</span></a>
+	                <a href="index.jsp?boramMain=cart/mycartform.jsp" class="cart">장바구니 <span class="cnt">0</span></a>
 	                <button type="button" class="mypage" onclick="location.href='index.jsp?boramMain=mypage/myprofile.jsp'">마이페이지</button>
 	            </div>
 				<%}%>
