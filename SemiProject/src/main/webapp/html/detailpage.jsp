@@ -11,8 +11,10 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 <body>
 	<div class="header">
@@ -67,7 +69,8 @@
 			
 			<div class="detail_content" id="detail_c">
 			  <span>
-			  [클래스 정보]<br>			  
+			  <br>
+			  [클래스 정보]<br>  
 			  저칼로리 음식, 고강도 운동을 해도 살이 많이 안 빠지거나<br>
 			  다이어트 후 폭식으로 요요가 오는 분들을 많이 볼 수 있는데요!<br>
 			  <br>
@@ -205,7 +208,7 @@
 	<div class="decisionFrame">
 	   <form action="#" method="post" class="decisionForm">
 	   <table>
-	      <!-- category -->
+	      <!-- 카테고리 -->
 	      <tr>
 	         <td>
 	            <p class="category">운동</p>
@@ -221,18 +224,20 @@
 				<span class="floatnum">(4.0)</span>
 	         </td>
 	      </tr>
-	      <!-- title -->
+	      <!-- 제목 -->
 	      <tr>
 	         <td>
 	            <p class="title">덜 먹고 운동도 했는데 다이어트에 실패하는 '진짜' 이유</p>
 	         </td>
 	      </tr>
+	      <!-- 강사명 -->
 	      <tr>
 	      	<td>
-	      		<p class="glyphicon glyphicon-user tutor">핏블리</p>
+	      		<!-- glyphicon 왜 안될까 -->
+	      		<p class="tutor">핏블리</p>
 	      	</td>
 	      </tr>
-	      <!-- price -->
+	      <!-- 가격 -->
 	      <tr>
 	         <td>
 	            <p class="price">50,000원</p>
