@@ -161,7 +161,7 @@ public class MemberDao {
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;	
 			
-			String sql="select mnum from member where email=?";
+			String sql="select * from member where email=?";
 			
 			try {
 				pstmt=conn.prepareStatement(sql);
