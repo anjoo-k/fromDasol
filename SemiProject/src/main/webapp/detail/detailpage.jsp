@@ -18,7 +18,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
-<%-- <%
+<%
 
 /* (세션)현재 로그인 중인 회원의 email */
 String email = (String)session.getAttribute("email");
@@ -30,7 +30,8 @@ String mnum = mdao.getMnum(email);
 /* 요청한 페이지로부터 lnum을 받는다 */
 String lnum = request.getParameter("lnum");
 
-%> --%>
+LessonDao ldao = new LessonDao();
+%>
 <body>
     
     <!-- detail page 시작 -->
@@ -263,27 +264,30 @@ String lnum = request.getParameter("lnum");
 		
 		/* 장바구니 담기 버튼 클릭시(lnum,mnum) */
 		$("#addCart").click(function(){
-			alert("이미 해당 클래스가 장바구니에 담겨져 있습니다");
-			<%-- <%
-			LessonDao ldao = new LessonDao();
-						
+			
+			<%
 			/* cart에 담겨져 있는지 중복체크 */
-			if(ldao.checkClass("2", "22")) { %> --%>
-				/* alert("이미 해당 클래스가 장바구니에 담겨져 있습니다"); */
-				<%-- <%
+			if(ldao.checkClass("2", "22")) { %>
+				alert("이미 해당 클래스가 장바구니에 담겨져 있습니다");
 				return;
-			} %> --%>
-			/* alert("장바구니에 클래스가 담겼습니다"); */
-			<%-- <%
-			ldao.insertCart("2", "22");
-			%> --%>
+			<%
+			}
+			else {
+				ldao.insertCart("2", "22");
+				%>
+				alert("장바구니에 클래스가 담겼습니다");
+			<%
+			}
+			%>
+			
+			
 			/* 장바구니 페이지로 이동 */
-			/* if(confirm("장바구니로 이동하시겠습니까?")) {
-				location.href = "../html/mycart.html";
-			} */
-			/* else {
+			if(confirm("장바구니로 이동하시겠습니까?")) {
+				location.href = "../html/myCart.html";
+			}
+			else {
 				location.reload();
-			} */
+			}
 		});
 	});
 	
