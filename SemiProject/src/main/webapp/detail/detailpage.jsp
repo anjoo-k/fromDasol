@@ -30,7 +30,6 @@ String mnum = mdao.getMnum(email);
 /* 요청한 페이지로부터 lnum을 받는다 */
 String lnum = request.getParameter("lnum");
 
-LessonDao ldao = new LessonDao();
 %>
 <body>
     
@@ -264,8 +263,8 @@ LessonDao ldao = new LessonDao();
 		
 		/* 장바구니 담기 버튼 클릭시(lnum,mnum) */
 		$("#addCart").click(function(){
-			
 			<%
+			LessonDao ldao = new LessonDao();
 			/* cart에 담겨져 있는지 중복체크 */
 			if(ldao.checkClass("2", "22")) { %>
 				alert("이미 해당 클래스가 장바구니에 담겨져 있습니다");
