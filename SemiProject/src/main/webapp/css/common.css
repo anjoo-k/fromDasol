@@ -191,6 +191,7 @@ div.header > div.headercontent > div.headerlogout >button.mypage{
     font-family: NotoSansKR-Regular !important;
     outline: 0;
     letter-spacing: -0.8px;
+    cursor: pointer;
 }
 
 div.header > div.headercontent > div.searchbar >form{
