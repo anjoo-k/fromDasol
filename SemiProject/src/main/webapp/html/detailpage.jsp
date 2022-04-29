@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,11 +13,6 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../script/common.js"></script>
-<!-- se2 폴더에서 js 파일 가져오기 -->
-<script type="text/javascript" src="<%=root%>/se2/js/HuskyEZCreator.js"charset="utf-8"></script>
-<script type="text/javascript" src="<%=root%>/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script>
-
 </head>
 <body>
 	<div class="header">
@@ -230,6 +227,11 @@
 	            <p class="title">덜 먹고 운동도 했는데 다이어트에 실패하는 '진짜' 이유</p>
 	         </td>
 	      </tr>
+	      <tr>
+	      	<td>
+	      		<p class="glyphicon glyphicon-user tutor">핏블리</p>
+	      	</td>
+	      </tr>
 	      <!-- price -->
 	      <tr>
 	         <td>
@@ -371,6 +373,5 @@
 	});
 	
 </script>
-
 </body>
 </html>
