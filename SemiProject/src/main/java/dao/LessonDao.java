@@ -91,7 +91,49 @@ public class LessonDao {
 		return list;
 	}
 	
-
+	
+	//카테고리 데이터 가져오기
+	public List<LessonDto> getCategoryData(String category)
+	{
+		List<LessonDto> list = new Vector<LessonDto>();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from lesson where category=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, category);
+			rs=pstmt.executeQuery();
+				
+			while(rs.next())
+			{
+				LessonDto dto = new LessonDto();
+				
+				dto.setLnum(rs.getString("lnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setTutor(rs.getString("tutor"));
+				dto.setCategory(rs.getString("category"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setIntro(rs.getString("intro"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setRegistday(rs.getTimestamp("registday"));
+				dto.setPerson(rs.getInt("person"));
+					
+				//list 추가
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	
 	//상세페이지 데이터 가져오기
 	public LessonDto getData(String lnum)
 	{
