@@ -54,6 +54,7 @@ th {
 
 td.emailform{
 	display: flex;
+    align-items: flex-end;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -73,15 +74,18 @@ td.emailform{
 	width: 214px;
 }
 
-a.emailcheck{
+button.emailcheck{
 	display: inline-block;
     width: 80px;
     height: 44px;
     background: #1a93ff;
     color: #fff;
-    line-height: 44px;
+    line-height: 40px;
     text-align: center;
     border-radius: 5px;
+    border: 0;
+    outline: 0;
+    font-size: 16px;
 }
 
 /* [현정] input 클릭 했을때 선색깔, 글씨 색깔 바뀌게 */

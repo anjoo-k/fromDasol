@@ -1,3 +1,4 @@
+<%@page import="dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,28 +6,21 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script type="text/javascript">
-$(function(){
-	//회원가입 버튼이벤트....가입되었습니다 alert창
-	&("#gaipBtn").click(function(){
-		alert("환영합니다. BORAM3 클래스에 가입되었습니다");
-	});
-});
-</script>
+
 </head>
 <body>
 
 <div class="signupdiv">
 <span class="signupHead">BORAM3에 오신것을 환영합니다</span>
 <div class="signupFrame">
-	<form action="member/memberadd.jsp" method="post" class="signupForm">
+	<form action="member/memberadd.jsp" method="post" class="signupForm" onsubmit="return check(this)" name="mfrm">
 		<table>
 			<tr>
 				<th align="left">이름</th>
 			</tr>
 			<tr>
 				<td>
-					<input type="text" required="required" class="form-control inputbox" placeholder="이름을 입력해주세요">
+					<input type="text" required="required" name="name" class="form-control inputbox" placeholder="이름을 입력해주세요">
 				</td>
 			</tr>
 			<tr>
@@ -34,8 +28,9 @@ $(function(){
 			</tr>
 			<tr>
 				<td class="emailform">
-					<input type="text" required="required" class="form-control inputbox emailinput" placeholder="이메일을 입력해주세요">
-					<a href="#" class="emailcheck">중복체크</a>
+					<input type="text" required="required" class="form-control inputbox emailinput" name="email" id="email" placeholder="이메일을 입력해주세요">
+					<button class="emailcheck" onclick="location.href='index.jsp?boramMain=member/emailcheck.jsp'">중복체크</button>
+					
 				</td>
 			</tr>
 			<tr>
@@ -43,7 +38,7 @@ $(function(){
 			</tr>
 			<tr>
 				<td>
-					<input type="password" required="required" class="form-control inputbox" placeholder="비밀번호을 입력해주세요">
+					<input type="password" required="required" name="password" class="form-control inputbox" placeholder="비밀번호을 입력해주세요">
 				</td>
 			</tr>
 			<tr class="chkbox">
@@ -54,12 +49,14 @@ $(function(){
 			</tr>
 			<tr>
 				<td class="signupBtn">
-					<button type="submit" id="gaipBtn">회원가입</button>
+					<button type="submit" class="gaipBtn">회원가입</button>
 				</td>
 			</tr>
 		</table>
 	</form>
 </div>
 </div>
+
+
 </body>
 </html>

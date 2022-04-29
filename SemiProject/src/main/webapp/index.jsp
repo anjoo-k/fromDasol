@@ -1,3 +1,4 @@
+<%@page import="dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,18 +26,20 @@
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
 <!-- 제이쿼리링크 -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<!-- alert창 꾸미는 링크 -->
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 </head>
 
 <%
-//프로젝트 경로구하기
-String root=request.getContextPath();
-String mainPage="layout/main.jsp";	//기본페이지
-
-//url을 통해서 main값을 읽어 메인페이지에 출력한다.
-if(request.getParameter("boramMain")!=null){
-	mainPage=request.getParameter("boramMain");
-}
-
+	//프로젝트 경로구하기
+	String root=request.getContextPath();
+	String mainPage="layout/main.jsp";	//기본페이지
+	
+	//url을 통해서 main값을 읽어 메인페이지에 출력한다.
+	if(request.getParameter("boramMain")!=null){
+		mainPage=request.getParameter("boramMain");
+	}
+	
 %>
 <body>
 <!-- webapp에 있는 파일임 -->

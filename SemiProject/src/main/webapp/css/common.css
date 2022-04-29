@@ -141,6 +141,14 @@ div.header > div.headercontent > div.headerlogout{
     justify-content: space-between;
 }
 
+button.logoutbtn{
+	font-size: 16px;
+    background: #fff;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+
 div.header > div.headercontent > div.headerlogout a.cart{
 	line-height: 34px;
 }

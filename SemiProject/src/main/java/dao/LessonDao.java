@@ -90,5 +90,61 @@ public class LessonDao {
 	}
 	
 
+	//상세페이지 데이터 가져오기
+	public LessonDto getData(String lnum)
+	{
+		LessonDto dto=new LessonDto();
+		
+		Connection conn=db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from lesson where lnum=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, lnum);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			{
+				dto.setLnum(rs.getString("lnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setTutor(rs.getString("tutor"));
+				dto.setCategory(rs.getString("category"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setIntro(rs.getString("intro"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setRegistday(rs.getTimestamp("registday"));
+				dto.setPerson(rs.getInt("person"));
+	
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return dto;
+	}
+	
+	//장바구니 삭제
+	public void deleteCart(String cnum)
+	{
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		String sql = "delete from cart where cnum=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, cnum);
+			pstmt.execute();
+			
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
 	
 }
