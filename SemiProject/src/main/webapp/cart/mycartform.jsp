@@ -111,7 +111,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 					</td>
 					<td>
 						<div class="cartlesson" lnum="<%= map.get("lnum") %>">
-							<img alt="사진안나옴" src="image/">
+							<img alt="사진" src="savePhoto/<%= map.get("photo") %>">
 							<span class="cartTitle"><%= map.get("title") %></span>
 						</div>
 					</td>
@@ -137,7 +137,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 						<button class="btnDel" id="btncartdel" ><span>선택상품삭제</span></button>
 					</td>
 					<td>
-						<button class="btnPay">결제하기</button>
+						<button class="btnPay" onclick="location.href='index.jsp?boramMain=mypage/myclass.jsp'">결제하기</button>
 					</td>
 				</tr>
 			</tfoot>
