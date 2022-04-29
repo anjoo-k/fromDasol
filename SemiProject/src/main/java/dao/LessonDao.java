@@ -161,7 +161,6 @@ public class LessonDao {
 				dto.setPhoto(rs.getString("photo"));
 				dto.setRegistday(rs.getTimestamp("registday"));
 				dto.setPerson(rs.getInt("person"));
-	
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
