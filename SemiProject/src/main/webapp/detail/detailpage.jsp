@@ -1,3 +1,4 @@
+<%@page import="dto.LessonDto"%>
 <%@page import="dao.MemberDao"%>
 <%@page import="dao.LessonDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -30,6 +31,10 @@ String mnum = mdao.getMnum(email);
 /* 요청한 페이지로부터 lnum을 받는다 */
 String lnum = request.getParameter("lnum");
 
+/* lnum에 해당하는 클래스 데이터 DTO에 세팅 */
+LessonDao ldao = new LessonDao();
+LessonDto dto = ldao.getData(lnum);
+
 %>
 <body>
     
@@ -39,7 +44,7 @@ String lnum = request.getParameter("lnum");
     <!-- [강나리] 상세페이지1 시작 -->
     <div class="main_detail_scroll">
 		<div class="detail_banner">
-			<img class="img_detail" alt="" src="../image/categori01/운동-1.jpg">
+			<img class="img_detail" alt="" src="<%=dto.getPhoto()%>"><!-- ../image/categori01/운동-1.jpg -->
 			
 			<div>
 			  <button type="button" class="btn_detail_content detailActive" id="btn_c">클래스 설명</button>
@@ -51,15 +56,15 @@ String lnum = request.getParameter("lnum");
 			<div class="detail_content" id="detail_c">
 			  <span>
 			  <br>
-			  [클래스 정보]<br>  
-			  저칼로리 음식, 고강도 운동을 해도 살이 많이 안 빠지거나<br>
+			  <%=dto.getIntro()%>
+			  <!-- 저칼로리 음식, 고강도 운동을 해도 살이 많이 안 빠지거나<br>
 			  다이어트 후 폭식으로 요요가 오는 분들을 많이 볼 수 있는데요!<br>
 			  <br>
 			  너무 열심히 다이어트를 해도 좋지 않아요~<br>
 			  전략적인 치팅데이를 가지게 되면<br>
 			  오히려 더 쉽게! 다이어트에 성공할 수 있어요😎👍🏻<br>
 			  <br>
-			  하지만! 치팅데이라고 고칼로리 음식은 금물!
+			  하지만! 치팅데이라고 고칼로리 음식은 금물! -->
 			  </span>
 			</div>
 			
@@ -192,7 +197,7 @@ String lnum = request.getParameter("lnum");
 	      <!-- 카테고리 -->
 	      <tr>
 	         <td>
-	            <p class="category">운동</p>
+	            <p class="category"><%=dto.getCategory()%><!-- 운동 --></p>
 	         </td>
 	      </tr>
 	      <!-- 별점(평점) -->
@@ -208,20 +213,20 @@ String lnum = request.getParameter("lnum");
 	      <!-- 제목 -->
 	      <tr>
 	         <td>
-	            <p class="title">덜 먹고 운동도 했는데 다이어트에 실패하는 '진짜' 이유</p>
+	            <p class="title"><%=dto.getTitle()%><!-- 덜 먹고 운동도 했는데 다이어트에 실패하는 '진짜' 이유 --></p>
 	         </td>
 	      </tr>
 	      <!-- 강사명 -->
 	      <tr>
 	      	<td>
 	      		<!-- glyphicon 왜 안될까 -->
-	      		<p class="tutor">핏블리</p>
+	      		<p class="tutor"><%=dto.getTutor()%><!-- 핏블리 --></p>
 	      	</td>
 	      </tr>
 	      <!-- 가격 -->
 	      <tr>
 	         <td>
-	            <p class="price">50,000원</p>
+	            <p class="price"><%=dto.getPrice()%><!-- 50,000 -->원</p>
 	         </td>
 	      </tr>
 	      <!-- 버튼 -->
@@ -264,7 +269,6 @@ String lnum = request.getParameter("lnum");
 		/* 장바구니 담기 버튼 클릭시(lnum,mnum) */
 		$("#addCart").click(function(){
 			<%
-			LessonDao ldao = new LessonDao();
 			/* cart에 담겨져 있는지 중복체크 */
 			if(ldao.checkClass("2", "22")) { %>
 				alert("이미 해당 클래스가 장바구니에 담겨져 있습니다");
