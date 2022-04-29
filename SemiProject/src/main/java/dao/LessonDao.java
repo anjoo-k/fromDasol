@@ -4,6 +4,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Vector;
 
@@ -47,7 +49,7 @@ public class LessonDao {
 	}
 	
 	
-	//select
+	//select...전체데이터
 	public List<LessonDto> getAllDatas()
 	{
 		List<LessonDto> list = new Vector<LessonDto>();
@@ -150,6 +152,48 @@ public class LessonDao {
 		}
 	}
 	
+	//장바구니 출력
+	//넘기는 값 email
+	public List<HashMap<String, String>> getCartList(String email)
+	{
+		List<HashMap<String, String>> list = new ArrayList<HashMap<String,String>>();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql="select c.cnum, l.title, l.lnum, l.photo, l.price "
+				+ "from cart c,lesson l,member m "
+				+ "where c.lnum=l.lnum and c.num=m.num and m.email=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			
+			pstmt.setString(1, email);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				HashMap<String, String> map = new HashMap<String, String>();
+				
+				map.put("cnum", rs.getString("cnum"));
+				map.put("title", rs.getString("title"));
+				map.put("lnum", rs.getString("lnum"));
+				map.put("photo", rs.getString("photo"));
+				map.put("price", rs.getString("price"));
+				
+				//list에 추가
+				list.add(map);				
+			}	
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	
 	//장바구니 삭제
 	public void deleteCart(String cnum)
 	{
@@ -168,5 +212,8 @@ public class LessonDao {
 			db.dbClose(pstmt, conn);
 		}
 	}
+	
+	
+	
 	
 }
