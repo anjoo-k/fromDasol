@@ -130,4 +130,6 @@ button.btnPay>span {
   color: #1b93ff;
 }
 
-
+.cartdiv{
+	cursor: pointer;
+}
