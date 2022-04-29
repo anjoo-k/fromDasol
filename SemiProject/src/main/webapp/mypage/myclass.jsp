@@ -1,3 +1,6 @@
+<%@page import="dto.LessonDto"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.SignupDao"%>
 <%@page import="dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -7,12 +10,17 @@
 <meta charset="UTF-8">
 </head>
 <%
-	String loginok = (String)session.getAttribute("loginok");
-	String email = (String)session.getAttribute("emailok");
+	String email=(String)session.getAttribute("emailok");
 	
-	MemberDao mdao = new MemberDao();
-	String name = mdao.getName(email);
-	String num = mdao.getMnum(email);
+	//로그인 중인 회원 이름 + mnum 받아오기
+	MemberDao mdao=new MemberDao();
+	String name=mdao.getName(email);
+	String mnum=mdao.getMnum(email);
+
+	//결제된 클래스 리스트 불러오기
+	SignupDao sdao=new SignupDao();
+	List<LessonDto> list=sdao.getSignupLesson(mnum);
+	int i=0;
 %>
 <body>
 
@@ -35,82 +43,28 @@
 <!-- 수강클래스 목록 -->
 <div class="selectclasslist">
       <table class="selectclass-lesson">
-         <tr>
+         <tr>      
+	      <%
+	      for(LessonDto dto:list){%>
+
             <td>
-               <div class="selectclass-lesson">
-                    <img src="image/categori03/미술-11.jpg" alt="" class="selectclass-img">  
+               <div class="selectclass-lesson" lnum="<%=dto.getLnum() %>">
+                    <img src="savePhoto/<%=dto.getPhoto() %>" class="selectclass-img">  
                     <div class="bottomclass">                                         
-                     <p class="lesson-name">펜스케치를 멋있게 하는 방법</p>
+                     <p class="lesson-name"><%=dto.getTitle() %></p>
                      <a href="writeReview.jsp" class="writereview">리뷰쓰기</a>
                      </div>
                  </div>
             </td>
-            <td>
-               <div class="selectclass-lesson">
-                    <img src="image/categori03/미술-11.jpg" alt="" class="selectclass-img">  
-                    <div class="bottomclass">                                         
-                     <p class="lesson-name">펜스케치를 멋있게 하는 방법</p>
-                     <a href="writeReview.jsp" class="writereview">리뷰쓰기</a>
-                     </div>
-                 </div>
-            </td>
-            <td>
-               <div class="selectclass-lesson">
-                    <img src="image/categori03/미술-11.jpg" alt="" class="selectclass-img">  
-                    <div class="bottomclass">                                         
-                     <p class="lesson-name">펜스케치를 멋있게 하는 방법</p>
-                     <a href="writeReview.jsp" class="writereview">리뷰쓰기</a>
-                     </div>
-                 </div>
-            </td>
-            <td>
-              <div class="selectclass-lesson">
-                    <img src="image/categori03/미술-11.jpg" alt="" class="selectclass-img">  
-                    <div class="bottomclass">                                         
-                     <p class="lesson-name">펜스케치를 멋있게 하는 방법</p>
-                     <a href="writeReview.jsp" class="writereview">리뷰쓰기</a>
-                     </div>
-                 </div>
-            </td>
-         </tr>
-         <tr>
-            <td>
-				<div class="selectclass-lesson">
-                    <img src="image/categori03/미술-11.jpg" alt="" class="selectclass-img">  
-                    <div class="bottomclass">                                         
-                     <p class="lesson-name">펜스케치를 멋있게 하는 방법</p>
-                     <a href="writeReview.jsp" class="writereview">리뷰쓰기</a>
-                     </div>
-                 </div>            
-               </td>
-            <td>
-               <div class="selectclass-lesson">
-                    <img src="image/categori03/미술-11.jpg" alt="" class="selectclass-img">  
-                    <div class="bottomclass">                                         
-                     <p class="lesson-name">펜스케치를 멋있게 하는 방법</p>
-                     <a href="writeReview.jsp" class="writereview">리뷰쓰기</a>
-                     </div>
-                 </div>
-            </td>
-            <td>
-               <div class="selectclass-lesson">
-                    <img src="image/categori03/미술-11.jpg" alt="" class="selectclass-img">  
-                    <div class="bottomclass">                                         
-                     <p class="lesson-name">펜스케치를 멋있게 하는 방법</p>
-                     <a href="writeReview.jsp" class="writereview">리뷰쓰기</a>
-                     </div>
-                 </div>
-            </td>
-            <td>
-               <div class="selectclass-lesson">
-                    <img src="image/categori03/미술-11.jpg" alt="" class="selectclass-img">  
-                    <div class="bottomclass">                                         
-                     <p class="lesson-name">펜스케치를 멋있게 하는 방법</p>
-                     <a href="writeReview.jsp" class="writereview">리뷰쓰기</a>
-                     </div>
-                 </div>
-            </td>
-         </tr>
+				<%//4개씩 끊어서 줄바꾸기
+					if((i+1)%4==0){%>	
+						</tr>
+						<tr>
+					<%}
+				i++;	
+			}
+			%>
+			</tr>
       </table>
     </div>
 

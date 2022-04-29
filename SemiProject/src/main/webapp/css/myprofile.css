@@ -273,6 +273,14 @@ div.selectclasslist{
 	margin-bottom: 60px;
 }
 
+/* [이다솔] 클래스들 간 간격설정 */
+
+table.selectclass-lesson td{
+   width: 235px;
+}
+
+
+
 
 
 
