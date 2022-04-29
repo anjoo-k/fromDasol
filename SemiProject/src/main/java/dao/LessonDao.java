@@ -236,7 +236,7 @@ public class LessonDao {
 		
 		String sql="select c.cnum, l.title, l.lnum, l.photo, l.price "
 				+ "from cart c,lesson l,member m "
-				+ "where c.lnum=l.lnum and c.cnum=m.mnum and m.email=?";
+				+ "where c.lnum=l.lnum and c.mnum=m.mnum and m.email=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);

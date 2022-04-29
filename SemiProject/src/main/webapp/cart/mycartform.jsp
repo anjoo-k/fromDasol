@@ -1,3 +1,4 @@
+<%@page import="dto.LessonDto"%>
 <%@page import="java.util.Map"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.HashMap"%>
@@ -19,9 +20,9 @@ $(function(){
 		var a=$(this).is(":checked");
 		if(a) 
 		{
-			$(".idx").attr("checked",true); 
+			$(".cnum").attr("checked",true); 
 		} else {
-			$(".idx").attr("checked",false);
+			$(".cnum").attr("checked",false);
 		}
 	});
 		
@@ -38,7 +39,7 @@ $(function(){
 	$("#btncartdel").click(function(){
 		
 		//클릭한 상품 개수(null값 있는지) 확인
-		var scnt=$(".idx:checked").length;
+		var scnt=$(".cnum:checked").length;
 		//alert(scnt);
 		
 		if(scnt==0){
@@ -46,7 +47,7 @@ $(function(){
 			return; //함수 종료
 		}
 		
-		$(".idx:checked").each(function(i,element) {
+		$(".cnum:checked").each(function(i,element) {
 			
 			var idx = $(this).attr("idx");
 			
@@ -107,16 +108,15 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 				%>
 				<tr>
 					<td class="mycartCb">
-						<input type="checkbox" name="idx" idx="<%= map.get("cnum") %>" class="idx" checked="checked">
-						
+						<input type="checkbox" name="cnum" cnum="<%= map.get("cnum") %>" class="cnum" checked="checked">
 					</td>
 					<td>
 						<div class="cartlesson" lnum="<%= map.get("lnum") %>">
-							<img src="savePhoto/<%= map.get("photo") %>" class="lesphoto">
+							<img src="savePhoto/<%=map.get("photo") %>" class="lesphoto">
 							<span class="cartTitle"><%= map.get("title") %></span>
 						</div>
 					</td>
-					<td class="cartPrice">
+					<td class="cartPrice lesson">
 						<span><%= nf.format(map.get("price")) %>원</span>
 					</td>
 					<% allmoney+=price; %>
@@ -135,7 +135,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 				</tr>			
 				<tr>
 					<td colspan="2" class="btnDel">
-						<button id="btncartdel" ><span>선택상품삭제</span></button>
+						<button class="btnDel" id="btncartdel" ><span>선택상품삭제</span></button>
 					</td>
 					<td>
 						<button class="btnPay"><span>결제하기</span></button>
