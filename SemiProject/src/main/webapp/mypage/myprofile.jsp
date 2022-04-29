@@ -13,6 +13,7 @@
 	
 	MemberDao mdao = new MemberDao();
 	String name = mdao.getName(email);
+	String num = mdao.getMnum(email);
 %>
 <body>
 
@@ -35,21 +36,44 @@
 		 <div class="personaldata">
 		 
 		   <span class="myprofile-info">이름</span><br>
-		    <input type="text" name="name" class="writeinfo" placeholder="이름을 입력해주세요." required="required">
+		    <input type="text" name="name" class="writeinfo" required="required" placeholder="이름을 입력해주세요." id="delName">
 		    <br>
 		    
 		   <span class="myprofile-info">이메일</span><br>
-		    <input type="text" name="email" class="writeinfo" placeholder="이메일을 입력해주세요." required="required">
+		    <input type="text" name="email" class="writeinfo" required="required" placeholder="이메일을 입력해주세요." id="delEmail">
 		    <br>
 		    
 		   <span class="myprofile-info">비밀번호</span><br>
-		    <input type="password" name="pass" class="writeinfo" placeholder="비밀번호를 입력해주세요." required="required">
+		    <input type="password" name="pass" class="writeinfo" placeholder="비밀번호를 입력해주세요." required="required" id="delPass">
 		    <br>
-		    
-		   <button type="button" class="dropbutton">탈퇴하기</button>
+
+			 <button type="button" class="dropbutton">탈퇴하기</button>
+			 <input type="hidden" id="delnum" value="<%=num%>">
 		   
 		  </div>
 		  
 		</div>
+		
+			   
+<script type="text/javascript">
+
+		
+		//삭제확인 이벤트
+		$("button.dropbutton").click(function () {		
+		//alert(<%=num%>);
+		
+		//num값을 받아준다. 왜냐면 deleteMember메서드 파라미터 값이 num이라. 같이 보내야함
+		let mnum=$("#delnum").val();
+		
+		//이름, 이메일, 비밀번호 읽기
+		let name=$("#delName").val();
+		let email=$("#delEmail").val();
+		let password=$("#delPass").val();			
+		//삭제파일 호출
+		location.href="member/memberdelete.jsp?mnum="+mnum+"&name="+name+"&email="+email+"&password="+password;
+	});
+
+
+</script>
 </body>
 </html>

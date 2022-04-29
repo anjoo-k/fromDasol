@@ -70,13 +70,20 @@ td.emailform{
     outline: none;
 }
 
-.inputbox.emailinput{
-	width: 214px;
+.emailinput{
+	width: 230px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+    outline: none;
+    background-color: rgb(232, 240, 254);
 }
 
 button.emailcheck{
 	display: inline-block;
-    width: 80px;
+    width: 65px;
     height: 44px;
     background: #1a93ff;
     color: #fff;
@@ -139,4 +146,11 @@ td.signupBtn > button {
     color: #fff;
     outline: none;
    	border: 1px solid #1b93ff;
+}
+.useokemail{
+	margin-left: 50px;
+	
+}
+.overlapchkbtn{
+	
 }

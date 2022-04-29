@@ -6,7 +6,22 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<script type="text/javascript">
+$(function(){
+	//이메일 중복체크 버튼 이벤트... emailcheck.jsp(팝업창처럼)
+	$(".emailcheck").click(function(){
+		//os기준 중앙에 창 뜨게
+		var popupWidth=500;
+		var popupHeight=300;
+		var popupX = (window.screen.width / 2) - (popupWidth / 2);
+		var popupY= (window.screen.height / 2) - (popupHeight / 2);
+		
+		window.open("member/emailcheck.jsp","",'height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
+	});
+	
+});
 
+</script>
 </head>
 <body>
 
@@ -20,7 +35,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="text" required="required" name="name" class="form-control inputbox" placeholder="이름을 입력해주세요">
+					<input type="text" required="required" name="name" class="inputbox" placeholder="이름을 입력해주세요">
 				</td>
 			</tr>
 			<tr>
@@ -28,8 +43,8 @@
 			</tr>
 			<tr>
 				<td class="emailform">
-					<input type="text" required="required" class="form-control inputbox emailinput" name="email" id="email" placeholder="이메일을 입력해주세요">
-					<button class="emailcheck" onclick="location.href='index.jsp?boramMain=member/emailcheck.jsp'">중복체크</button>
+					<input type="text" class="emailinput" name="email" id="email" readonly="readonly" >
+					<button class="emailcheck">입력</button>
 					
 				</td>
 			</tr>
@@ -38,7 +53,7 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="password" required="required" name="password" class="form-control inputbox" placeholder="비밀번호을 입력해주세요">
+					<input type="password" required="required" name="password" class="inputbox" placeholder="비밀번호을 입력해주세요">
 				</td>
 			</tr>
 			<tr class="chkbox">

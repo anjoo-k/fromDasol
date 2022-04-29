@@ -180,6 +180,36 @@ public class MemberDao {
 			return mnum;
 		}
 
+ 	//마이페이지 > 탈퇴하기 (이메일,이름,비번 맞으면 탈퇴)
+ 	 	public boolean ismemNameEmailPass(String name, String email, String password)
+ 	 		   {
+ 	 		      boolean flag=false;
+ 	 		      
+ 	 		      Connection conn=db.getConnection();
+ 	 		      PreparedStatement pstmt=null;
+ 	 		      ResultSet rs=null;
+ 	 		      
+ 	 		      String sql="select * from member where name=? and email=? and password=?";
+ 	 		      
+ 	 		      try {
+ 	 		         pstmt=conn.prepareStatement(sql);
+ 	 		         
+ 	 		         pstmt.setString(1, name);
+ 	 		         pstmt.setString(2, email);
+ 	 		         pstmt.setString(3, password);
+ 	 		         
+ 	 		         rs=pstmt.executeQuery();
+ 	 		         
+ 	 		         if(rs.next())
+ 	 		        	 flag=true;
+ 	 		         
+ 	 		      } catch (SQLException e) {
+ 	 		         e.printStackTrace();
+ 	 		      } finally {
+ 	 		         db.dbClose(rs, pstmt, conn);
+ 	 		      }
+ 	 		      return flag;
+ 	 		   }
 
    
 }
