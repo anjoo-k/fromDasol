@@ -53,7 +53,7 @@ $(function(){
 			//선택한 장바구니 모두 삭제
 			$.ajax({
 				type: "get",
-				url: "shop/cartdelete.jsp",
+				url: "cart/cartdelete.jsp",
 				dataType: "html",
 				data: {"idx":idx},
 				success: function(){
@@ -117,90 +117,19 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 						</div>
 					</td>
 					<td class="cartPrice">
-						<span><%= map.get("price") %>원</span>
+						<span><%= nf.format(map.get("price")) %>원</span>
 					</td>
 					<% allmoney+=price; %>
 				</tr>
 				
 				  <%}
 				  %>
-				
-				<!-- <tr>
-					<td class="mycartCb">
-						<input type="checkbox">
-					</td>
-					<td>
-						<div>
-							<img src="../image/categori03/미술-6.jpg">
-							<span class="cartTitle">오일파스텔로 구름그리기 cloud drawing with oil pastel</span>
-						</div>
-					</td>
-					<td class="cartPrice">
-						<span><span>98,000</span>원</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="mycartCb">
-						<input type="checkbox">
-					</td>
-					<td>
-						<div>
-							<img src="../image/categori03/미술-6.jpg">
-							<span class="cartTitle">오일파스텔로 구름그리기 cloud drawing with oil pastel</span>
-						</div>
-					</td>
-					<td class="cartPrice">
-						<span><span>98,000</span>원</span>
-					</td>
-				</tr>				<tr>
-					<td class="mycartCb">
-						<input type="checkbox">
-					</td>
-					<td>
-						<div>
-							<img src="../image/categori03/미술-6.jpg">
-							<span class="cartTitle">오일파스텔로 구름그리기 cloud drawing with oil pastel</span>
-						</div>
-					</td>
-					<td class="cartPrice">
-						<span><span>98,000</span>원</span>
-					</td>
-				</tr>				<tr>
-					<td class="mycartCb">
-						<input type="checkbox">
-					</td>
-					<td>
-						<div>
-							<img src="../image/categori03/미술-6.jpg">
-							<span class="cartTitle">오일파스텔로 구름그리기l</span>
-						</div>
-					</td>
-					<td class="cartPrice">
-						<span><span>98,000</span>원</span>
-					</td>
-				</tr>
-				<tr>
-					<td class="mycartCb">
-						<input type="checkbox">
-					</td>
-					<td>
-						<div>
-							<img src="../image/categori03/미술-6.jpg">
-							<span class="cartTitle">오일파스텔로 구름그리기 cloud drawing with oil pastel 길이테스트길이테스트길이테스트길이테스트 오일파스텔로 구름그리기 cloud drawing with oil pastel 길이테스트길이테스트길이테스트길이테스트</span>
-						</div>
-					</td>
-					<td class="cartPrice">
-						<span><span>98,000</span>원</span>
-					</td>
-				</tr>
-				
 
-   -->
 			</tbody>
 			<tfoot>
 				<tr>
 					<td colspan="3">
-						<div class="allPrice">총 결재금액:<span>350,000</span>원</div>
+						<div class="allPrice">총 결재금액:<span><%= nf.format(allmoney) %></span>원</div>
 					</td>
 					
 				</tr>			
