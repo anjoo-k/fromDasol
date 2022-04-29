@@ -58,7 +58,7 @@
 
 
 <script>
-	
+		
 		//[임현정] search바 클릭하면 border color 변경	
 		$(".searchtext").on("focus", function(){ 
 			$("div.searchinput").css({

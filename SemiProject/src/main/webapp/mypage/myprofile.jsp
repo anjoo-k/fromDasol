@@ -26,8 +26,8 @@
 		       
 		    <!-- 나의프로필,나의클래스,나의리뷰 선택버튼 -->
 		    <a href="index.jsp?boramMain=mypage/myprofile.jsp" class="myprofile mypageActive">나의 프로필</a>
-		    <a href="myclass.html" class="myclass">나의 클래스</a>
-		    <a href="myReview.html" class="myreview">나의 리뷰</a>
+		    <a href="index.jsp?boramMain=mypage/myclass.jsp" class="myclass">나의 클래스</a>
+		    <a href="index.jsp?boramMain=mypage/myreview.jsp" class="myreview">나의 리뷰</a>
 		    <br><br>
 		         
 		  </div>
@@ -56,7 +56,6 @@
 		
 			   
 <script type="text/javascript">
-
 		
 		//삭제확인 이벤트
 		$("button.dropbutton").click(function () {		
