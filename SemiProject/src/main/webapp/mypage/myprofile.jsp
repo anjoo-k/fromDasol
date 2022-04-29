@@ -13,7 +13,7 @@
 	
 	MemberDao mdao = new MemberDao();
 	String name = mdao.getName(email);
-	String num = mdao.getNum(email);
+	String num = mdao.getMnum(email);
 %>
 <body>
 
