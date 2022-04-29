@@ -12,9 +12,23 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* display: block; */
 }
+.swiper-img { cursor: pointer; }
 </style>
+
+<script type="text/javascript">
+
+//클래스 선택시 detail page 이동
+$(function(){
+	$(".swiper-img").click(function() {
+		//태그에 넣어둔 lnum
+		var lnum=$(this).attr("lnum");
+		//alert(lnum); num값 넘어오는지 확인
+		location.href='index.jsp?boramMain=detail/detailpage.jsp?lnum='+lnum;		
+	});
+});
+
+</script>
 </head>
 <%
 LessonDao ldao = new LessonDao();
@@ -109,17 +123,18 @@ List<LessonDto> list = ldao.getAllDatas();
 	        <div class="po-slider">
 	        	<div class="swiper mySwiper mainswiper">
 	        		<div class="swiper-wrapper mainswiper" >
-						<div class="swiper-slide mainswiper">
-							<img src="image/categori03/미술-11.jpg" alt="" class="swiper-img">                                           
-	                    	<p class="swipertitle">펜스케치를 멋있게 하는 방법</p>
-	                    	<p class="money">120,000원</p>
-	                	</div>
-		                <div class="swiper-slide mainswiper">
-		                    <img src="image/categori03/미술-11.jpg" alt="" class="swiper-img">                                           
-		                    <p class="swipertitle">펜스케치를 멋있게 하는 방법</p>
-		                    <p class="money">120,000원</p>
-		                </div>
-		                
+		                <%
+		                for(LessonDto dto:list)
+		                {
+		                %>
+		                	<div class="swiper-slide mainswiper">
+		                		<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
+								<p class="swipertitle"><%=dto.getTitle() %></p>
+								<p class="money"><%=dto.getPrice() %></p>
+		                	</div>
+		                <%
+		                }
+		                %>
 					</div>       
 				</div>
 				<div class="swiper-button-next mainswiper"></div>
@@ -162,7 +177,7 @@ List<LessonDto> list = ldao.getAllDatas();
 		                {
 		                %>
 		                	<div class="swiper-slide sub01">
-		                		<img src="savePhoto/<%=dto.getPhoto() %>" alt="" class="swiper-img">
+		                		<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
 								<p class="swipertitle"><%=dto.getTitle() %></p>
 		                	</div>
 		                <%
@@ -185,17 +200,13 @@ List<LessonDto> list = ldao.getAllDatas();
 			<div class="po-slider">      
 				<div class="swiper mySwiper sub02">
 	            	<div class="swiper-wrapper sub02">
-	            		<div class="swiper-slide sub02">
-	                    	<img src="image/categori07/영어2.jpg" alt="" class="swiper-img">
-	                    	<p class="swipertitle">서브02 슬라이드 제목</p>
-	                	</div>
 		                <%
 		                List<LessonDto> sub2list = ldao.getCategoryData("외국어");
 		                for(LessonDto dto:sub2list)
 		                {
 		                %>
 		                	<div class="swiper-slide sub02">
-		                		<img src="savePhoto/<%=dto.getPhoto() %>" alt="" class="swiper-img">
+		                		<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
 								<p class="swipertitle"><%=dto.getTitle() %></p>
 		                	</div>
 		                <%
@@ -278,7 +289,7 @@ List<LessonDto> list = ldao.getAllDatas();
 		                {
 		                %>
 		                	<div class="swiper-slide sub03">
-		                		<img src="savePhoto/<%=dto.getPhoto() %>" alt="" class="swiper-img">
+			                	<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
 								<p class="swipertitle"><%=dto.getTitle() %></p>
 		                	</div>
 		                <%
@@ -295,10 +306,5 @@ List<LessonDto> list = ldao.getAllDatas();
 
     </div><!-- 메인 끝 -->
 </body>
-
-<script type="text/javascript">
-
-
-</script>
 
 </html>
