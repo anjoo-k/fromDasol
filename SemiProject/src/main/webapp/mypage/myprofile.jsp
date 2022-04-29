@@ -48,7 +48,7 @@
 		    <br>
 
 			 <button type="button" class="dropbutton">탈퇴하기</button>
-			 <input type="hidden" id="delnum" value="<%=num%>">
+			 <input type="hidden" id="delnum">
 		   
 		  </div>
 		  

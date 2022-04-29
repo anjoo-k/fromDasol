@@ -1,11 +1,10 @@
 <%@page import="dao.MemberDao"%>
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<meta charset="UTF-8">
 </head>
 <body>
 <%
@@ -25,7 +24,7 @@
 		response.sendRedirect("../index.jsp?boramMain=layout/main.jsp");
 	}else{%>
 		<script type="text/javascript">
-			alert("°èÁ¤Á¤º¸°¡ ¸ÂÁö ¾Ê½À´Ï´Ù");
+			alert("ê³„ì •ì •ë³´ê°€ ë§žì§€ ì•ŠìŠµë‹ˆë‹¤");
 			history.back();
 		</script>
 	<%}

@@ -211,5 +211,64 @@ public class MemberDao {
  	 		      return flag;
  	 		   }
 
+ 	 	
+ 	 	//비밀번호 찾기 위한 이름,이메일 일치 메서드
+ 	 	public boolean ismemNameEmail(String name, String email)
+		   {
+		      boolean flag=false;
+		      
+		      Connection conn=db.getConnection();
+		      PreparedStatement pstmt=null;
+		      ResultSet rs=null;
+		      
+		      String sql="select * from member where name=? and email=?";
+		      
+		      try {
+		         pstmt=conn.prepareStatement(sql);
+		         
+		         pstmt.setString(1, name);
+		         pstmt.setString(2, email);
+		         
+		         rs=pstmt.executeQuery();
+		         
+		         if(rs.next())
+		        	 flag=true;
+		         
+		      } catch (SQLException e) {
+		         e.printStackTrace();
+		      } finally {
+		         db.dbClose(rs, pstmt, conn);
+		      }
+		      return flag;
+		   }
+ 	 	
+ 	 	//email에 따른 password값 반환 (비밀번호 찾기시 보여줄)
+ 	 	public String getPass(String email) {
+ 				
+ 				String password="";
+ 				
+ 				Connection conn = db.getConnection();
+ 				PreparedStatement pstmt = null;
+ 				ResultSet rs = null;	
+ 				
+ 				String sql="select * from member where email=?";
+ 				
+ 				try {
+ 					pstmt=conn.prepareStatement(sql);
+ 					pstmt.setString(1, email);
+ 					rs=pstmt.executeQuery();
+ 					
+ 					if (rs.next())
+ 						password=rs.getString("password");
+ 					
+ 				} catch (SQLException e) {
+ 					// TODO Auto-generated catch block
+ 					e.printStackTrace();
+ 				}finally {
+ 					db.dbClose(rs, pstmt, conn);
+ 				}
+ 				return password;
+ 			}
+
    
 }
