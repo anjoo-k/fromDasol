@@ -67,6 +67,7 @@ table.myCart img{
   border-radius: 5px;
   vertical-align: middle;
   margin: 15px;
+  cursor: pointer;
 }
 
 table.myCart th.cartPrice{
