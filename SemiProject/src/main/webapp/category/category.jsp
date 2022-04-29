@@ -53,67 +53,91 @@ else
 List<LessonDto> list = ldao.getCategoryData(category);
 %>
 <body>
+<%
+//클래스 개수
+LessonDao cdao=new LessonDao();
+int totalCount=cdao.getTotalCount(category);
 
+String bannerimage=null;
+
+if(request.getAttribute("category").equals("a"))
+	bannerimage="image/banner-01.png";
+else if(request.getAttribute("category").equals("b"))
+	bannerimage="image/banner-02.png";
+else if(request.getAttribute("category").equals("c"))
+	bannerimage="image/banner-03.png";
+else if(request.getAttribute("category").equals("d"))
+	bannerimage="image/banner-04.png";
+else if(request.getAttribute("category").equals("e"))
+	bannerimage="image/banner-05.png";
+else if(request.getAttribute("category").equals("f"))
+	bannerimage="image/banner-06.png";
+else if(request.getAttribute("category").equals("g"))
+	bannerimage="image/banner-07.png";
+else if(request.getAttribute("category").equals("h"))
+	bannerimage="";
+
+%>
 <!-- 본문 시작 -->
 <div class="category-main">
 
     <!-- 베너 -->
     <div class="category_banner">
-      <img alt="" src="image/banner-01.png">
+      <img alt="" src="<%=bannerimage%>">
     </div>
     
     <!-- 카테고리아이콘 -->
 	<div class="category-icon">
-         <a href="#">
+         <a href="index.jsp?boramMain=category/category.jsp?category=a">
              <span class="c01">
              	 <img src="image/ico-c-1.png" alt="">   
              </span>
              <br>
              운동
          </a>
-         <a href="#">
+         <a href="index.jsp?boramMain=category/category.jsp?category=b">
              <span class="c02">
              	 <img src="image/ico-c-2.png" alt="">   
              </span>
              <br>
              요리
          </a>
-         <a href="#">
+         <a href="index.jsp?boramMain=category/category.jsp?category=c">
              <span class="c03">
              	 <img src="image/ico-c-3.png" alt="">   
              </span>
              <br>
              미술
          </a>
-         <a href="#">
+         <a href="index.jsp?boramMain=category/category.jsp?category=d">
              <span class="c04">
              	 <img src="image/ico-c-4.png" alt="">   
              </span>
               <br>
              사진/영상
          </a>
-         <a href="#">
+         <a href="index.jsp?boramMain=category/category.jsp?category=e">
      		<span class="c05">
              	 <img src="image/ico-c-5.png" alt="">   
              </span>
               <br>
              개발
          </a>
-         <a href="#">
+         <a href="index.jsp?boramMain=category/category.jsp?category=f">
              <span class="c06">
              	 <img src="image/ico-c-6.png" alt="">   
              </span>
               <br>
              음악
          </a>
-         <a href="#">
+         <a href="index.jsp?boramMain=category/category.jsp?category=g">
             <span class="c07">
              	 <img src="image/ico-c-7.png" alt="">   
              </span>
               <br>
              외국어
          </a>
-         <a href="#">
+         <a href="index.jsp?boramMain=category/category.jsp?category=h">
              <span class="c08">
              	 <img src="image/ico-c-8.png" alt="">   
              </span>
@@ -130,7 +154,7 @@ List<LessonDto> list = ldao.getCategoryData(category);
 				<td colspan="4" align="right">
 				    <div class="categoryBar">
 						<span class="lessonCnt">
-							클래스<span><%=ldto.getLnum()%></span>개
+							클래스<span><%=totalCount%></span>개
 						</span>
 						<span class="sortSelect">
 							<select class="sortSelect">
@@ -154,9 +178,9 @@ List<LessonDto> list = ldao.getCategoryData(category);
 			%>
 				<td>
 				   <div class="category-lesson">
-			        	<img src="<%=dto.getPhoto() %>" alt="" class="category-img">                                           
+			        	<img src="savePhoto/<%=dto.getPhoto() %>" alt="" class="category-img">                                           
 			            <p class="lesson-title"><%=dto.getTitle() %></p>
-			            <p class="lesson-price"><%=dto.getPrice() %>원</p>
+			            <p class="lesson-price"><%=dto.getPrice() %>원</p>			         
 			        </div>
 			    </td>
 			<%
