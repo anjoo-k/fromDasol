@@ -1,3 +1,6 @@
+<%@page import="dao.LessonDao"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,16 +12,19 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="../script/common.js"></script>
-<!-- se2 폴더에서 js 파일 가져오기 -->
-<script type="text/javascript" src="<%=root%>/se2/js/HuskyEZCreator.js"charset="utf-8"></script>
-<script type="text/javascript" src="<%=root%>/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script>
-
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
+<%
+/* (세션)현재 로그인 중인 회원의 mnum 받기 */
+
+/* request.getParameter("lnum") */
+String lnum = request.getParameter("lnum");
+%>
 <body>
-<div class="header">
+	<div class="header">
         <div class="headercontent">            
             <a href="main.html" class="logo">
                <img src="../image/logo.png" alt="">
@@ -44,13 +50,13 @@
                 <button type="button" class="gaipbtn">회원가입</button>
             </div>
             <!-- 로그인 후 버튼 -->
-              <div class="headerlogout" style="display: none;">
+            <div class="headerlogout" style="display: none;">
                 <a href="" class="logoutbtn">로그아웃</a>
-                 <a href="#" class="cart">장바구니 <span class="cnt">0</span></a>
+                <a href="#" class="cart">장바구니 <span class="cnt">0</span></a>
                 <button type="button" class="mypage">마이페이지</button>
             </div>
-         </div>
-    </div>
+        </div>
+	</div>
     
     
     <!-- detail page 시작 -->
@@ -67,10 +73,11 @@
 			</div>
 			
 			<hr>
-			
+			<!-- 클래스 소개 -->
 			<div class="detail_content" id="detail_c">
 			  <span>
-			  [클래스 정보]<br>			  
+			  <br>
+			  [클래스 정보]<br>  
 			  저칼로리 음식, 고강도 운동을 해도 살이 많이 안 빠지거나<br>
 			  다이어트 후 폭식으로 요요가 오는 분들을 많이 볼 수 있는데요!<br>
 			  <br>
@@ -208,7 +215,7 @@
 	<div class="decisionFrame">
 	   <form action="#" method="post" class="decisionForm">
 	   <table>
-	      <!-- category -->
+	      <!-- 카테고리 -->
 	      <tr>
 	         <td>
 	            <p class="category">운동</p>
@@ -224,13 +231,20 @@
 				<span class="floatnum">(4.0)</span>
 	         </td>
 	      </tr>
-	      <!-- title -->
+	      <!-- 제목 -->
 	      <tr>
 	         <td>
 	            <p class="title">덜 먹고 운동도 했는데 다이어트에 실패하는 '진짜' 이유</p>
 	         </td>
 	      </tr>
-	      <!-- price -->
+	      <!-- 강사명 -->
+	      <tr>
+	      	<td>
+	      		<!-- glyphicon 왜 안될까 -->
+	      		<p class="tutor">핏블리</p>
+	      	</td>
+	      </tr>
+	      <!-- 가격 -->
 	      <tr>
 	         <td>
 	            <p class="price">50,000원</p>
@@ -240,7 +254,7 @@
 	      <tr>
 	         <td class="decisionBtn">
 	            <button type="button" class="btn_kakao_share"><img src="../image/ico-kakao.png">Kakao로 공유하기</button>
-	            <button type="button" class="btn_intoCart"><img src="../image/ico-cart.png">장바구니 담기</button>
+	            <button type="button" class="btn_intoCart" id="addCart"><img src="../image/ico-cart.png">장바구니 담기</button>
 	         </td>
 	      </tr>
 	   </table>
@@ -352,20 +366,34 @@
 	//[강나리] '클래스 정보/후기' 클릭시 각 내용 보이게 하기
 	$(function(){
 		$('#btn_r').click(function() {
+			$(this).addClass("detailActive");
+			$("#btn_c").removeClass("detailActive");
+			/* #detail_r요소가 보이지 않으면 */
 			if($("#detail_r").css("display")=="none"){
 				$("#detail_r").show();
 				$("#detail_c").hide();
 			}
 		});
 		$('#btn_c').click(function() {
+			$(this).addClass("detailActive");
+			$("#btn_r").removeClass("detailActive");
 			if($("#detail_c").css("display")=="none"){
 				$("#detail_c").show();
 				$("#detail_r").hide();
 			}
 		});
+		
+		/* 장바구니 담기 버튼 클릭시 */
+		$("#addCart").click(function(){
+			alert("장바구니에 클래스가 담겼습니다");
+			/* dao.insertcart */
+			<%
+			LessonDao dao = new LessonDao();
+			/* dao.insertCart(lnum, mnum); */
+			%>
+		});
 	});
 	
 </script>
-
 </body>
 </html>

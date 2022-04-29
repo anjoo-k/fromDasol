@@ -114,20 +114,26 @@ span.floatnum {
 
 /* 클래스제목 */
 div.decisionFrame .title {
-   padding: 15px 5px;
+   padding: 10px 10px 5px 5px;
    line-height: 1.3;
    font-size: 20px;
 }
 
+/* 강사명 */
+div.decisionFrame .tutor {
+	padding-left: 5px;
+}
+
 /* 가격 */
 div.decisionFrame .price {
-   padding: 0 5px 10px 5px;
-   font-size: 20px;
+	float: right;
+   	padding: 15px 20px 0 0;
+   	font-size: 20px;
 }
 
 /* 버튼 간격 조절 */
 td.decisionBtn {
-   padding-top: 90px;
+   padding-top: 30px;
 }
 .btn_kakao_share {
    display: flex;
@@ -177,7 +183,6 @@ td.decisionBtn {
    float: left;
 }
 
-
 /* [신지환] detail css 끝 */
 
 .detail_content{
@@ -186,6 +191,5 @@ td.decisionBtn {
 }
 
 .detailActive{
-	 font-weight: 500;
-	 color: #323232;
+	color: #323232;
 }
