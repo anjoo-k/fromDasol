@@ -178,6 +178,7 @@ div.header > div.headercontent > div.headerlogin >button.gaipbtn{
     font-family: NotoSansKR-Regular !important;
     outline: 0;
     letter-spacing: -0.8px;
+    cursor: pointer;
 }
 
 div.header > div.headercontent > div.headerlogout >button.mypage{
