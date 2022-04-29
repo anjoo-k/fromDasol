@@ -81,18 +81,17 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 <body>
 
 <div class="myCart">
-	<form action="" style="width:970px;">
 		<table class="myCart">
 			<caption>장바구니</caption>
 			<tr>
-				<th>
+				<th style="width: 80px;">
 					<input type="checkbox" id="allcheck">
 				</th>
 				<th class="className">
 					<span>클래스 제목</span>
 				</th>
-				<th class="cartPrice">
-					<span>금액</span>
+				<th class="cartPrice"  style="width: 100px;">
+					<span >금액</span>
 				</th>
 			</tr>
 			<tbody>
@@ -112,12 +111,12 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 					</td>
 					<td>
 						<div class="cartlesson" lnum="<%= map.get("lnum") %>">
-							<img src="savePhoto/<%=map.get("photo") %>" class="lesphoto">
+							<img alt="사진안나옴" src="image/">
 							<span class="cartTitle"><%= map.get("title") %></span>
 						</div>
 					</td>
-					<td class="cartPrice lesson">
-						<span><%= nf.format(map.get("price")) %>원</span>
+					<td class="cartPrice">
+						<span><span><%= nf.format(map.get("price")) %>원</span></span>
 					</td> 
 					<% allmoney+=price; %>
 				</tr>
@@ -138,12 +137,12 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 						<button class="btnDel" id="btncartdel" ><span>선택상품삭제</span></button>
 					</td>
 					<td>
-						<button class="btnPay"><span>결제하기</span></button>
+						<button class="btnPay">결제하기</button>
 					</td>
 				</tr>
 			</tfoot>
 		</table>
-	</form>
+	
 
 
 </div>
