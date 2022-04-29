@@ -5,6 +5,13 @@
 	color:#363636;
 }
 
+.lesson-title{
+  width: 215px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+}
+
 .category-main{
 	width: 970px;
 	margin: 0 auto;
