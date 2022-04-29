@@ -23,7 +23,9 @@
 		<script type="text/javascript">
 			alert("탈퇴 되었습니다");
 		</script>
-		<%response.sendRedirect("../index.jsp?boramMain=login/logoutaction.jsp");
+		<%
+		session.removeAttribute("loginok");	
+		response.sendRedirect("../index.jsp?boramMain=member/memberform.jsp");
 	}else{%>
 		<script type="text/javascript">
 			alert("계정정보가 맞지 않습니다");
