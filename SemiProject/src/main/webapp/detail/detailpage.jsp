@@ -1,3 +1,4 @@
+<%@page import="dto.CartDto"%>
 <%@page import="dto.LessonDto"%>
 <%@page import="dao.MemberDao"%>
 <%@page import="dao.LessonDao"%>
@@ -18,7 +19,6 @@
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
 <%
 
 /* (세션)현재 로그인 중인 회원의 email */
@@ -33,9 +33,43 @@ String lnum = request.getParameter("lnum");
 
 /* lnum에 해당하는 클래스 데이터 DTO에 세팅 */
 LessonDao ldao = new LessonDao();
-LessonDto dto = ldao.getData(lnum);
+LessonDto ldto = ldao.getData(lnum);
 
 %>
+<script type="text/javascript">
+$(function(){
+	/* 장바구니 담기 버튼 클릭시(lnum,mnum) */
+	$("#addCart").click(function(){
+		<%
+		/* cart에 담겨져 있는지 중복체크 */
+		if(ldao.checkClass(lnum, mnum)) { %>
+			alert("이미 해당 클래스가 장바구니에 담겨져 있습니다");
+			return;
+		<%
+		}
+		else {
+			CartDto cdto = new CartDto();
+			cdto.setLnum(lnum);
+			cdto.setMnum(mnum);
+			/* 페이지 로드되면 자동으로 cart테이블에 추가되는 문제 */
+			ldao.insertCart(cdto);
+			%>
+			alert("장바구니에 클래스가 담겼습니다");
+		<%
+		}
+		%>
+		
+		/* 장바구니 페이지로 이동 */
+		if(confirm("장바구니로 이동하시겠습니까?")) {
+			location.href = "index.jsp?boramMain=cart/mycartform.jsp";
+		}
+		else {
+			location.reload();
+		}
+	});
+});
+</script>
+</head>
 <body>
     
     <!-- detail page 시작 -->
@@ -44,7 +78,7 @@ LessonDto dto = ldao.getData(lnum);
     <!-- [강나리] 상세페이지1 시작 -->
     <div class="main_detail_scroll">
 		<div class="detail_banner">
-			<img class="img_detail" alt="" src="savePhoto/<%=dto.getPhoto()%>"><!-- ../image/categori01/운동-1.jpg -->
+			<img class="img_detail" alt="" src="savePhoto/<%=ldto.getPhoto()%>"><!-- ../image/categori01/운동-1.jpg -->
 			
 			<div>
 			  <button type="button" class="btn_detail_content detailActive" id="btn_c">클래스 설명</button>
@@ -56,7 +90,7 @@ LessonDto dto = ldao.getData(lnum);
 			<div class="detail_content" id="detail_c">
 			  <span>
 			  <br>
-			  <%=dto.getIntro()%>
+			  <%=ldto.getIntro()%>
 			  <!-- 저칼로리 음식, 고강도 운동을 해도 살이 많이 안 빠지거나<br>
 			  다이어트 후 폭식으로 요요가 오는 분들을 많이 볼 수 있는데요!<br>
 			  <br>
@@ -197,7 +231,7 @@ LessonDto dto = ldao.getData(lnum);
 	      <!-- 카테고리 -->
 	      <tr>
 	         <td>
-	            <p class="category"><%=dto.getCategory()%><!-- 운동 --></p>
+	            <p class="category"><%=ldto.getCategory()%><!-- 운동 --></p>
 	         </td>
 	      </tr>
 	      <!-- 별점(평점) -->
@@ -213,20 +247,20 @@ LessonDto dto = ldao.getData(lnum);
 	      <!-- 제목 -->
 	      <tr>
 	         <td>
-	            <p class="title"><%=dto.getTitle()%><!-- 덜 먹고 운동도 했는데 다이어트에 실패하는 '진짜' 이유 --></p>
+	            <p class="title"><%=ldto.getTitle()%><!-- 덜 먹고 운동도 했는데 다이어트에 실패하는 '진짜' 이유 --></p>
 	         </td>
 	      </tr>
 	      <!-- 강사명 -->
 	      <tr>
 	      	<td>
 	      		<!-- glyphicon 왜 안될까 -->
-	      		<p class="tutor"><%=dto.getTutor()%><!-- 핏블리 --></p>
+	      		<p class="tutor"><%=ldto.getTutor()%><!-- 핏블리 --></p>
 	      	</td>
 	      </tr>
 	      <!-- 가격 -->
 	      <tr>
 	         <td>
-	            <p class="price"><%=dto.getPrice()%><!-- 50,000 -->원</p>
+	            <p class="price"><%=ldto.getPrice()%><!-- 50,000 -->원</p>
 	         </td>
 	      </tr>
 	      <!-- 버튼 -->
@@ -247,7 +281,6 @@ LessonDto dto = ldao.getData(lnum);
 <script>
 	
 	//[강나리] '클래스 정보/후기' 클릭시 각 내용 보이게 하기
-	$(function(){
 		$('#btn_r').click(function() {
 			$(this).addClass("detailActive");
 			$("#btn_c").removeClass("detailActive");
@@ -265,33 +298,6 @@ LessonDto dto = ldao.getData(lnum);
 				$("#detail_r").hide();
 			}
 		});
-		
-		/* 장바구니 담기 버튼 클릭시(lnum,mnum) */
-		$("#addCart").click(function(){
-			<%
-			/* cart에 담겨져 있는지 중복체크 */
-			if(ldao.checkClass(lnum, mnum)) { %>
-				alert("이미 해당 클래스가 장바구니에 담겨져 있습니다");
-				return;
-			<%
-			}
-			else {
-				ldao.insertCart(lnum, mnum);
-				%>
-				alert("장바구니에 클래스가 담겼습니다");
-			<%
-			}
-			%>
-			
-			/* 장바구니 페이지로 이동 */
-			if(confirm("장바구니로 이동하시겠습니까?")) {
-				location.href = "index.jsp?boramMain=cart/mycartform.jsp";
-			}
-			else {
-				location.reload();
-			}
-		});
-	});
 	
 </script>
 </body>
