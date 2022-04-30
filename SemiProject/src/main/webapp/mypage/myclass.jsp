@@ -52,7 +52,7 @@
                     <img src="savePhoto/<%=dto.getPhoto() %>" class="selectclass-img">  
                     <div class="bottomclass">                                         
                      <p class="lesson-name"><%=dto.getTitle() %></p>
-                     <a href="writeReview.jsp" class="writereview">리뷰쓰기</a>
+                     <a href="index.jsp?boramMain=review/writeReview.jsp?lnum=<%=dto.getLnum() %>" class="writereview">리뷰쓰기</a>
                      </div>
                  </div>
             </td>
