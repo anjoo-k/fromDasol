@@ -20,6 +20,17 @@ $(function() {
 	$("select.sortSelect").focusout(function(){ 
 		$(this).parent().css("background","url('../image/arrow-down.png') no-repeat 93% 50%/15px auto");
 	});
+	
+	//클래스이미지 클릭시 디테일페이지로
+	$(".category-img").click(function(){
+		var lnum=$(this).attr("lnum");
+		location.href='index.jsp?boramMain=detail/detailpage.jsp?lnum='+lnum;
+	});
+	//클래스제목 클릭시 디테일페이지로
+	$(".lesson-title").click(function(){
+		var lnum=$(this).attr("lnum");
+		location.href='index.jsp?boramMain=detail/detailpage.jsp?lnum='+lnum;
+	});
 });
 </script>
 
@@ -158,9 +169,9 @@ else if(request.getAttribute("category").equals("h"))
 						</span>
 						<span class="sortSelect">
 							<select class="sortSelect">
-								<option value="">인기도순</option>
-								<option value="">별점높은순</option>
-								<option value="">리뷰많은순</option>
+								<option value="toppopular">인기도순</option>
+								<option value="topstar" selected="selected">별점높은순</option>
+								<option value="topreview">리뷰많은순</option>
 							</select>
 						</span>
 				    </div>
@@ -178,8 +189,8 @@ else if(request.getAttribute("category").equals("h"))
 			%>
 				<td>
 				   <div class="category-lesson">
-			        	<img src="savePhoto/<%=dto.getPhoto() %>" alt="" class="category-img">                                           
-			            <p class="lesson-title"><%=dto.getTitle() %></p>
+			        	<img src="savePhoto/<%=dto.getPhoto() %>" alt="" class="category-img" lnum="<%=dto.getLnum()%>">                                           
+			            <p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
 			            <p class="lesson-price"><%=dto.getPrice() %>원</p>			         
 			        </div>
 			    </td>

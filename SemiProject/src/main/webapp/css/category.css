@@ -10,6 +10,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;  
+  cursor: pointer;
 }
 
 .category-main{
@@ -118,11 +119,11 @@ span.sortSelect>select>option{
   text-align: left;
   color: #323232;
 }
-
 .category-img {
   width: 230px;
   height: 150px;
   border-radius: 10px;
+  cursor: pointer;
 }
 .category-lesson>p {
   font-family: NotoSansKR;
