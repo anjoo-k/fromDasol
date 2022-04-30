@@ -15,7 +15,7 @@ public class ReviewDao {
 	DbConnect db=new DbConnect();
 	
 	//[이다솔]로그인 중인 회원의 리뷰목록 조회
-	public List<ReviewDto> getSignupLesson(String mnum) {
+	public List<ReviewDto> getMyReview(String mnum) {
 		
 		List<ReviewDto> list=new ArrayList<ReviewDto>();
 		
@@ -39,7 +39,7 @@ public class ReviewDao {
 				dto.setRnum(rs.getString("rnum"));
 				dto.setLnum(rs.getString("lnum"));
 				dto.setRstar(rs.getInt("rstar"));
-				dto.setRcontents(rs.getString("lnum"));
+				dto.setRcontents(rs.getString("rcontents"));
 				dto.setRday(rs.getTimestamp("rday"));
 				
 				list.add(dto);
