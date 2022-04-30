@@ -20,7 +20,10 @@ $(function(){
 	});
 	
 });
-
+function gaipclick()
+{
+	alert("환영합니다.가입이 완료되었습니다.");
+}
 </script>
 </head>
 <body>
@@ -64,7 +67,7 @@ $(function(){
 			</tr>
 			<tr>
 				<td class="signupBtn">
-					<button type="submit" class="gaipBtn">회원가입</button>
+					<button type="submit" class="gaipBtn" onclick="gaipclick()">회원가입</button>
 				</td>
 			</tr>
 		</table>
