@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import dto.CartDto;
 import dto.LessonDto;
@@ -55,17 +56,18 @@ public class SignupDao {
 	}
 	
 	//[조아라] 장바구니 결제하기 누르면 상품담기
-	public void insertSignup(SignupDto dto)
+	public void insertSignup(String lnum,String mnum)
 	{
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
+		CartDto dto=new CartDto();
 		
 		String sql = "insert into signup values (null,?,?)";
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, dto.getLnum());
-			pstmt.setString(2, dto.getMnum());
+			pstmt.setString(1, lnum);
+			pstmt.setString(2, mnum);
 			
 			pstmt.execute();
 		} catch (SQLException e) {
@@ -74,6 +76,64 @@ public class SignupDao {
 		}finally {
 			db.dbClose(pstmt, conn);
 		}
+	}
+	
+	//cart에서 cnum에 따른 lnum 값 가져오기
+	public String getCartLnum(String cnum)
+	{
+		
+		String lnum="";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from cart where cnum=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, cnum);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			{
+				lnum=rs.getString("lnum");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return lnum;
+	}
+	
+	//cart에서 cnum에 따른 mnum 값 가져오기
+	public String getCartMnum(String cnum)
+	{
+		
+		String mnum="";
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from cart where cnum=?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, cnum);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next())
+			{
+				mnum=rs.getString("mnum");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return mnum;
 	}
 	
 }

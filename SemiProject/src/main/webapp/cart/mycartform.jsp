@@ -25,6 +25,37 @@ $(function(){
 		}
 	});
 	
+	//결제하기 버튼 클릭시
+	$("#paycart").click(function(){
+		
+		//클릭한 상품 개수(null값 있는지) 확인
+		var scnt=$(".cnum:checked").length;
+		
+		if(scnt==0){
+			alert("먼저 결제할 클래스를 선택하세요.");
+			return;
+		}
+		
+		$(".cnum:checked").each(function(i,element) {
+			
+			var cnum = $(this).attr("cnum");
+			
+			//선택한 클래스 모두 담기
+			$.ajax({
+				type: "get",
+				url: "cart/paycart.jsp",
+				dataType: "html",
+				data: {"cnum":cnum},
+				success: function(){
+					//나의클래스로 이동
+			    	location.href='index.jsp?boramMain=mypage/myclass.jsp?';
+					//alert(cnum);
+				}
+			});
+			
+		});
+		
+	});
 	
 		
 	//상품클릭시 상세페이지로 이동
@@ -41,11 +72,10 @@ $(function(){
 		
 		//클릭한 상품 개수(null값 있는지) 확인
 		var scnt=$(".cnum:checked").length;
-		//alert(scnt);
 		
 		if(scnt==0){
-			alert("먼저 삭제할 상품을 선택하세요.");
-			return; //함수 종료
+			alert("먼저 삭제할 클래스를 선택하세요.");
+			return; 
 		}
 		
 		$(".cnum:checked").each(function(i,element) {
@@ -136,10 +166,10 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 				</tr>			
 				<tr>
 					<td colspan="2" class="btnDel">
-						<button class="btnDel" id="btncartdel" ><span>선택상품삭제</span></button>
+						<button type="button" class="btnDel" id="btncartdel" ><span>선택상품삭제</span></button>
 					</td>
 					<td>
-						<button class="btnPay" onclick="location.href='index.jsp?boramMain=cart/paycart.jsp'">결제하기</button>
+						<button type="button" class="btnPay" id="paycart">결제하기</button>
 					</td>
 				</tr>
 			</tfoot>

@@ -84,6 +84,8 @@ table.myCart td.cartPrice{
 }
 table.myCart td.cartPrice>span{
 	vertical-align: middle !important;
+	width: 160px;
+	text-align: center;
 }
 
 table.myCart td > div > span.cartTitle{
