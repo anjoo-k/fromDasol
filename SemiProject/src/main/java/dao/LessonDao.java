@@ -11,6 +11,7 @@ import java.util.Vector;
 
 import com.mysql.cj.protocol.Resultset;
 
+import dto.CartDto;
 import dto.LessonDto;
 import mysql.db.DbConnect;
 
@@ -336,7 +337,7 @@ public class LessonDao {
 	}
 	
 	// 장바구니 담기
-	public void insertCart(String lnum, String mnum)
+	public void insertCart(CartDto dto)
 	{
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
@@ -345,8 +346,8 @@ public class LessonDao {
 		
 		try {
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, lnum);
-			pstmt.setString(2, mnum);
+			pstmt.setString(1, dto.getLnum());
+			pstmt.setString(2, dto.getMnum());
 			
 			pstmt.execute();
 		} catch (SQLException e) {
