@@ -5,6 +5,14 @@
 	color:#363636;
 }
 
+.lesson-title{
+  width: 215px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  cursor: pointer;
+}
+
 .category-main{
 	width: 970px;
 	margin: 0 auto;
@@ -111,11 +119,11 @@ span.sortSelect>select>option{
   text-align: left;
   color: #323232;
 }
-
 .category-img {
   width: 230px;
   height: 150px;
   border-radius: 10px;
+  cursor: pointer;
 }
 .category-lesson>p {
   font-family: NotoSansKR;
