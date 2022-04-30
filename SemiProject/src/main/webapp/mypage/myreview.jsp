@@ -1,3 +1,8 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="dao.LessonDao"%>
+<%@page import="dto.ReviewDto"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.ReviewDao"%>
 <%@page import="dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -5,14 +10,33 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<script type="text/javascript">
+function deleteReview() {
+    return confirm("해당 리뷰를 정말 삭제하시겠습니까?"); 
+    
+}
+
+</script>
+
 </head>
 <%
 	String loginok = (String)session.getAttribute("loginok");
 	String email = (String)session.getAttribute("emailok");
 	
+	//로그인 중인 회원 이름 + mnum 받아오기
 	MemberDao mdao = new MemberDao();
 	String name = mdao.getName(email);
-	String num = mdao.getMnum(email);
+	String mnum = mdao.getMnum(email);
+
+	//로그인중인 사용자의 리뷰 리스트 불러오기
+	ReviewDao rdao=new ReviewDao();
+	List<ReviewDto> list=rdao.getMyReview(mnum);
+	
+	//클래스의 이름을 얻기위한 dao 선언
+	LessonDao ldao=new LessonDao();
+	
+	//날짜 출력 양식
+	SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
 %>
 <body>
 
@@ -36,67 +60,36 @@
  	
  	<table>
  		<tbody>
-	 		
+	 		<%
+	      	for(ReviewDto dto:list){
+	      		String title=ldao.getLessonTitle(dto.getLnum());
+	      	%>
+	 			
 	            <tr>
-	                <th><a href="detailpage.html" class="reviewDetail">클래스명 : 덜 먹고 운동도 했는데 다이어트에 실패하는 '진짜' 이유 </a> 
+	                <th><a href="index.jsp?boramMain=detail/detailpage.jsp?lnum=<%=dto.getLnum() %>" class="reviewDetail"><%=title %></a> 
 	                	 <div class="star-review">
-	                        <img src="image/ico-star.png">
-	                        <img src="image/ico-star.png">
-	                        <img src="image/ico-star.png">
-	                        <img src="image/ico-star.png">
-	                        <img src="image/ico-starout.png">
-	                        <span>(4.0)</span>
-	                        <a href="#">수정</a> | <a href="#">삭제</a>
+	                	 	<%
+	                	 	int star=dto.getRstar();
+	                	 	for(int i=1;i<=star;i++){
+	                	 		%>
+	                	 		<img src="image/ico-star.png">
+	                	 	<%}
+	                	 	for(int i=0;i<5-star;i++){
+	                	 		%>
+	                	 		<img src="image/ico-starout.png">
+	                	 	<%}%>
+	                        <span>(<%=star %>)</span>
+	                        <a href="index.jsp?boramMain=review/writeReview.jsp?lnum=<%=dto.getLnum() %>&rnum=<%=dto.getRnum() %>">수정</a> | <a href="review/reviewDelAction.jsp?rnum=<%=dto.getRnum() %>" onclick="return deleteReview()">삭제</a>
 	                    </div>		
 	                </th>                             
 	            </tr>
 	            <tr>
-	          	   <td>살은 빠지는데 지옥을 경험했네요.
-	          	   <span class="time">2022-04-19</span></td> 
+	          	   <td><%=dto.getRcontents() %>
+	          	   <span class="time"><%=sdf.format(dto.getRday()) %></span></td> 
 	            </tr>
 	         
-           
+           <%} %>
        
-            <tr>
-                <th><a href="detailpage.html" class="reviewDetail">클래스명 : 빈센트 반 고흐 10분 요약정리</a>
-                	 <div class="star-review">
-                        <img src="image/ico-star.png">
-                        <img src="image/ico-star.png">
-                        <img src="image/ico-star.png">
-                        <img src="image/ico-star.png">
-                        <img src="image/ico-star.png">
-                        <span>(5.0)</span>
-                        <a href="#">수정</a> | <a href="#">삭제</a>
-                    </div>		
-                </th>
-                             
-            </tr>
-            <tr>
-          	   <td>저도 빈센트 반 고흐 같은 예술가가 되고 싶어지는 기분 이였습니다...
-          	   <span class="time">2022-04-19</span></td> 
-            </tr>
-          
-           
-            <tr>
-                <th><a href="detailpage.html" class="reviewDetail">클래스명 : 아주 쉽고 간단하게 사람 얼굴 그리는 방법 !! 꼭 보세요 ^^</a>
-                	 <div class="star-review">
-                        <img src="image/ico-star.png">
-						<img src="image/ico-starout.png">
-						<img src="image/ico-starout.png">
-                        <img src="image/ico-starout.png">
-                        <img src="image/ico-starout.png">
-                        <span>(1.0)</span>
-                        <a href="#">수정</a> | <a href="#">삭제</a>
-                    </div>		
-                </th>
-                             
-            </tr>
-            <tr>
-          	   <td>쉽다면서요. 간단하다면서요. 너무 어렵네요 
-          	   <span class="time">2022-04-19</span></td> 
-            </tr>
-            
-            
          </tbody>
  	</table>
  	
