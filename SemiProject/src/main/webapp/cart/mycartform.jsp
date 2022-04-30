@@ -47,6 +47,7 @@ $(function(){
 				dataType: "html",
 				data: {"cnum":cnum},
 				success: function(){
+					alert("클래스가 결제되었습니다.");
 					//나의클래스로 이동
 			    	location.href='index.jsp?boramMain=mypage/myclass.jsp?';
 					//alert(cnum);
