@@ -54,6 +54,26 @@ public class ReviewDao {
 		return list;
 	}
 	
-	
+	//[이다솔] 리뷰삭제메서드
+	public void reviewDelete(String rnum) {
+		
+		Connection conn=db.getConnection();
+		PreparedStatement psmt=null;
+		
+		String sql="delete from review where rnum=?";
+		
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, rnum);
+			psmt.execute();
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(psmt, conn);
+		}
+		
+	}
 	
 }
