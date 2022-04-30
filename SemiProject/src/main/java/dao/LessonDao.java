@@ -470,4 +470,46 @@ public class LessonDao {
 		}
 		return title;
 	}
+	
+	//검색시 클래스명이 포함된 클래스 출력
+	public List<LessonDto> getSearch(String searchtext)
+	{
+		List<LessonDto> list = new Vector<LessonDto>();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql="select * from lesson where title like ?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+searchtext+"%");
+			rs=pstmt.executeQuery();
+			
+			while(rs.next())
+			{
+				LessonDto dto = new LessonDto();
+				
+				dto.setLnum(rs.getString("lnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setTutor(rs.getString("tutor"));
+				dto.setCategory(rs.getString("category"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setIntro(rs.getString("intro"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setRegistday(rs.getTimestamp("registday"));
+				dto.setPerson(rs.getInt("person"));
+					
+			    //list 추가
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
 }
