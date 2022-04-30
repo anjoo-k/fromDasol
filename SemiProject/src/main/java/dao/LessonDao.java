@@ -443,5 +443,31 @@ public class LessonDao {
 		return n;
 	}
 	
-	
+	//제목 반환 메서드
+	public String getLessonTitle(String lnum) {
+		
+		Connection conn = db.getConnection();
+		PreparedStatement psmt = null;
+		ResultSet rs = null;
+		
+		String title="";
+		String sql="select title from lesson where lnum=?";
+		
+		try {
+			psmt=conn.prepareStatement(sql);
+			psmt.setString(1, lnum);
+			
+			rs=psmt.executeQuery();
+			
+			if(rs.next()) {
+				title=rs.getString("title");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, psmt, conn);
+		}
+		return title;
+	}
 }
