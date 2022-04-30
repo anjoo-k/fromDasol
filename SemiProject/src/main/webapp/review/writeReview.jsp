@@ -1,3 +1,4 @@
+<%@page import="dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -23,6 +24,14 @@
 <script type="text/javascript" src="<%=root%>/se2/photo_uploader/plugin/hp_SE2M_AttachQuickPhoto.js" charset="utf-8"></script>
 	
 </head>
+<%
+/* 세션에서 로그인중인 email을 통해 mnum값 받기 */
+String email = (String)session.getAttribute("emailok");
+MemberDao dao = new MemberDao();
+String mnum = dao.getMnum(email);
+
+String lnum = request.getParameter("lnum");
+%>
 <body>
 <!-- 깃 협업과정 테스트 주석 -->
 
@@ -30,7 +39,10 @@
 <div class="review">
     <!-- 리뷰작성폼 -->
 	<div>
-        <form action="#" method="post">
+        <form action="review/reviewAdd.jsp" method="post">
+        <!-- 클래스 번호,회원 번호 (hidden) -->
+        <input type="hidden" name="lnum" value="<%=lnum%>">
+        <input type="hidden" name="mnum" value="<%=mnum%>">
 			<table class="review">
 				<caption class="review"><span>빈센트 반 고흐 10분 요약정리 리뷰</span></caption>
 				<tr>
