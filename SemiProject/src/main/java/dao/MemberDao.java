@@ -152,6 +152,36 @@ public class MemberDao {
  			return name;
  		}
  	
+ 	// [신지환]해당 클래스 후기 게시판에서 각 mnum에 따른 name반환
+ 	public String getName_mnum(String mnum)
+ 	{
+ 		String name = "";
+ 		
+ 		Connection conn = db.getConnection();
+ 		PreparedStatement pstmt = null;
+ 		ResultSet rs = null;
+ 		
+ 		String sql = "select * from member where mnum=?";
+ 		
+ 		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, mnum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				name = rs.getString("name");
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+ 		
+ 		return name;
+ 	}
+ 	
  	//email에 따른 mnum값 반환
  	public String getMnum(String email) {
 			
