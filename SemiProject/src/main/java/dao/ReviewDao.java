@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import dto.ReviewDto;
 import mysql.db.DbConnect;
@@ -77,6 +78,44 @@ public class ReviewDao {
 		} finally {
 			db.dbClose(pstmt, conn);
 		}
+	}
+	
+	// [신지환]해당 클래스 리뷰목록 가져오기
+	public List<ReviewDto> getAllReview(String lnum)
+	{
+		List<ReviewDto> list = new Vector<ReviewDto>();
+		ReviewDto dto = new ReviewDto();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from review where lnum=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, lnum);
+			
+			rs = pstmt.executeQuery();
+			
+			while(rs.next()) {
+				dto.setRnum(rs.getString("rnum"));
+				dto.setLnum(rs.getString("lnum"));
+				dto.setMnum(rs.getString("mnum"));
+				dto.setRstar(rs.getInt("rstar"));
+				dto.setRcontents(rs.getString("rcontents"));
+				dto.setRday(rs.getTimestamp("rday"));
+				
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return list;
 	}
 	
 	//[이다솔] 리뷰삭제메서드
