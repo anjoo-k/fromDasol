@@ -91,14 +91,6 @@ $(function(){
 			  <span>
 			  <br>
 			  <%=ldto.getIntro()%>
-			  <!-- 저칼로리 음식, 고강도 운동을 해도 살이 많이 안 빠지거나<br>
-			  다이어트 후 폭식으로 요요가 오는 분들을 많이 볼 수 있는데요!<br>
-			  <br>
-			  너무 열심히 다이어트를 해도 좋지 않아요~<br>
-			  전략적인 치팅데이를 가지게 되면<br>
-			  오히려 더 쉽게! 다이어트에 성공할 수 있어요😎👍🏻<br>
-			  <br>
-			  하지만! 치팅데이라고 고칼로리 음식은 금물! -->
 			  </span>
 			</div>
 			
@@ -231,7 +223,7 @@ $(function(){
 	      <!-- 카테고리 -->
 	      <tr>
 	         <td>
-	            <p class="category"><%=ldto.getCategory()%><!-- 운동 --></p>
+	            <p class="category"><%=ldto.getCategory()%></p>
 	         </td>
 	      </tr>
 	      <!-- 별점(평점) -->
@@ -247,20 +239,20 @@ $(function(){
 	      <!-- 제목 -->
 	      <tr>
 	         <td>
-	            <p class="title"><%=ldto.getTitle()%><!-- 덜 먹고 운동도 했는데 다이어트에 실패하는 '진짜' 이유 --></p>
+	            <p class="title"><%=ldto.getTitle()%></p>
 	         </td>
 	      </tr>
 	      <!-- 강사명 -->
 	      <tr>
 	      	<td>
 	      		<!-- glyphicon 왜 안될까 -->
-	      		<p class="tutor"><%=ldto.getTutor()%><!-- 핏블리 --></p>
+	      		<p class="tutor"><%=ldto.getTutor()%></p>
 	      	</td>
 	      </tr>
 	      <!-- 가격 -->
 	      <tr>
 	         <td>
-	            <p class="price"><%=ldto.getPrice()%><!-- 50,000 -->원</p>
+	            <p class="price"><%=ldto.getPrice()%>원</p>
 	         </td>
 	      </tr>
 	      <!-- 버튼 -->
