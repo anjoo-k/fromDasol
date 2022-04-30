@@ -8,7 +8,7 @@
 </head>
 <%
 	
-	String password = request.getParameter("password");
+	//String password = request.getParameter("password");
 	
 %>
 <body>
@@ -66,18 +66,19 @@
 	
 	$("#passLook").click(function () {
 		//alert("클릭");
-		
 		let name = $("#name").val();
 		let email =  $("#email").val();
-		alert(name);
-		alert(email);
+		//alert(name);
+		//alert(email);
+		
 		$.ajax({
 			type:"post",
 			dataType:"html",
 			url:"login/findPasswordaction.jsp",
 			data:{"name":name, "email":email},
 			success: function (data) {
-				$("#password").val(<%=password%>);
+				//alert("성공");
+				$("#password").val(data);
 			}
 		});
 		
