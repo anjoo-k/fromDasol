@@ -48,7 +48,7 @@ $(function(){
 		
 		$(".cnum:checked").each(function(i,element) {
 			
-			var idx = $(this).attr("cnum");
+			var cnum = $(this).attr("cnum");
 			
 			//선택한 장바구니 모두 삭제
 			$.ajax({
