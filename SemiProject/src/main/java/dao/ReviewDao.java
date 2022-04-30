@@ -118,6 +118,36 @@ public class ReviewDao {
 		return list;
 	}
 	
+	// [신지환] 총 리뷰 갯수
+	public int getTotalCount(String lnum)
+	{
+		int n = 0;
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select count(*) from review where lnum=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, lnum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				n = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return n;
+	}
+	
 	//[이다솔] 리뷰삭제메서드
 	public void reviewDelete(String rnum) {
 		
