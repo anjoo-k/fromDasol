@@ -367,7 +367,9 @@ public class LessonDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		
-		String sql="select c.cnum, l.title, l.lnum, l.photo, l.price from cart c,lesson l,member m where c.lnum=l.lnum and c.mnum=m.mnum and m.email=?";
+		String sql="select c.cnum, l.title, c.lnum, l.photo, l.price "
+				+ "from cart c , lesson l, member m "
+				+ "where c.lnum=l.lnum and c.mnum=m.mnum and m.email=?";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);

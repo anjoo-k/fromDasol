@@ -70,7 +70,7 @@ $(function(){
 </head>
 <% 
 //로그인한 email얻기
-String email=(String)session.getAttribute("email");
+String email=(String)session.getAttribute("emailok");
 
 //dao
 LessonDao dao=new LessonDao();
@@ -116,8 +116,8 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 						</div>
 					</td>
 					<td class="cartPrice">
-						<span><span><%= nf.format(map.get("price")) %>원</span></span>
-					</td> 
+						<span><span><%= nf.format(price) %>원</span></span>
+					</td>
 					<% allmoney+=price; %>
 				</tr>
 				
