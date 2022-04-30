@@ -82,12 +82,13 @@ table.myCart td.cartPrice{
 	padding-left: 100px;
 	padding-right: 10px;
 }
+table.myCart td.cartPrice>span{
+	vertical-align: middle !important;
+}
 
 table.myCart td > div > span.cartTitle{
 	width: 560px;
-    /* background: red; */
-    display: inline-block;
-    vertical-align: middle;
+    vertical-align: middle !important;
     line-height: 20px;
 }
 
@@ -137,4 +138,5 @@ button.btnPay{
 
 .cartlesson{
 	cursor: pointer;
+	display: inline-block;
 }

@@ -24,6 +24,8 @@ $(function(){
 			$(".cnum").attr("checked",false);
 		}
 	});
+	
+	
 		
 	//상품클릭시 상세페이지로 이동
 	$("div.cartlesson").click(function() {
@@ -85,7 +87,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 			<caption>장바구니</caption>
 			<tr>
 				<th style="width: 80px;">
-					<input type="checkbox" id="allcheck">
+					<input type="checkbox" id="allcheck" checked="checked">
 				</th>
 				<th class="className">
 					<span>클래스 제목</span>
@@ -128,7 +130,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 			<tfoot>
 				<tr>
 					<td colspan="3">
-						<div class="allPrice">총 결재금액:<span><%= nf.format(allmoney) %></span>원</div>
+						<div class="allPrice">총 결재금액 : <span><%= nf.format(allmoney) %></span>원</div>
 					</td>
 					
 				</tr>			
@@ -137,7 +139,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 						<button class="btnDel" id="btncartdel" ><span>선택상품삭제</span></button>
 					</td>
 					<td>
-						<button class="btnPay" onclick="location.href='index.jsp?boramMain=mypage/myclass.jsp'">결제하기</button>
+						<button class="btnPay" onclick="location.href='index.jsp?boramMain=cart/paycart.jsp'">결제하기</button>
 					</td>
 				</tr>
 			</tfoot>

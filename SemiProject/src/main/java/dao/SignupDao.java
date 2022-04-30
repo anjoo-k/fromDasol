@@ -7,7 +7,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import dto.CartDto;
 import dto.LessonDto;
+import dto.SignupDto;
 import mysql.db.DbConnect;
 
 public class SignupDao {
@@ -52,5 +54,26 @@ public class SignupDao {
 		return list;
 	}
 	
+	//[조아라] 장바구니 결제하기 누르면 상품담기
+	public void insertSignup(SignupDto dto)
+	{
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		String sql = "insert into signup values (null,?,?)";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getLnum());
+			pstmt.setString(2, dto.getMnum());
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
 	
 }
