@@ -47,7 +47,7 @@ $(function(){
 				dataType: "html",
 				data: {"cnum":cnum},
 				success: function(){
-					alert("클래스가 결제되었습니다.");
+					
 					//나의클래스로 이동
 			    	location.href='index.jsp?boramMain=mypage/myclass.jsp?';
 					//alert(cnum);
@@ -98,6 +98,16 @@ $(function(){
 		});		
 	});
 });
+//결제하기 눌렀을때 나타나는 alert창
+function clickpay ()
+{
+	var scnt=$(".cnum:checked").length;
+	
+	if(scnt!==0){
+		alert("클래스가 결제되었습니다.");
+		
+	}
+}
 
 </script>
 </head>
@@ -170,7 +180,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 						<button type="button" class="btnDel" id="btncartdel" ><span>선택상품삭제</span></button>
 					</td>
 					<td>
-						<button type="button" class="btnPay" id="paycart">결제하기</button>
+						<button type="button" class="btnPay" id="paycart" onclick="clickpay()">결제하기</button>
 					</td>
 				</tr>
 			</tfoot>
