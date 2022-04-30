@@ -91,6 +91,49 @@ public class LessonDao {
 		return list;
 	}
 	
+
+	//전체 데이터 중 인원 많은 순으로 상위 값만 가져오기
+	public List<LessonDto> getAllLimitData(int limitsu)
+	{
+		List<LessonDto> list = new Vector<LessonDto>();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from lesson order by person desc limit ?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setInt(1, limitsu);
+			
+			rs=pstmt.executeQuery();
+				
+			while(rs.next())
+			{
+				LessonDto dto = new LessonDto();
+				
+				dto.setLnum(rs.getString("lnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setTutor(rs.getString("tutor"));
+				dto.setCategory(rs.getString("category"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setIntro(rs.getString("intro"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setRegistday(rs.getTimestamp("registday"));
+				dto.setPerson(rs.getInt("person"));
+					
+			//list 추가
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
 	
 	//카테고리 데이터 가져오기
 	public List<LessonDto> getCategoryData(String category)
@@ -106,6 +149,97 @@ public class LessonDao {
 		try {
 			pstmt=conn.prepareStatement(sql);
 			pstmt.setString(1, category);
+			rs=pstmt.executeQuery();
+				
+			while(rs.next())
+			{
+				LessonDto dto = new LessonDto();
+				
+				dto.setLnum(rs.getString("lnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setTutor(rs.getString("tutor"));
+				dto.setCategory(rs.getString("category"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setIntro(rs.getString("intro"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setRegistday(rs.getTimestamp("registday"));
+				dto.setPerson(rs.getInt("person"));
+					
+				//list 추가
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+	
+	
+	//카테고리 '영어' 관련 데이터 인원 많은 순으로 상위 값만 가져오기
+	public List<LessonDto> getEnglishData(String eg1,String eg2,String eg3,String eg4,String eg5)
+	{
+		List<LessonDto> list = new Vector<LessonDto>();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from lesson where title like ? or title like ? or title like ? or title like ? or title like ? order by person desc;";
+		//select * from lesson where title like '%영어%' or title like '%영포자%' or title like '%토익%' or title like '%토플%' or title like '%오픽%' order by person desc;
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, "%"+eg1+"%");
+			pstmt.setString(2, "%"+eg2+"%");
+			pstmt.setString(3, "%"+eg3+"%");
+			pstmt.setString(4, "%"+eg4+"%");
+			pstmt.setString(5, "%"+eg5+"%");
+			
+			rs=pstmt.executeQuery();
+				
+			while(rs.next())
+			{
+				LessonDto dto = new LessonDto();
+				
+				dto.setLnum(rs.getString("lnum"));
+				dto.setTitle(rs.getString("title"));
+				dto.setTutor(rs.getString("tutor"));
+				dto.setCategory(rs.getString("category"));
+				dto.setPrice(rs.getInt("price"));
+				dto.setIntro(rs.getString("intro"));
+				dto.setPhoto(rs.getString("photo"));
+				dto.setRegistday(rs.getTimestamp("registday"));
+				dto.setPerson(rs.getInt("person"));
+					
+				//list 추가
+				list.add(dto);
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		return list;
+	}
+		
+	//카테고리 데이터 인원 많은 순으로 상위 값만 가져오기
+	public List<LessonDto> getCategoryPersonData(String category, int limitsu)
+	{
+		List<LessonDto> list = new Vector<LessonDto>();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from lesson where category=? order by person desc limit ?";
+		
+		try {
+			pstmt=conn.prepareStatement(sql);
+			pstmt.setString(1, category);
+			pstmt.setInt(2, limitsu);
+			
 			rs=pstmt.executeQuery();
 				
 			while(rs.next())

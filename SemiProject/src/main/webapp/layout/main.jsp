@@ -7,6 +7,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
+<%
+LessonDao ldao = new LessonDao();
+LessonDto ldto = new LessonDto();
+
+String loginok = (String)session.getAttribute("loginok");
+%>
 <style type="text/css">
 .swipertitle {
   white-space: nowrap;
@@ -14,28 +20,46 @@
   text-overflow: ellipsis;
 }
 .swiper-img { cursor: pointer; }
+.se02_myclass, .se02_cart { cursor: pointer; }
 </style>
 
 <script type="text/javascript">
-
-//클래스 선택시 detail page 이동
 $(function(){
+	
+	//클래스 선택시 detail page 이동
 	$(".swiper-img").click(function() {
 		//태그에 넣어둔 lnum
 		var lnum=$(this).attr("lnum");
 		//alert(lnum); num값 넘어오는지 확인
 		location.href='index.jsp?boramMain=detail/detailpage.jsp?lnum='+lnum;		
 	});
+	
+	
+	//section02 배너 클릭시 로그인 확인 후 페이지 이동
+	$(".se02_myclass").click(function() {
+		<%if(loginok==null){%>
+		<!-- 로그아웃 상태 -->
+		location.href='index.jsp?boramMain=login/loginform.jsp';
+		<%}else{%>
+		<!-- 로그인 상태 -->
+		location.href='index.jsp?boramMain=mypage/myclass.jsp';
+		<%}%>
+	});
+	
+	$(".se02_cart").click(function() {
+		<%if(loginok==null){%>
+		<!-- 로그아웃 상태 -->
+		location.href='index.jsp?boramMain=login/loginform.jsp';
+		<%}else{%>
+		<!-- 로그인 상태 -->
+		location.href='index.jsp?boramMain=cart/mycartform.jsp';
+		<%}%>
+	});
+	
 });
-
 </script>
 </head>
-<%
-LessonDao ldao = new LessonDao();
-LessonDto ldto = new LessonDto();
 
-List<LessonDto> list = ldao.getAllDatas();
-%>
 <body>
 
 	<div class="main"> <!-- 메인 시작 -->
@@ -124,6 +148,8 @@ List<LessonDto> list = ldao.getAllDatas();
 	        	<div class="swiper mySwiper mainswiper">
 	        		<div class="swiper-wrapper mainswiper" >
 		                <%
+		                //List<LessonDto> list = ldao.getAllDatas();
+		                List<LessonDto> list = ldao.getAllLimitData(12);
 		                for(LessonDto dto:list)
 		                {
 		                %>
@@ -148,15 +174,12 @@ List<LessonDto> list = ldao.getAllDatas();
 
 		<!-- section02 VOD/카트 배너 시작 -->
         <div class="section02">
-            <div>
-                <span><b> VOD! 집에서 편하게 집중하는</b>
-                 <br> BORAM3 클래스 </span>
+            <div class="se02_myclass">
+                <span><b>VOD! 집에서 편하게 집중하는 나만의 클래스</b><br>BORAM3 나의 클래스</span>
                 <img src="image/ico-vod.png" alt="">
             </div>
-            <div>
-                <span><b>결제하고 보람차게 수업듣자</b><br>
-                  BORAM3 클래스
-                </span>
+            <div class="se02_cart">
+                <span><b>결제하고 보람차게 수업듣자</b><br>BORAM3 장바구니</span>
                 <img src="image/ico-market.png" alt="">
             </div>
         </div>
@@ -172,7 +195,7 @@ List<LessonDto> list = ldao.getAllDatas();
 				<div class="swiper mySwiper sub01">
 					<div class="swiper-wrapper sub01">
 		                <%
-		                List<LessonDto> sub1list = ldao.getCategoryData("요리");
+		                List<LessonDto> sub1list = ldao.getCategoryPersonData("요리", 12);
 		                for(LessonDto dto:sub1list)
 		                {
 		                %>
@@ -201,7 +224,8 @@ List<LessonDto> list = ldao.getAllDatas();
 				<div class="swiper mySwiper sub02">
 	            	<div class="swiper-wrapper sub02">
 		                <%
-		                List<LessonDto> sub2list = ldao.getCategoryData("외국어");
+		                //List<LessonDto> sub2list = ldao.getCategoryPersonData("외국어", 12);
+		                List<LessonDto> sub2list = ldao.getEnglishData("영어", "영포자", "토익", "토플", "오픽");
 		                for(LessonDto dto:sub2list)
 		                {
 		                %>
@@ -284,7 +308,7 @@ List<LessonDto> list = ldao.getAllDatas();
 				<div class="swiper mySwiper sub03">
 					<div class="swiper-wrapper sub03">	                
 		                <%
-		                List<LessonDto> sub3list = ldao.getCategoryData("운동");
+		                List<LessonDto> sub3list = ldao.getCategoryPersonData("운동", 12);
 		                for(LessonDto dto:sub3list)
 		                {
 		                %>
