@@ -55,7 +55,7 @@ public class ReviewDao {
 		return list;
 	}
 	
-	// [신지환]리뷰등록
+	// [신지환] 리뷰등록
 	public void insertReview(ReviewDto dto)
 	{
 		Connection conn = db.getConnection();
@@ -80,7 +80,7 @@ public class ReviewDao {
 		}
 	}
 	
-	// [신지환]해당 클래스 리뷰목록 가져오기
+	// [신지환] 해당 클래스 리뷰목록 가져오기
 	public List<ReviewDto> getAllReview(String lnum)
 	{
 		List<ReviewDto> list = new Vector<ReviewDto>();
@@ -168,6 +168,37 @@ public class ReviewDao {
 			db.dbClose(psmt, conn);
 		}
 		
+	}
+	
+	// [신지환] 평균 별점 반환
+	// 일단은 정수형으로
+	public int getAvgRstar(String lnum)
+	{
+		int avgStar = 0;
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select avg(rstar) from review where lnum=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, lnum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				avgStar = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return avgStar;
 	}
 	
 }

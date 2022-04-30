@@ -183,9 +183,14 @@ $(function(){
 	         <td>
 	            <div class="star-rating">
 					<!-- calc() 괄호 안의 연산식을 넣어 속성값을 지정할수있다. -->
-					<span class="star-fill" style="width: 70%;"></span>
+					<!-- 해당 클래스의 리뷰 평균 별점 -->
+					<%
+					float f_avg = rdao.getAvgRstar(lnum);
+					int avgPercent = (int)((f_avg/5) * 100);
+					%>
+					<span class="star-fill" style="width: <%=avgPercent%>%;"></span>
 				</div>
-				<span class="floatnum">(4.0)</span>
+				<span class="floatnum">(<%=f_avg%>)</span>
 	         </td>
 	      </tr>
 	      <!-- 제목 -->
