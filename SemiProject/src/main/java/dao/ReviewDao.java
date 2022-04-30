@@ -54,6 +54,31 @@ public class ReviewDao {
 		return list;
 	}
 	
+	// [신지환]리뷰등록
+	public void insertReview(ReviewDto dto)
+	{
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		
+		// lnum,mnum,rstar,rcontents
+		String sql = "insert into review values (null,?,?,?,?,now())";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getLnum());
+			pstmt.setString(2, dto.getMnum());
+			pstmt.setString(3, Integer.toString(dto.getRstar()));
+			pstmt.setString(4, dto.getRcontents());
+			
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	}
+	
 	//[이다솔] 리뷰삭제메서드
 	public void reviewDelete(String rnum) {
 		
