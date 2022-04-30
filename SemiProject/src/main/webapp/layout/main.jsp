@@ -1,3 +1,4 @@
+<%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.List"%>
 <%@page import="dto.LessonDto"%>
 <%@page import="dao.LessonDao"%>
@@ -12,6 +13,7 @@ LessonDao ldao = new LessonDao();
 LessonDto ldto = new LessonDto();
 
 String loginok = (String)session.getAttribute("loginok");
+NumberFormat nf = NumberFormat.getCurrencyInstance();
 %>
 <style type="text/css">
 .swipertitle {
@@ -156,7 +158,7 @@ $(function(){
 		                	<div class="swiper-slide mainswiper">
 		                		<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
 								<p class="swipertitle"><%=dto.getTitle() %></p>
-								<p class="money"><%=dto.getPrice() %></p>
+								<p class="money"><%=nf.format(dto.getPrice()) %>원</p>
 		                	</div>
 		                <%
 		                }
