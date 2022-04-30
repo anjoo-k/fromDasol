@@ -11,6 +11,7 @@
 </head>
 <body>
 <%
+request.setCharacterEncoding("utf-8");
 String searchtext=request.getParameter("searchtext");
 
 LessonDao ldao=new LessonDao();

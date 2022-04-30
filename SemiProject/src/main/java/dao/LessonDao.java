@@ -472,7 +472,7 @@ public class LessonDao {
 	}
 	
 	//검색시 클래스명이 포함된 클래스 출력
-	public List<LessonDto> getSearch(String searchtext)
+	public List<LessonDto> getSearch(String title)
 	{
 		List<LessonDto> list = new Vector<LessonDto>();
 		
@@ -484,7 +484,7 @@ public class LessonDao {
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
-			pstmt.setString(1, "%"+searchtext+"%");
+			pstmt.setString(1, "%"+title+"%");
 			rs=pstmt.executeQuery();
 			
 			while(rs.next())
