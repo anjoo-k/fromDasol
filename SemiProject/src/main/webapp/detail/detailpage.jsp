@@ -22,7 +22,7 @@
 <%
 
 /* (세션)현재 로그인 중인 회원의 email */
-String email = (String)session.getAttribute("email");
+String email = (String)session.getAttribute("emailok");
 
 /* Dao에서 mnum 가져오기 */
 MemberDao mdao = new MemberDao();
@@ -44,7 +44,7 @@ LessonDto dto = ldao.getData(lnum);
     <!-- [강나리] 상세페이지1 시작 -->
     <div class="main_detail_scroll">
 		<div class="detail_banner">
-			<img class="img_detail" alt="" src="<%=dto.getPhoto()%>"><!-- ../image/categori01/운동-1.jpg -->
+			<img class="img_detail" alt="" src="savePhoto/<%=dto.getPhoto()%>"><!-- ../image/categori01/운동-1.jpg -->
 			
 			<div>
 			  <button type="button" class="btn_detail_content detailActive" id="btn_c">클래스 설명</button>
@@ -232,8 +232,8 @@ LessonDto dto = ldao.getData(lnum);
 	      <!-- 버튼 -->
 	      <tr>
 	         <td class="decisionBtn">
-	            <button type="button" class="btn_kakao_share"><img src="../image/ico-kakao.png">Kakao로 공유하기</button>
-	            <button type="button" class="btn_intoCart" id="addCart"><img src="../image/ico-cart.png">장바구니 담기</button>
+	            <button type="button" class="btn_kakao_share"><img src="image/ico-kakao.png">Kakao로 공유하기</button>
+	            <button type="button" class="btn_intoCart" id="addCart"><img src="image/ico-cart.png">장바구니 담기</button>
 	         </td>
 	      </tr>
 	   </table>
@@ -270,23 +270,22 @@ LessonDto dto = ldao.getData(lnum);
 		$("#addCart").click(function(){
 			<%
 			/* cart에 담겨져 있는지 중복체크 */
-			if(ldao.checkClass("2", "22")) { %>
+			if(ldao.checkClass(lnum, mnum)) { %>
 				alert("이미 해당 클래스가 장바구니에 담겨져 있습니다");
 				return;
 			<%
 			}
 			else {
-				ldao.insertCart("2", "22");
+				ldao.insertCart(lnum, mnum);
 				%>
 				alert("장바구니에 클래스가 담겼습니다");
 			<%
 			}
 			%>
 			
-			
 			/* 장바구니 페이지로 이동 */
 			if(confirm("장바구니로 이동하시겠습니까?")) {
-				location.href = "../html/myCart.html";
+				location.href = "index.jsp?boramMain=cart/mycartform.jsp";
 			}
 			else {
 				location.reload();
