@@ -1,3 +1,7 @@
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="dto.ReviewDto"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.ReviewDao"%>
 <%@page import="dto.CartDto"%>
 <%@page import="dto.LessonDto"%>
 <%@page import="dao.MemberDao"%>
@@ -78,7 +82,8 @@ $(function(){
     <!-- [강나리] 상세페이지1 시작 -->
     <div class="main_detail_scroll">
 		<div class="detail_banner">
-			<img class="img_detail" alt="" src="savePhoto/<%=ldto.getPhoto()%>"><!-- ../image/categori01/운동-1.jpg -->
+		
+			<img class="img_detail" alt="" src="savePhoto/<%=ldto.getPhoto()%>">
 			
 			<div>
 			  <button type="button" class="btn_detail_content detailActive" id="btn_c">클래스 설명</button>
@@ -94,121 +99,68 @@ $(function(){
 			  </span>
 			</div>
 			
-					
 			<!-- review 테이블 반복 -->
+			<%
+			ReviewDao rdao = new ReviewDao();
+			/* 총 리뷰 갯수 */
+			int totalCount = rdao.getTotalCount(lnum);
+			/* 모든 리뷰 가져오기 */
+			List<ReviewDto> r_list = rdao.getAllReview(lnum);
+			%>
 			<div class="detail_review" id="detail_r" style="display: none;">
-			
 			  <table class="table table-bordered" style="width: 545px;">
-
-			  
-			  
-				    <tr height="50px">
-				      <td>
-				        <div class="star-review">
-				          <b>강진현님</b>&nbsp;
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-starout.png">
-		                  <span>(4.0)</span>
-		                  <a href="#">수정</a> | <a href="#">삭제</a>
-		                  <span class="writeday" style="float: right;">2022.04.26</span>
-		                </div>
-				      </td>				  
-				    </tr>
-				    
-				    <tr height="30px">
-				      <td class="comment">
-				        <span>
-				        살은 빠지는데 지옥을 경험했네요.
-				        </span>
-				      </td>
-				    </tr>
-				    
-				    
-				    <tr height="50px">
-				      <td>
-				        <div class="star-review">
-				          <b>강진현님</b>&nbsp;
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-starout.png">
-		                  <span>(4.0)</span>
-		                  <a href="#">수정</a> | <a href="#">삭제</a>
-		                  <span class="writeday" style="float: right;">2022.04.26</span>
-		                </div>
-				      </td>				  
-				    </tr>
-				    
-				    <tr height="30px">
-				      <td class="comment">
-				        <span>
-				        살은 빠지는데 지옥을 경험했네요.
-				        </span>
-				      </td>
-				    </tr>
-				    
-				    
-				    <tr height="50px">
-				      <td>
-				        <div class="star-review">
-				          <b>강진현님</b>&nbsp;
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-starout.png">
-		                  <span>(4.0)</span>
-		                  <a href="#">수정</a> | <a href="#">삭제</a>
-		                  <span class="writeday" style="float: right;">2022.04.26</span>
-		                </div>
-				      </td>				  
-				    </tr>
-				    
-				    <tr height="30px">
-				      <td class="comment">
-				        <span>
-				        살은 빠지는데 지옥을 경험했네요.
-				        </span>
-				      </td>
-				    </tr>
-				    
-				    
-				    <tr height="50px">
-				      <td>
-				        <div class="star-review">
-				          <b>강진현님</b>&nbsp;
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-star.png">
-		                  <img src="../image/ico-starout.png">
-		                  <span>(4.0)</span>
-		                  <a href="#">수정</a> | <a href="#">삭제</a>
-		                  <span class="writeday" style="float: right;">2022.04.26</span>
-		                </div>
-				      </td>				  
-				    </tr>
-				    
-				    <tr height="30px">
-				      <td class="comment">
-				        <span>
-				        살은 빠지는데 지옥을 경험했네요.
-				        </span>
-				      </td>
-				    </tr>
-				    
-				    
+			  <%
+			  if(totalCount != 0) {
+			  for(ReviewDto dto:r_list) { %>
+				<tr height="50px">
+			      <td>
+			        <div class="star-review">
+			          <b><%=mdao.getName_mnum(dto.getMnum())%></b>&nbsp;
+			          <%
+			          for(int i = 0; i < dto.getRstar(); i++) { %>
+			          <img src="image/ico-star.png">          
+			          <%
+			          }		          
+	                  for(int i = 0; i < 5-dto.getRstar(); i++) { %>
+	                  <img src="image/ico-starout.png">
+	                  <%
+	                  }
+	                  
+	                  float rstar = dto.getRstar();
+	                  %>
+	                  <span>(<%=rstar%>)</span>
+	                  <!-- <a href="#">수정</a> | <a href="#">삭제</a> -->
+	                  <%
+	                  SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
+	                  %>
+	                  <span class="writeday" style="float: right;"><%=sdf.format(dto.getRday())%></span>
+	                </div>
+			      </td>				  
+			    </tr>
+			    
+			    <tr height="30px">
+			      <td class="comment">
+			        <span>
+			        <%=dto.getRcontents()%>
+			        </span>
+			      </td>
+			    </tr>
+			  <%
+			  }
+			  } else { %>
+				<tr height="80px">
+					<td style="text-align: center; vertical-align: middle;">
+					아직 리뷰가 없어요 😭
+					</td>
+				</tr>
+			  <%
+			  }
+			  %>
 			    
 			  </table>
 			  <hr>
-			  
 			</div>
 			<!-- review 테이블 반복 끝 -->
-						
 			
 		</div>
     </div>
