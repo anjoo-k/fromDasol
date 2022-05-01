@@ -90,7 +90,7 @@ $(function(){
 			  <button type="button" class="btn_detail_review" id="btn_r">클래스 후기</button>
 			</div>
 			
-			<hr>
+			<hr style="margin-bottom: 0;">
 			<!-- 클래스 소개 -->
 			<div class="detail_content" id="detail_c">
 			  <span>
@@ -108,12 +108,12 @@ $(function(){
 			List<ReviewDto> r_list = rdao.getAllReview(lnum);
 			%>
 			<div class="detail_review" id="detail_r" style="display: none;">
-			  <table class="table table-bordered" style="width: 545px;">
+			  <table style="width: 545px;">
 			  <%
 			  if(totalCount != 0) {
 			  for(ReviewDto dto:r_list) { %>
-				<tr height="50px">
-			      <td>
+				<tr height="40px">
+			      <td style="vertical-align: middle;">
 			        <div class="star-review">
 			          <b><%=mdao.getName_mnum(dto.getMnum())%></b>&nbsp;
 			          <%
@@ -138,7 +138,7 @@ $(function(){
 			      </td>				  
 			    </tr>
 			    
-			    <tr height="30px">
+			    <tr height="40px">
 			      <td class="comment">
 			        <span>
 			        <%=dto.getRcontents()%>
@@ -158,7 +158,6 @@ $(function(){
 			  %>
 			    
 			  </table>
-			  <hr>
 			</div>
 			<!-- review 테이블 반복 끝 -->
 			
