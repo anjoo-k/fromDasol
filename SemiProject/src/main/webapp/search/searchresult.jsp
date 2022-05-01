@@ -28,10 +28,10 @@ $(function(){
 <body>
 <%
 request.setCharacterEncoding("utf-8");
-String q=request.getParameter("q");
+String searchtext=request.getParameter("searchtext");
 
 LessonDao ldao=new LessonDao();
-List<LessonDto> list=ldao.getSearch(q);
+List<LessonDto> list=ldao.getSearch(searchtext);
 %>
 
 	<div class="searchresult">
