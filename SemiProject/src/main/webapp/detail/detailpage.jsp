@@ -1,3 +1,5 @@
+<%@page import="dto.SignupDto"%>
+<%@page import="dao.SignupDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="dto.ReviewDto"%>
 <%@page import="java.util.List"%>
@@ -39,9 +41,14 @@ String lnum = request.getParameter("lnum");
 LessonDao ldao = new LessonDao();
 LessonDto ldto = ldao.getData(lnum);
 
+//[조아라]
+/* 마이클래스에 해당하는 클래스 있는 경우 장바구니 버튼 대신 마이클래스버튼 추가 */
+SignupDao sdao=new SignupDao();
+SignupDto sdto=new SignupDto();
 %>
 <script type="text/javascript">
 $(function(){
+	
 	/* 장바구니 담기 버튼 클릭시(lnum,mnum) */
 	$("#addCart").click(function(){
 		<%
@@ -215,7 +222,12 @@ $(function(){
 	      <tr>
 	         <td class="decisionBtn">
 	            <button type="button" class="btn_kakao_share"><img src="image/ico-kakao.png">Kakao로 공유하기</button>
-	            <button type="button" class="btn_intoCart" id="addCart"><img src="image/ico-cart.png">장바구니 담기</button>
+	            <% 
+	            if(sdao.checkSignupClass(lnum, mnum)){%>
+	            	<button type="button" class="btn_intoCart" id="tomyclass" onclick="location.href='index.jsp?boramMain=mypage/myclass.jsp'">마이페이지</button>
+	            <%}else{%>
+	            	<button type="button" class="btn_intoCart" id="addCart"><img src="image/ico-cart.png">장바구니 담기</button>
+	            	<%}%>
 	         </td>
 	      </tr>
 	   </table>
