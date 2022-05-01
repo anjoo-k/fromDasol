@@ -92,7 +92,7 @@ $(function(){
 			
 			<hr style="margin-bottom: 0;">
 			<!-- 클래스 소개 -->
-			<div class="detail_content" id="detail_c">
+			<div class="detail_content" id="detail_c" style="width: 550px;">
 			  <span>
 			  <br>
 			  <%=ldto.getIntro()%>
