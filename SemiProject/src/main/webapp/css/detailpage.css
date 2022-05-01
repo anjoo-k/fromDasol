@@ -91,7 +91,7 @@ div.decisionFrame p.category {
 
 /* 별점 */
 div.star-rating {
-	margin-left: 5px;
+	margin-left: 0;
 	width: 65px;
 }
 div.star-rating,.star-rating span.star-fill {
