@@ -8,6 +8,18 @@
 <html>
 <head>
 <meta charset="UTF-8">
+ <script type="text/javascript">
+	$(function() {
+		$(".selectclass-img").click(function() {
+			var url=$(this).parent().attr("link");
+			window.open(url,"_blank");
+		})
+		$(".lesson-name").click(function() {
+			var url=$(this).parent().parent().attr("link");
+			window.open(url,"_blank");
+		})
+	})
+</script>
 </head>
 <%
 	String email=(String)session.getAttribute("emailok");
@@ -48,7 +60,7 @@
 	      for(LessonDto dto:list){%>
 
             <td>
-               <div class="selectclass-lesson" lnum="<%=dto.getLnum() %>">
+               <div class="selectclass-lesson" lnum="<%=dto.getLnum() %>" link="<%=dto.getLink()%>">
                     <img src="savePhoto/<%=dto.getPhoto() %>" class="selectclass-img">  
                     <div class="bottomclass">                                         
                      <p class="lesson-name"><%=dto.getTitle() %></p>

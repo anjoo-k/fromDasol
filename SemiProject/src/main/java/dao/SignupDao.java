@@ -26,7 +26,7 @@ public class SignupDao {
 		PreparedStatement psmt=null;
 		ResultSet rs=null;
 		
-		String sql="select l.lnum, l.title, l.photo from lesson l,signup s where s.lnum=l.lnum and s.mnum=?";
+		String sql="select l.lnum, l.title, l.photo, l.link from lesson l,signup s where s.lnum=l.lnum and s.mnum=?";
 		
 		try {
 			psmt=conn.prepareStatement(sql);
@@ -42,6 +42,7 @@ public class SignupDao {
 				dto.setLnum(rs.getString("lnum"));
 				dto.setTitle(rs.getString("title"));
 				dto.setPhoto(rs.getString("photo"));
+				dto.setLink(rs.getString("link"));
 				
 				list.add(dto);
 			}
