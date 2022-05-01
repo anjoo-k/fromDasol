@@ -283,7 +283,7 @@ $(function(){
 	                <a href="https://github.com/Wyna2" target="_blank"><img src="image/nari.png" alt=""></a>
 	                <p class="name">강나리</p>
 	                <p class="job">백엔드 개발자</p>
-	                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
+	                <p class="mark"><img src="image/ico-star.png" alt="">5.0(28)</p>
 	            </span>
 	
 	            <span>
