@@ -12,7 +12,14 @@ public class LessonDto {
 	private String photo;
 	private Timestamp registday;
 	private int person;
+	private String link;
 	
+	public String getLink() {
+		return link;
+	}
+	public void setLink(String link) {
+		this.link = link;
+	}
 	public String getLnum() {
 		return lnum;
 	}
