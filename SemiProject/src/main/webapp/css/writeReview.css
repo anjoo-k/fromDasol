@@ -86,9 +86,11 @@ div.review .star-rating {
   flex-direction: row-reverse;
   font-size:1.2em;
   justify-content:space-around;
-  padding:0 .2em;
+  padding:0 .4em;
   text-align:center;
   width:5em;
+  border: 1px solid gainsboro;
+  border-radius: 100px;
 }
 
 div.review .star-rating input {
