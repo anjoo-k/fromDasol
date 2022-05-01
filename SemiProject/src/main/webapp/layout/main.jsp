@@ -156,7 +156,9 @@ $(function(){
 		                {
 		                %>
 		                	<div class="swiper-slide mainswiper">
+		                	<div class="imgbox">
 		                		<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
+		                	</div>
 								<p class="swipertitle"><%=dto.getTitle() %></p>
 								<p class="money"><%=nf.format(dto.getPrice()) %>원</p>
 		                	</div>
@@ -202,7 +204,9 @@ $(function(){
 		                {
 		                %>
 		                	<div class="swiper-slide sub01">
+		                	<div class="imgbox">
 		                		<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
+		                	</div>
 								<p class="swipertitle"><%=dto.getTitle() %></p>
 		                	</div>
 		                <%
@@ -232,7 +236,9 @@ $(function(){
 		                {
 		                %>
 		                	<div class="swiper-slide sub02">
+		                	<div class="imgbox">
 		                		<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
+		                	</div>
 								<p class="swipertitle"><%=dto.getTitle() %></p>
 		                	</div>
 		                <%
@@ -256,14 +262,14 @@ $(function(){
 	             	<a href="https://github.com/Leedasol2" target="_blank"><img src="image/dasol.png" alt=""></a>
 	                <p class="name">이다솔</p>
 	                <p class="job">백엔드 개발자</p>
-	                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
+	                <p class="mark"><img src="image/ico-star.png" alt="">5.0(24)</p>
 	            </span>
 	
 	            <span>
 	                <a href="https://github.com/cocohyuncoco" target="_blank"><img src="image/hyun.png" alt=""></a>
 	                <p class="name">임현정</p>
 	                <p class="job">백엔드 개발자</p>
-	                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
+	                <p class="mark"><img src="image/ico-star.png" alt="">5.0(24)</p>
 	            </span>
 	
 	            <span>
@@ -277,7 +283,7 @@ $(function(){
 	                <a href="https://github.com/Wyna2" target="_blank"><img src="image/nari.png" alt=""></a>
 	                <p class="name">강나리</p>
 	                <p class="job">백엔드 개발자</p>
-	                <p class="mark"><img src="image/ico-star.png" alt="">5.0(25)</p>
+	                <p class="mark"><img src="image/ico-star.png" alt="">5.0(28)</p>
 	            </span>
 	
 	            <span>
@@ -315,8 +321,10 @@ $(function(){
 		                {
 		                %>
 		                	<div class="swiper-slide sub03">
-			                	<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
-								<p class="swipertitle"><%=dto.getTitle() %></p>
+			                	<div class="imgbox">
+			                		<img src="savePhoto/<%=dto.getPhoto() %>" class="swiper-img" lnum="<%=dto.getLnum() %>">
+			                	</div>
+				                <p class="swipertitle"><%=dto.getTitle() %></p>
 		                	</div>
 		                <%
 		                }

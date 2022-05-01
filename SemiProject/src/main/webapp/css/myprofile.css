@@ -237,25 +237,40 @@ div.selectclass{
     margin-bottom: 50px;
     margin-top: 150px;
 }
+
+
 .selectclass-img {
   width: 235px;
   height: 140px;
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+.selectclass-img:hover{
+	transform:scale(1.1);             /*  default */
+	-webkit-transform:scale(1.1);     /*  크롬 */
+	-moz-transform:scale(1.1);       /* FireFox */
+	-o-transform:scale(1.1);           /* Opera */
+}
+
 .selectclass-lesson>div.bottomclass{
   margin-bottom: 30px;
 }
 .selectclass-lesson>div.bottomclass>p.lesson-name{
-  font-size: 15px;
-  font-weight: 600;
-  font-stretch: normal;
-  font-style: normal;
-  line-height: 1.5;
-  letter-spacing: normal;
-  text-align: left;
-  color: #363636;
+     font-size: 15px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    text-align: left;
+    color: #363636;
     cursor: pointer;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 220px;
 }
 table.selectclass-lesson tr *{
    margin: 4px;

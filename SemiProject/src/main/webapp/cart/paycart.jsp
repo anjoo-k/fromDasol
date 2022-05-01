@@ -14,7 +14,7 @@
 </head>
 <body>
 <% 
-
+LessonDao ldao=new LessonDao();
 String cnum=request.getParameter("cnum");
 
 //cart에서 lnum과 mnum 받아오기
@@ -26,8 +26,7 @@ String mnum=sdao.getCartMnum(cnum);
 sdao.insertSignup(lnum, mnum);
 
 //중복으로 담기지 않도록 담긴클래스는 장바구니에서 삭제
-LessonDao dao=new LessonDao();
-dao.deleteCart(cnum);
+ldao.deleteCart(cnum);
 
 //마이클래스로 이동
 response.sendRedirect("../index.jsp?boranMain=mypage/myclass.jsp");
