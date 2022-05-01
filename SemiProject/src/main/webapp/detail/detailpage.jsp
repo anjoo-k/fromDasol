@@ -224,7 +224,7 @@ $(function(){
 	            <button type="button" class="btn_kakao_share"><img src="image/ico-kakao.png">Kakao로 공유하기</button>
 	            <% 
 	            if(sdao.checkSignupClass(lnum, mnum)){%>
-	            	<button type="button" class="btn_intoCart" id="tomyclass" onclick="location.href='index.jsp?boramMain=mypage/myclass.jsp'">마이페이지</button>
+	            	<button type="button" class="btn_intoCart" id="tomyclass" onclick="location.href='index.jsp?boramMain=mypage/myclass.jsp'">클래스 들으러가기</button>
 	            <%}else{%>
 	            	<button type="button" class="btn_intoCart" id="addCart"><img src="image/ico-cart.png">장바구니 담기</button>
 	            	<%}%>
