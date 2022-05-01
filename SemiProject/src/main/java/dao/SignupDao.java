@@ -137,4 +137,31 @@ public class SignupDao {
 		return mnum;
 	}
 	
+	// 중복클래스 체크..마이클래스에서
+	public boolean checkSignupClass(String lnum,String mnum)
+	{
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+			
+		String sql = "select * from signup where lnum=? and mnum=?";
+		boolean flag = false;
+			
+			try {
+				pstmt = conn.prepareStatement(sql);
+				pstmt.setString(1, lnum);
+				pstmt.setString(2, mnum);
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()) {
+					flag = true;
+				}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+				db.dbClose(rs, pstmt, conn);
+		}
+		return flag;	
+	}
 }
