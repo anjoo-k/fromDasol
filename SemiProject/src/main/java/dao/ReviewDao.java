@@ -86,7 +86,7 @@ public class ReviewDao {
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
 	
-		String sql = "update review set lnum=?,mnum=?,rstar=?,rcontents=?,rdays=now() where rnum=?";
+		String sql = "update review set lnum=?,mnum=?,rstar=?,rcontents=?,rday=now() where rnum=?";
 	
 		try {
 			pstmt = conn.prepareStatement(sql);
