@@ -22,18 +22,11 @@ SignupDao sdao=new SignupDao();
 String lnum=sdao.getCartLnum(cnum);
 String mnum=sdao.getCartMnum(cnum);
 
-//마이클래스에 중복된 클래스는 담기 전에 지워지도록
-if(sdao.checkSignupClass(lnum, mnum))
-{
-	ldao.deleteCart(cnum);
-}else{
-	//수강클래스로 담기
-	sdao.insertSignup(lnum, mnum);
+//수강클래스로 담기
+sdao.insertSignup(lnum, mnum);
 
-	//중복으로 담기지 않도록 담긴클래스는 장바구니에서 삭제
-	ldao.deleteCart(cnum);
-}
-
+//중복으로 담기지 않도록 담긴클래스는 장바구니에서 삭제
+ldao.deleteCart(cnum);
 
 //마이클래스로 이동
 response.sendRedirect("../index.jsp?boranMain=mypage/myclass.jsp");
