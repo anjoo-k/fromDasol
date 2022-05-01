@@ -1,3 +1,4 @@
+<%@page import="dao.SignupDao"%>
 <%@page import="dto.LessonDto"%>
 <%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.HashMap"%>
@@ -10,6 +11,10 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+<% 
+SignupDao sdao=new SignupDao();
+
+%>
 <script type="text/javascript">
 $(function(){
 	
@@ -35,7 +40,6 @@ $(function(){
 			alert("먼저 결제할 클래스를 선택하세요.");
 			return;
 		}
-		
 		$(".cnum:checked").each(function(i,element) {
 			
 			var cnum = $(this).attr("cnum");
