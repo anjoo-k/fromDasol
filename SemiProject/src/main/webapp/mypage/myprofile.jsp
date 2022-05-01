@@ -60,7 +60,7 @@
 		//삭제확인 이벤트
 		$("button.dropbutton").click(function () {		
 		//alert(<%=num%>);
-		confirm("탈퇴 하시겠습니까?");
+		alert("탈퇴 되었습니다");
 		
 		//num값을 받아준다. 왜냐면 deleteMember메서드 파라미터 값이 num이라. 같이 보내야함
 		let mnum= $("#delnum").val();

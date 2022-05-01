@@ -9,6 +9,72 @@
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
 
 </head>
+<style>
+*{
+	font-family: 'Noto Sans KR', sans-serif !important;
+	color:#363636;
+	font-weight: 500;
+}
+
+.temail{
+	width: 100%;
+    text-align: center;    
+    padding-top: 50px;
+}
+.inputbox{
+	width: 200px;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #e6e6e6;
+    outline: none;
+}
+
+.inputbox:focus{
+	border: 1px solid #1a93ff;
+}
+.overlapchkbtn{
+	width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
+    background-color: #1a93ff;
+    }
+    
+.useokemail{
+	text-align: center;
+	padding-top: 76px;
+	padding-bottom: 30px;
+	}
+
+.useokbtn{
+	margin-left: 150px;
+	width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    color: #fff;
+    font-size: 16px;
+    background-color: #1a93ff;
+}
+
+.rechkemail{
+	 width: 80px;
+    height: 40px;
+    border-radius: 5px;
+    outline: none;
+    border: 0;
+    color: #565656;
+    font-size: 16px;
+    background-color: #e6e6e6;
+    margin-left: 10px;
+}
+</style>
 <body>
 <% 
 request.setCharacterEncoding("utf-8");
@@ -44,7 +110,7 @@ if(key==null){
 		
 		<h3 class="useokemail"><%= email %>는 사용가능한 이메일입니다</h3>
 		<button type="button" class="useokbtn" id="btnuse"
-		style="margin-left: 200px;" onclick="goBack('<%= email %>')">사용하기</button>
+		 onclick="goBack('<%= email %>')">사용하기</button>
 		<button type="button" class="rechkemail"
 		onclick="location.href='emailcheck.jsp'">다시하기</button>
 		<%}
