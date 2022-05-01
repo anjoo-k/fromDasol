@@ -22,7 +22,7 @@ $(function(){
 		location.href='index.jsp?boramMain=detail/detailpage.jsp?lnum='+lnum;
 	});
 });
-ㅇ
+
 </script>
 </head>
 <body>
