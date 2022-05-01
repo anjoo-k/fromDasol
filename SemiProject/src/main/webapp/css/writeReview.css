@@ -108,3 +108,8 @@ div.review .star-rating label:hover,
 .star-rating label:hover ~ label {
   color:#f90;
 }
+
+div.star-rating, .star-rating span.star-fill {
+    background: url("") no-repeat;
+    height: 30px;
+}
