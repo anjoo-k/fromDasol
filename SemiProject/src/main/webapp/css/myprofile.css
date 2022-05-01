@@ -237,12 +237,23 @@ div.selectclass{
     margin-bottom: 50px;
     margin-top: 150px;
 }
+
+
 .selectclass-img {
   width: 235px;
   height: 140px;
   border-radius: 5px;
   cursor: pointer;
 }
+
+
+.selectclass-img:hover{
+	transform:scale(1.1);             /*  default */
+	-webkit-transform:scale(1.1);     /*  크롬 */
+	-moz-transform:scale(1.1);       /* FireFox */
+	-o-transform:scale(1.1);           /* Opera */
+}
+
 .selectclass-lesson>div.bottomclass{
   margin-bottom: 30px;
 }
