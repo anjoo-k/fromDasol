@@ -28,8 +28,7 @@ String rnum = request.getParameter("rnum");
 String lnum = request.getParameter("lnum");
 %>
 <body>
-<!-- writeReview에서 가져오자 -->
-<!-- 리뷰 수정창(스마트게시판) 띄우기 -->
+<!-- writeReview 참고 -->
 <div class="review">
     <!-- 리뷰작성폼 -->
 	<div>

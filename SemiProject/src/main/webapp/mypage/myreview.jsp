@@ -79,7 +79,7 @@ function deleteReview() {
 	                	 		<img src="image/ico-starout.png">
 	                	 	<%}%>
 	                        <span>(<%=star %>)</span>
-	                        <a href="index.jsp?boramMain=review/writeReview.jsp?lnum=<%=dto.getLnum() %>&rnum=<%=dto.getRnum() %>">수정</a> | <a href="review/reviewDelAction.jsp?rnum=<%=dto.getRnum() %>" onclick="return deleteReview()">삭제</a>
+	                        <a href="index.jsp?boramMain=review/u_writeReview.jsp?lnum=<%=dto.getLnum() %>&rnum=<%=dto.getRnum() %>">수정</a> | <a href="review/reviewDelAction.jsp?rnum=<%=dto.getRnum() %>" onclick="return deleteReview()">삭제</a>
 	                    </div>		
 	                </th>                             
 	            </tr>
