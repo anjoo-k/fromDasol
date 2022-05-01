@@ -77,6 +77,17 @@ div.searchclass{
   text-align: left;
   color: #363636;
 }
+
+p.lesson-t{
+  width: 215px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;  
+  cursor: pointer;
+}
+
+div.searchclass-lesson>img.searchclass-img { cursor: pointer; }
+
 table.searchclass-lesson tr *{
    margin: 4px;
 }

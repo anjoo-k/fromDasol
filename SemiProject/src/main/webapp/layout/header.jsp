@@ -7,12 +7,11 @@
 <meta charset="UTF-8">
 <script type="text/javascript">
 $(function(){
-	
-	$(".submitAction").hide();
-	
 	$(".searchtext").keydown(function(key) {
 		if( key.keyCode == 13 ){
-			$(".submitAction").click;
+			var searchtext = $(this).val(); 
+			location.href='index.jsp?boramMain=search/searchok.jsp?searchtext='+searchtext;
+			alert(searchtext);
 		}
 	});
 });
@@ -29,13 +28,12 @@ String loginok = (String)session.getAttribute("loginok");
             </a>
             
             <div class="searchbar">
-               	<form action="index.jsp?boramMain=search/searchok.jsp" method="post">
+               	<form action="" method="get">
     			 	<div class="searchinput">
     			 		<div class="searchimg">
     			 			<img alt="검색아이콘" class="simg" src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+CiAgICAgICAgPHBhdGggZD0iTTAgMGgyNHYyNEgweiIvPgogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDQgNCkiIHN0cm9rZT0iI0I1QjVCNSIgc3Ryb2tlLXdpZHRoPSIxLjYiPgogICAgICAgICAgICA8Y2lyY2xlIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGN4PSI2LjUiIGN5PSI2LjUiIHI9IjYuNSIvPgogICAgICAgICAgICA8cGF0aCBzdHJva2UtbGluZWNhcD0icm91bmQiIGQ9Im0xMS41IDExLjUgNSA1Ii8+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K">
     			 		</div>
-    			 		<input type="search" placeholder="무엇을 배우고 싶나요?" class="searchtext" name="q">
-    			 		<input type="submit" class="submitAction">
+    			 		<input type="search" placeholder="무엇을 배우고 싶나요?" class="searchtext" name="searchtext">
     			 	</div>
 				</form>
             </div>
