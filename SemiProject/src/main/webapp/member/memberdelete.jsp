@@ -13,6 +13,11 @@
 	String email = request.getParameter("email");
 	String password = request.getParameter("password");
 
+	System.out.println(mnum);
+	System.out.println(name);
+	System.out.println(email);
+	System.out.println(password);
+	
 	MemberDao dao = new MemberDao();
 	
 	boolean b = dao.ismemNameEmailPass(name, email, password);

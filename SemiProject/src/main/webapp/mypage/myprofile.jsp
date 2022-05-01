@@ -48,7 +48,7 @@
 		    <br>
 
 			 <button type="button" class="dropbutton">탈퇴하기</button>
-			 <input type="hidden" id="delnum">
+			 <input type="hidden" id="delnum" value="<%=num %>">
 		   
 		  </div>
 		  
@@ -60,9 +60,10 @@
 		//삭제확인 이벤트
 		$("button.dropbutton").click(function () {		
 		//alert(<%=num%>);
+		confirm("탈퇴 하시겠습니까?");
 		
 		//num값을 받아준다. 왜냐면 deleteMember메서드 파라미터 값이 num이라. 같이 보내야함
-		let mnum=$("#delnum").val();
+		let mnum= $("#delnum").val();
 		
 		//이름, 이메일, 비밀번호 읽기
 		let name=$("#delName").val();
