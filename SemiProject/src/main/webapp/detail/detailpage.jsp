@@ -15,6 +15,9 @@
 <title>Detail page</title>
 <%
 
+/* 현재 로그인중인지 */
+String loginok = (String)session.getAttribute("loginok");
+
 /* (세션)현재 로그인 중인 회원의 email */
 String email = (String)session.getAttribute("emailok");
 
@@ -31,37 +34,6 @@ LessonDto ldto = ldao.getData(lnum);
 
 %>
 <script type="text/javascript">
-$(function(){
-	/* 장바구니 담기 버튼 클릭시(lnum,mnum) */
-	$("#addCart").click(function(){
-		<%
-		/* cart에 담겨져 있는지 중복체크 */
-		if(ldao.checkClass(lnum, mnum)) { %>
-			alert("이미 해당 클래스가 장바구니에 담겨져 있습니다");
-			return;
-		<%
-		}
-		else {
-			CartDto cdto = new CartDto();
-			cdto.setLnum(lnum);
-			cdto.setMnum(mnum);
-			/* 페이지 로드되면 자동으로 cart테이블에 추가되는 문제 */
-			ldao.insertCart(cdto);
-			%>
-			alert("장바구니에 클래스가 담겼습니다");
-		<%
-		}
-		%>
-		
-		/* 장바구니 페이지로 이동 */
-		if(confirm("장바구니로 이동하시겠습니까?")) {
-			location.href = "index.jsp?boramMain=cart/mycartform.jsp";
-		}
-		else {
-			location.reload();
-		}
-	});
-});
 function deleteReview() {
     return confirm("해당 리뷰를 정말 삭제하시겠습니까?"); 
 }
@@ -224,7 +196,7 @@ function deleteReview() {
 	      <tr>
 	         <td class="decisionBtn">
 	            <button type="button" class="btn_kakao_share"><img src="image/ico-kakao.png">Kakao로 공유하기</button>
-	            <button type="button" class="btn_intoCart" id="addCart"><img src="image/ico-cart.png">장바구니 담기</button>
+	            <button type="button" class="btn_intoCart" id="btnCart"><img src="image/ico-cart.png">장바구니 담기</button>
 	         </td>
 	      </tr>
 	   </table>
@@ -238,23 +210,55 @@ function deleteReview() {
 <script>
 	
 	//[강나리] '클래스 정보/후기' 클릭시 각 내용 보이게 하기
-		$('#btn_r').click(function() {
-			$(this).addClass("detailActive");
-			$("#btn_c").removeClass("detailActive");
-			/* #detail_r요소가 보이지 않으면 */
-			if($("#detail_r").css("display")=="none"){
-				$("#detail_r").show();
-				$("#detail_c").hide();
+	$('#btn_r').click(function() {
+		$(this).addClass("detailActive");
+		$("#btn_c").removeClass("detailActive");
+		/* #detail_r요소가 보이지 않으면 */
+		if($("#detail_r").css("display")=="none"){
+			$("#detail_r").show();
+			$("#detail_c").hide();
+		}
+	});
+	$('#btn_c').click(function() {
+		$(this).addClass("detailActive");
+		$("#btn_r").removeClass("detailActive");
+		if($("#detail_c").css("display")=="none"){
+			$("#detail_c").show();
+			$("#detail_r").hide();
+		}
+	});
+		
+	// [신지환] 장바구니 담기 버튼 클릭시
+	$("#btnCart").click(function(){
+		/* 로그인중인지 체크 */
+		var login = "<%=loginok%>";
+		if(login == "null") {
+			alert("먼저 로그인을 해주세요");
+			return;
+		}
+		/* 카트에 담겨져 있는지 체크 */
+		var cartcheck = <%=ldao.checkClass(lnum, mnum)%>;
+		if(cartcheck) {
+			alert("장바구니에 이미 있습니다");
+			return;
+		}
+			
+		var formdata = $("#frm").serialize();
+			
+		$.ajax({
+			type: "post", //데이터를 보냄,"get"은 데이터를 요청
+			url: "detail/addCart.jsp",
+			data: formdata,
+			dataType: "html",
+			success: function(){
+				var a = confirm("장바구니에 클래스가 담겼습니다\n장바구니로 이동하시겠습니까?");
+				if(a) {
+					location.href = "index.jsp?boramMain=cart/mycartform.jsp";
+				}
 			}
+			
 		});
-		$('#btn_c').click(function() {
-			$(this).addClass("detailActive");
-			$("#btn_r").removeClass("detailActive");
-			if($("#detail_c").css("display")=="none"){
-				$("#detail_c").show();
-				$("#detail_r").hide();
-			}
-		});
+	});
 	
 </script>
 </body>
