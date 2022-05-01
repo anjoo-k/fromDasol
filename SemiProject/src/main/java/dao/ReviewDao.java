@@ -80,6 +80,32 @@ public class ReviewDao {
 		}
 	}
 	
+	// [신지환] 리뷰 수정
+	public void updateReview(ReviewDto dto)
+	{
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+	
+		String sql = "update review set lnum=?,mnum=?,rstar=?,rcontents=?,rdays=now() where rnum=?";
+	
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, dto.getLnum());
+			pstmt.setString(2, dto.getMnum());
+			pstmt.setInt(3, dto.getRstar());
+			pstmt.setString(4, dto.getRcontents());
+			pstmt.setString(5, dto.getRnum());
+		
+			pstmt.execute();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(pstmt, conn);
+		}
+	
+	}	
+	
 	// [신지환] 해당 클래스 리뷰목록 가져오기
 	public List<ReviewDto> getAllReview(String lnum)
 	{
