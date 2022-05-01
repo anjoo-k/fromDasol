@@ -90,18 +90,18 @@ div.decisionFrame p.category {
 }
 
 /* 별점 */
-div.star-rating {
-	margin-left: 0;
+div.star_rating {
+	margin-left: 5px;
 	width: 65px;
 }
-div.star-rating,.star-rating span.star-fill {
+div.star_rating,.star_rating span.star_fill {
 	/* overflow: hidden; 요소 안에 컨텐츠가 넘칠때 감추겠다 */
 	display: inline-block;
 	overflow: hidden;
 	background: url(../image/starpoint.png) no-repeat;
 	height: 13px;
 }
-div.star-rating span.star-fill {
+div.star_rating span.star_fill {
 	background-position: left bottom;
 	line-height: 0;
 	vertical-align: top;

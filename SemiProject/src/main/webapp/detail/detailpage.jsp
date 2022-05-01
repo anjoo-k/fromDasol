@@ -168,14 +168,14 @@ function deleteReview() {
 	      <!-- 별점(평점) -->
 	      <tr>
 	         <td>
-	            <div class="star-rating">
+	            <div class="star_rating">
 					<!-- calc() 괄호 안의 연산식을 넣어 속성값을 지정할수있다. -->
 					<!-- 해당 클래스의 리뷰 평균 별점 -->
 					<%
 					float f_avg = rdao.getAvgRstar(lnum);
 					int avgPercent = (int)((f_avg/5) * 100);
 					%>
-					<span class="star-fill" style="width: <%=avgPercent%>%;"></span>
+					<span class="star_fill" style="width: <%=avgPercent%>%;"></span>
 				</div>
 				<span class="floatnum">(<%=f_avg%>)</span>
 	         </td>
@@ -202,8 +202,8 @@ function deleteReview() {
 	      <!-- 버튼 -->
 	      <tr>
 	         <td class="decisionBtn">
-	            <button type="button" class="btn_kakao_share"><img src="image/ico-kakao.png">Kakao로 공유하기</button>
-              <button type="button" class="btn_intoCart" id="btnCart"><img src="image/ico-cart.png">장바구니 담기</button>
+	            <button type="button" class="btn_kakao_share" id="kakao-link-btn" onclick="location.href='javascript:kakaoShare()'"><img src="image/ico-kakao.png">Kakao로 공유하기</button>
+                <button type="button" class="btn_intoCart" id="btnCart"><img src="image/ico-cart.png">장바구니 담기</button>
 	         </td>
 	      </tr>
 	   </table>
@@ -213,8 +213,41 @@ function deleteReview() {
     
     </div>
     <!-- detail page 끝 -->
-
+    
+<!-- kakao sdk 호출 -->
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <script>
+//SDK를 초기화 합니다. 사용할 앱의 JavaScript 키를 설정해 주세요.
+Kakao.init('4bcd5ce113aaca37904cd617cfeaf529');
+
+//SDK 초기화 여부를 판단합니다.
+console.log(Kakao.isInitialized());
+
+function kakaoShare() {
+    Kakao.Link.sendDefault({
+      objectType: 'feed',
+      content: {
+        title: '카카오공유하기 시 타이틀',
+        description: '카카오공유하기 시 설명',
+        imageUrl: '카카오공유하기 시 썸네일 이미지 경로',
+        link: {
+          mobileWebUrl: '카카오공유하기 시 클릭 후 이동 경로',
+          webUrl: '카카오공유하기 시 클릭 후 이동 경로',
+        },
+      },
+      buttons: [
+        {
+          title: '웹으로 보기',
+          link: {
+            mobileWebUrl: '카카오공유하기 시 클릭 후 이동 경로',
+            webUrl: '카카오공유하기 시 클릭 후 이동 경로',
+          },
+        },
+      ],
+      // 카카오톡 미설치 시 카카오톡 설치 경로이동
+      installTalk: true,
+    })
+  }
 	
 	//[강나리] '클래스 정보/후기' 클릭시 각 내용 보이게 하기
 	$('#btn_r').click(function() {
