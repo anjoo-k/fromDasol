@@ -15,16 +15,6 @@
 <head>
 <meta charset="UTF-8">
 <title>Detail page</title>
-<link rel="stylesheet"  href="https://unpkg.com/swiper/swiper-bundle.min.css"/>
-<link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../css/detailpage.css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <%
 
 /* (세션)현재 로그인 중인 회원의 email */
@@ -79,6 +69,9 @@ $(function(){
 		}
 	});
 });
+function deleteReview() {
+    return confirm("해당 리뷰를 정말 삭제하시겠습니까?"); 
+}
 </script>
 </head>
 <body>
@@ -118,29 +111,45 @@ $(function(){
 			  <table style="width: 545px;">
 			  <%
 			  if(totalCount != 0) {
-			  for(ReviewDto dto:r_list) { %>
+			  for(ReviewDto rdto:r_list) { %>
 				<tr height="40px">
 			      <td style="vertical-align: middle;">
 			        <div class="star-review">
-			          <b><%=mdao.getName_mnum(dto.getMnum())%></b>&nbsp;
+			        
+			          <!-- 작성자명 -->
+			          <b><%=mdao.getName_mnum(rdto.getMnum())%></b>&nbsp;
+			          
+			          <!-- 별 찍기 -->
 			          <%
-			          for(int i = 0; i < dto.getRstar(); i++) { %>
+			          for(int i = 0; i < rdto.getRstar(); i++) { %>
 			          <img src="image/ico-star.png">          
 			          <%
 			          }		          
-	                  for(int i = 0; i < 5-dto.getRstar(); i++) { %>
+	                  for(int i = 0; i < 5-rdto.getRstar(); i++) { %>
 	                  <img src="image/ico-starout.png">
 	                  <%
 	                  }
 	                  
-	                  float rstar = dto.getRstar();
+	                  /* 로그인중인 mnum과 작성된 후기의 mnum이 같을시 */
+	                  /* 수정/삭제 버튼 */
+	                  /* 클릭시 페이지 이동 */
+	                  if(rdto.getMnum().equals(mnum)) { %>
+	                  <a href="index.jsp?boramMain=review/u_writeReview.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>">수정</a>
+	                  |
+	                  <a href="index.jsp?boramMain=review/d_reviewDelAction.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>" onclick="return deleteReview()">삭제</a>
+	                  <%
+	                  }
+	                  
+	                  /* 별점(소수점) */
+	                  float rstar = rdto.getRstar();
 	                  %>
 	                  <span>(<%=rstar%>)</span>
-	                  <!-- <a href="#">수정</a> | <a href="#">삭제</a> -->
+	                  
+	                  <!-- 작성일자 -->
 	                  <%
 	                  SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 	                  %>
-	                  <span class="writeday" style="float: right;"><%=sdf.format(dto.getRday())%></span>
+	                  <span class="writeday" style="float: right;"><%=sdf.format(rdto.getRday())%></span>
 	                </div>
 			      </td>				  
 			    </tr>
@@ -148,7 +157,7 @@ $(function(){
 			    <tr height="40px">
 			      <td class="comment">
 			        <span>
-			        <%=dto.getRcontents()%>
+			        <%=rdto.getRcontents()%>
 			        </span>
 			      </td>
 			    </tr>
