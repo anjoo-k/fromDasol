@@ -26,7 +26,6 @@ String mnum = dao.getMnum(email);
 String lnum = request.getParameter("lnum");
 %>
 <body>
-<!-- 깃 협업과정 테스트 주석 -->
 
 <!-- 본문 시작 -->
 <div class="review">
