@@ -110,7 +110,6 @@ public class ReviewDao {
 	public List<ReviewDto> getAllReview(String lnum)
 	{
 		List<ReviewDto> list = new Vector<ReviewDto>();
-		ReviewDto dto = new ReviewDto();
 		
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
@@ -125,6 +124,7 @@ public class ReviewDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				ReviewDto dto = new ReviewDto();
 				dto.setRnum(rs.getString("rnum"));
 				dto.setLnum(rs.getString("lnum"));
 				dto.setMnum(rs.getString("mnum"));
