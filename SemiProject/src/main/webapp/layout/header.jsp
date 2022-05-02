@@ -7,10 +7,10 @@
 <meta charset="UTF-8">
 <script type="text/javascript">
 $(function(){
-	$(".searchtext").keydown(function(key) {
+	$(".searchtext").on("keydown",function(key) {
 		if( key.keyCode == 13 ){
 			var searchtext = $(this).val(); 
-			location.href='index.jsp?boramMain=search/searchok.jsp?searchtext='+searchtext;
+			location.href='index.jsp?boramMain=search/searchresult.jsp?searchtext='+searchtext;
 			alert(searchtext);
 		}
 	});
