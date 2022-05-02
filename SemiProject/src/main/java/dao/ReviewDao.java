@@ -227,4 +227,39 @@ public class ReviewDao {
 		return avgStar;
 	}
 	
+	// 해당 리뷰 데이터 가져오기
+	public ReviewDto getReview(String rnum)
+	{
+		ReviewDto dto = new ReviewDto();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from review where rnum=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, rnum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setRnum(rnum);
+				dto.setLnum(rs.getString("lnum"));
+				dto.setMnum(rs.getString("mnum"));
+				dto.setRstar(rs.getInt("rstar"));
+				dto.setRcontents(rs.getString("rcontents"));
+				dto.setRday(rs.getTimestamp("rday"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return dto;
+	}
+	
 }
