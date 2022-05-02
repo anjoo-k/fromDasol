@@ -63,7 +63,7 @@ $(function(){
 	});
 	
 		
-	//상품클릭시 상세페이지로 이동
+	//클래스 클릭시 상세페이지로 이동
 	$("div.cartlesson").click(function() {
 		//태그에 넣어둔 lnum
 		var lnum=$(this).attr("lnum");
