@@ -109,8 +109,7 @@ public class ReviewDao {
 	// [신지환] 해당 클래스 리뷰목록 가져오기
 	public List<ReviewDto> getAllReview(String lnum)
 	{
-		List<ReviewDto> list = new Vector<ReviewDto>();
-		ReviewDto dto = new ReviewDto();
+		List<ReviewDto> list=new ArrayList<ReviewDto>();
 		
 		Connection conn = db.getConnection();
 		PreparedStatement pstmt = null;
@@ -125,6 +124,7 @@ public class ReviewDao {
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
+				ReviewDto dto = new ReviewDto();
 				dto.setRnum(rs.getString("rnum"));
 				dto.setLnum(rs.getString("lnum"));
 				dto.setMnum(rs.getString("mnum"));
