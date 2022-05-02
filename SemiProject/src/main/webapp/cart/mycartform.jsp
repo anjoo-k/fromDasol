@@ -33,7 +33,7 @@ $(function(){
 	//결제하기 버튼 클릭시
 	$("#paycart").click(function(){
 		
-		//클릭한 상품 개수(null값 있는지) 확인
+		//클릭한 클래스 개수 확인(null값 유무)
 		var scnt=$(".cnum:checked").length;
 		
 		if(scnt==0){
@@ -54,7 +54,7 @@ $(function(){
 					
 					//나의클래스로 이동
 			    	location.href='index.jsp?boramMain=mypage/myclass.jsp?';
-					//alert(cnum);
+					
 				}
 			});
 			
@@ -63,7 +63,7 @@ $(function(){
 	});
 	
 		
-	//상품클릭시 상세페이지로 이동
+	//클래스 클릭시 상세페이지로 이동
 	$("div.cartlesson").click(function() {
 		//태그에 넣어둔 lnum
 		var lnum=$(this).attr("lnum");
@@ -75,7 +75,6 @@ $(function(){
 	//체크한 후 삭제버튼으로 삭제하는 이벤트
 	$("#btncartdel").click(function(){
 		
-		//클릭한 상품 개수(null값 있는지) 확인
 		var scnt=$(".cnum:checked").length;
 		
 		if(scnt==0){
@@ -86,7 +85,6 @@ $(function(){
 		$(".cnum:checked").each(function(i,element) {
 			
 			var cnum = $(this).attr("cnum");
-			
 			//선택한 장바구니 모두 삭제
 			$.ajax({
 				type: "get",
