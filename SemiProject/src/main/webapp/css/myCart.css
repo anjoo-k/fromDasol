@@ -107,6 +107,7 @@ div.allPrice{
 }
 td.btnDel{
 	text-align: left;
+	cursor: pointer;
 }
 button.btnDel{
   width: 200px;
@@ -114,6 +115,7 @@ button.btnDel{
   border-radius: 5px;
   background-color: #e6e6e6;
   border: 0;
+  cursor: pointer;
 }
 button.btnDel>span {
   font-size: 16px;
@@ -128,6 +130,7 @@ button.btnPay{
   border-radius: 5px;
   border: solid 1px #1b93ff;
   background-color: #f6fafe;
+  cursor: pointer;
 }
 
 button.btnPay{
@@ -136,6 +139,7 @@ button.btnPay{
   line-height: 1.25;
   color: #1b93ff;
   margin-left: auto;
+  cursor: pointer;
 }
 
 .cartlesson{
