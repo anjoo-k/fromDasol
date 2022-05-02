@@ -204,7 +204,12 @@ function deleteReview() {
 	      <tr>
 	         <td class="decisionBtn">
 	            <button type="button" class="btn_kakao_share" id="kakao-link-btn" onclick="location.href='javascript:kakaoShare()'"><img src="image/ico-kakao.png">Kakao로 공유하기</button>
+                <% 
+               	if(sdao.checkSignupClass(lnum, mnum)){%>
+               	<button type="button" class="btn_intoCart" id="tomyclass" onclick="location.href='index.jsp?boramMain=mypage/myclass.jsp'">클래스 들으러가기</button>
+               	<%}else{%>
                 <button type="button" class="btn_intoCart" id="btnCart"><img src="image/ico-cart.png">장바구니 담기</button>
+                <%}%>
 	         </td>
 	      </tr>
 	   </table>
