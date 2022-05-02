@@ -157,7 +157,9 @@ function deleteReview() {
     
     <!-- [신지환] 클래스 상세페이지_스크롤 -->
 	<div class="decisionFrame">
-	   <form action="#" method="post" class="decisionForm">
+	   <form id="frm" class="decisionForm">
+	   <input type="hidden" name="lnum" value="<%=lnum%>">
+	   <input type="hidden" name="mnum" value="<%=mnum%>">
 	   <table>
 	      <!-- 카테고리 -->
 	      <tr>
