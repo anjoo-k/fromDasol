@@ -13,7 +13,6 @@ $(function(){
 		if( key.keyCode == 13 ){
 			var searchtext = $(this).val(); 
 			location.href='index.jsp?boramMain=search/searchresult.jsp?searchtext='+searchtext;
-			alert(searchtext);
 		}
 	});
 });
