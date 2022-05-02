@@ -284,7 +284,7 @@ else if(request.getAttribute("category").equals("h"))
 				<tr>
 					<%}
 				i++;	
-			}
+			} 
 			}%>
 				</tr>
 			</table>
