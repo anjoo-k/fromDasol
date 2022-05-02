@@ -20,12 +20,15 @@
 			
 	if(b){
 		dao.deleteMember(mnum);
+		dao.deletecart(mnum);
+		dao.deletereview(mnum);
+		dao.deletesignup(mnum);
 		
 		session.removeAttribute("loginok");	
 		response.sendRedirect("../index.jsp?boramMain=layout/main.jsp");
 	}else{%>
 		<script type="text/javascript">
-			alert("계정정보가 맞지 않습니다");
+			alert("이름과 이메일이 틀렸습니다");
 			history.back();
 		</script>
 	<%}
