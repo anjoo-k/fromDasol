@@ -87,68 +87,6 @@ public class MemberDao {
             db.dbClose(pstmt, conn);
          }
    }
-   //signup delete
-   public void deletesignup(String mnum)
-   {
-      Connection conn=db.getConnection();
-      PreparedStatement pstmt=null;
-         
-      String sql="delete from signup where mnum=?";
-         
-      try {
-            pstmt=conn.prepareStatement(sql);
-            pstmt.setString(1, mnum);
-            
-            pstmt.execute();
-         } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-         }finally {
-            db.dbClose(pstmt, conn);
-         }
-   }
-   //cart delete
-   public void deletecart(String mnum)
-   {
-      Connection conn=db.getConnection();
-      PreparedStatement pstmt=null;
-         
-      String sql="delete from cart where mnum=?";
-         
-      try {
-            pstmt=conn.prepareStatement(sql);
-            pstmt.setString(1, mnum);
-            
-            pstmt.execute();
-         } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-         }finally {
-            db.dbClose(pstmt, conn);
-         }
-   }
-   
-   //review delete
-   public void deletereview(String mnum)
-   {
-      Connection conn=db.getConnection();
-      PreparedStatement pstmt=null;
-         
-      String sql="delete from review where mnum=?";
-         
-      try {
-            pstmt=conn.prepareStatement(sql);
-            pstmt.setString(1, mnum);
-            
-            pstmt.execute();
-         } catch (SQLException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-         }finally {
-            db.dbClose(pstmt, conn);
-         }
-   }
-   
    
    
    //email에 맞는 비번인지 확인 메서드

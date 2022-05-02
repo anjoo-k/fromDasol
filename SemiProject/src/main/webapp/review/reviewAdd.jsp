@@ -19,18 +19,18 @@ int rstar = Integer.parseInt(request.getParameter("rating"));
 String rcontents = request.getParameter("content");
 
 /* review DB에 추가 */
-// dto세팅
+//dto세팅
 ReviewDto dto = new ReviewDto();
 dto.setLnum(lnum);
 dto.setMnum(mnum);
 dto.setRstar(rstar);
 dto.setRcontents(rcontents);
 
-// 리뷰 추가
+//dao.insertReview호출
 ReviewDao dao = new ReviewDao();
 dao.insertReview(dto);
 
-response.sendRedirect("../index.jsp?boramMain=mypage/myreview.jsp");
+response.sendRedirect("../index.jsp?boramMain=detail/detailpage.jsp?lnum="+lnum);
 %>
 </body>
 </html>

@@ -1,5 +1,3 @@
-<%@page import="dao.ReviewDao"%>
-<%@page import="dto.ReviewDto"%>
 <%@page import="dto.LessonDto"%>
 <%@page import="dao.LessonDao"%>
 <%@page import="dao.MemberDao"%>
@@ -25,8 +23,8 @@ String email = (String)session.getAttribute("emailok");
 MemberDao dao = new MemberDao();
 String mnum = dao.getMnum(email);
 /* 수정할 rnum 받기 */
-String rnum = request.getParameter("rnum");
 /* 수정하고 해당 상세게시판으로 가기위해 lnum 받기 */
+String rnum = request.getParameter("rnum");
 String lnum = request.getParameter("lnum");
 %>
 <body>
@@ -67,11 +65,7 @@ String lnum = request.getParameter("lnum");
 				</tr>
 				<tr>
 					<td>
-					<%
-					ReviewDao rdao = new ReviewDao();
-					ReviewDto rdto = rdao.getReview(rnum);
-					%>
-						<textarea name="content" id="content" required="required" style="width: 100%;height: 300px; background-color: #fff; display: none;"><%=rdto.getRcontents()%></textarea>		
+						<textarea name="content" id="content" required="required" style="width: 100%;height: 300px; background-color: #fff; display: none;"></textarea>		
 					</td>
 				</tr>
 				<tr>

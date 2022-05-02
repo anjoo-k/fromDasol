@@ -1,5 +1,3 @@
-<%@page import="dto.CartDto"%>
-<%@page import="dao.LessonDao"%>
 <%@page import="dao.MemberDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -9,10 +7,11 @@
 <meta charset="UTF-8">
 <script type="text/javascript">
 $(function(){
-	$(".searchtext").keyup(function(key) {
+	$(".searchtext").on("keydown",function(key) {
 		if( key.keyCode == 13 ){
 			var searchtext = $(this).val(); 
 			location.href='index.jsp?boramMain=search/searchresult.jsp?searchtext='+searchtext;
+			alert(searchtext);
 		}
 	});
 });
@@ -20,14 +19,6 @@ $(function(){
 </head>
 <%
 String loginok = (String)session.getAttribute("loginok");
-String email = (String)session.getAttribute("emailok");
-
-MemberDao mdao = new MemberDao();
-String mnum= mdao.getMnum(email);
-
-//카트갯수 얻어오기
-LessonDao ldao=new LessonDao();
-int cartSize=ldao.getCartList(email).size();
 %>
 <body>
     <div class="header">
@@ -60,7 +51,7 @@ int cartSize=ldao.getCartList(email).size();
 	              	<button type="submit" class="logoutbtn">로그아웃</button>
 	              	<!-- <a href="index.jsp?boramMain=login/logoutaction.jsp" class="logoutbtn">로그아웃</a> -->
 	              </form>
-	                <a href="index.jsp?boramMain=cart/mycartform.jsp" class="cart">장바구니 <span class="cnt"><%= cartSize %></span></a>
+	                <a href="index.jsp?boramMain=cart/mycartform.jsp" class="cart">장바구니 <span class="cnt">0</span></a>
 	                <button type="button" class="mypage" onclick="location.href='index.jsp?boramMain=mypage/myprofile.jsp'">마이페이지</button>
 	            </div>
 				<%}%>

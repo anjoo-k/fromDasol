@@ -102,23 +102,23 @@ function deleteReview() {
 	                  <%
 	                  }
 	                  
-	                  /* 별점(소수점) */
-	                  float rstar = rdto.getRstar();
-	                  %>
-	                  <span>(<%=rstar%>)</span>
-	                  
-	                  <%
 	                  /* 로그인중인 mnum과 작성된 후기의 mnum이 같을시 */
 	                  /* 수정/삭제 버튼 */
 	                  /* 클릭시 페이지 이동 */
 	                  if(rdto.getMnum().equals(mnum)) { %>
 	                  <a href="index.jsp?boramMain=review/u_writeReview.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>">수정</a>
 	                  |
-	                  <a href="review/d_reviewDelAction.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>" onclick="return deleteReview()">삭제</a>
+	                  <a href="index.jsp?boramMain=review/d_reviewDelAction.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>" onclick="return deleteReview()">삭제</a>
 	                  <%
 	                  }
 	                  
-	                  /* 작성일자 */
+	                  /* 별점(소수점) */
+	                  float rstar = rdto.getRstar();
+	                  %>
+	                  <span>(<%=rstar%>)</span>
+	                  
+	                  <!-- 작성일자 -->
+	                  <%
 	                  SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 	                  %>
 	                  <span class="writeday" style="float: right;"><%=sdf.format(rdto.getRday())%></span>
@@ -205,12 +205,7 @@ function deleteReview() {
 	      <tr>
 	         <td class="decisionBtn">
 	            <button type="button" class="btn_kakao_share" id="kakao-link-btn" onclick="location.href='javascript:kakaoShare()'"><img src="image/ico-kakao.png">Kakao로 공유하기</button>
-	         	<% 
-               	if(sdao.checkSignupClass(lnum, mnum)){%>
-               	<button type="button" class="btn_intoCart" id="tomyclass" onclick="location.href='index.jsp?boramMain=mypage/myclass.jsp'">클래스 들으러가기</button>
-               	<%}else{%>
                 <button type="button" class="btn_intoCart" id="btnCart"><img src="image/ico-cart.png">장바구니 담기</button>
-                <%}%>
 	         </td>
 	      </tr>
 	   </table>

@@ -19,24 +19,11 @@ $(function(){
 		window.open("member/emailcheck.jsp","",'height=' + popupHeight  + ', width=' + popupWidth  + ', left='+ popupX + ', top='+ popupY);
 	});
 	
-	//
-	$(".gaipBtn").click(function(){
-		
-		//이용동의 클릭
-		var a=$(".chkagree").is(":checked");
-		if(a) 
-		{
-			alert("환영합니다.가입이 완료되었습니다."); 
-		} else {
-			alert("이용약관에 동의해주시기 바랍니다.");
-		}
-		
-	});
-	
 });
-
-
-
+function gaipclick()
+{
+	alert("환영합니다.가입이 완료되었습니다.");
+}
 </script>
 </head>
 <body>
@@ -74,13 +61,13 @@ $(function(){
 			</tr>
 			<tr class="chkbox">
 				<td style="padding-top: 20px; padding-top: 20px; display: flex; align-items: center;">
-					<input type="checkbox" required="required" class="chkagree">
+					<input type="checkbox" required="required">
 					<span><u>이용약관</u>,<u>개인정보 수집 및 이용</u> 동의(필수)</span>
 				</td>
 			</tr>
 			<tr>
 				<td class="signupBtn">
-					<button type="submit" class="gaipBtn" >회원가입</button>
+					<button type="submit" class="gaipBtn" onclick="gaipclick()">회원가입</button>
 				</td>
 			</tr>
 		</table>
