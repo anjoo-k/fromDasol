@@ -102,6 +102,12 @@ function deleteReview() {
 	                  <%
 	                  }
 	                  
+	                  /* 별점(소수점) */
+	                  float rstar = rdto.getRstar();
+	                  %>
+	                  <span>(<%=rstar%>)</span>
+	                  
+	                  <%
 	                  /* 로그인중인 mnum과 작성된 후기의 mnum이 같을시 */
 	                  /* 수정/삭제 버튼 */
 	                  /* 클릭시 페이지 이동 */
@@ -112,13 +118,7 @@ function deleteReview() {
 	                  <%
 	                  }
 	                  
-	                  /* 별점(소수점) */
-	                  float rstar = rdto.getRstar();
-	                  %>
-	                  <span>(<%=rstar%>)</span>
-	                  
-	                  <!-- 작성일자 -->
-	                  <%
+	                  /* 작성일자 */
 	                  SimpleDateFormat sdf = new SimpleDateFormat("yyyy.MM.dd");
 	                  %>
 	                  <span class="writeday" style="float: right;"><%=sdf.format(rdto.getRday())%></span>
