@@ -1,3 +1,4 @@
+<%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.LessonDao"%>
 <%@page import="dto.LessonDto"%>
@@ -12,13 +13,13 @@
 <script type="text/javascript">
 $(function() {
 	$("select.sortSelect").focus(function() {
-		$(this).parent().css("background","url('../image/arrow-up.png') no-repeat 93% 50%/15px auto");
+		$(this).parent().css("background","url('image/arrow-up.png') no-repeat 93% 50%/15px auto");
 	});
 	$("select.sortSelect").change(function(){ 
-		$(this).parent().css("background","url('../image/arrow-down.png') no-repeat 93% 50%/15px auto");
+		$(this).parent().css("background","url('image/arrow-down.png') no-repeat 93% 50%/15px auto");
 	});
 	$("select.sortSelect").focusout(function(){ 
-		$(this).parent().css("background","url('../image/arrow-down.png') no-repeat 93% 50%/15px auto");
+		$(this).parent().css("background","url('image/arrow-down.png') no-repeat 93% 50%/15px auto");
 	});
 	
 	//클래스이미지 클릭시 디테일페이지로
@@ -31,11 +32,18 @@ $(function() {
 		var lnum=$(this).attr("lnum");
 		location.href='index.jsp?boramMain=detail/detailpage.jsp?lnum='+lnum;
 	});
+	
+	$("select.sortSelect").change(function(){
+		var option=$(this).val();
+		location.href = location.href + "&option=" + option;
+	});
 });
 </script>
 
 </head>
 <%
+int i=0;
+
 LessonDao ldao = new LessonDao();
 LessonDto ldto = new LessonDto();
 
@@ -61,7 +69,7 @@ else if(request.getAttribute("category").equals("h"))
 else
 	category="기타";
 
-List<LessonDto> list = ldao.getCategoryData(category);
+String option=request.getParameter("option");
 %>
 <body>
 <%
@@ -71,7 +79,7 @@ int totalCount=cdao.getTotalCount(category);
 
 String bannerimage=null;
 
-if(request.getAttribute("category").equals("a"))
+if(request.getAttribute("category").equals("toppopular"))
 	bannerimage="image/banner-01.png";
 else if(request.getAttribute("category").equals("b"))
 	bannerimage="image/banner-02.png";
@@ -87,7 +95,6 @@ else if(request.getAttribute("category").equals("g"))
 	bannerimage="image/banner-07.png";
 else if(request.getAttribute("category").equals("h"))
 	bannerimage="";
-
 %>
 <!-- 본문 시작 -->
 <div class="category-main">
@@ -170,8 +177,8 @@ else if(request.getAttribute("category").equals("h"))
 						<span class="sortSelect">
 							<select class="sortSelect">
 								<option value="toppopular">인기도순</option>
-								<option value="topstar" selected="selected">별점높은순</option>
-								<option value="topreview">리뷰많은순</option>
+								<option value="highprice">높은가격순</option>
+								<option value="lowprice">낮은가격순</option>
 							</select>
 						</span>
 				    </div>
@@ -180,29 +187,107 @@ else if(request.getAttribute("category").equals("h"))
 				
 				</td>
 			</tr>
-			
-			<tr>
+
+				<tr>
 			<%
-			int i=0;
+			if(option=="toppopular")
+			{
+			List<LessonDto> personlist = ldao.personSort(category);
+			for(LessonDto dto:personlist)
+			{
+			%>
+					<td>
+						<div class="category-lesson">
+							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
+								class="category-img" lnum="<%=dto.getLnum()%>">
+							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
+							<p class="lesson-price"><%=dto.getPrice() %>원
+							</p>
+							<%=dto.getPerson() %>
+						</div>
+					</td>
+					<%
+				if((i+1)%4==0){%>
+				</tr>
+				<tr>
+					<%}
+				i++;	
+			}%>
+			<%} 
+			else if(option=="highprice") 
+			{	
+			List<LessonDto> highpricelist = ldao.highpriceSort(category);
+			for(LessonDto dto:highpricelist)
+			{
+			%>
+					<td>
+						<div class="category-lesson">
+							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
+								class="category-img" lnum="<%=dto.getLnum()%>">
+							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
+							<p class="lesson-price"><%=dto.getPrice() %>원
+							</p>
+							<%=dto.getPerson() %>
+						</div>
+					</td>
+					<%
+				if((i+1)%4==0){%>
+				</tr>
+				<tr>
+					<%}
+				i++;	
+			}%>
+			<%} 
+			else if(option=="lowprice")
+			{
+			List<LessonDto> lowpricelist = ldao.lowpriceSort(category);
+			for(LessonDto dto:lowpricelist)
+			{
+			%>
+					<td>
+						<div class="category-lesson">
+							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
+								class="category-img" lnum="<%=dto.getLnum()%>">
+							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
+							<p class="lesson-price"><%=dto.getPrice() %>원
+							</p>
+							<%=dto.getPerson() %>
+						</div>
+					</td>
+					<%
+				if((i+1)%4==0){%>
+				</tr>
+				<tr>
+					<%}
+				i++;	
+			}%>
+			<%} 
+			else
+			{
+			List<LessonDto> list = ldao.getCategoryData(category);
 			for(LessonDto dto:list)
 			{
 			%>
-				<td>
-				   <div class="category-lesson">
-			        	<img src="savePhoto/<%=dto.getPhoto() %>" alt="" class="category-img" lnum="<%=dto.getLnum()%>">                                           
-			            <p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
-			            <p class="lesson-price"><%=dto.getPrice() %>원</p>			         
-			        </div>
-			    </td>
-			<%
-				if((i+1)%4==0){%>	
-					</tr>
-					<tr>
-				<%}
+					<td>
+						<div class="category-lesson">
+							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
+								class="category-img" lnum="<%=dto.getLnum()%>">
+							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
+							<p class="lesson-price"><%=dto.getPrice() %>원
+							</p>
+							<%=dto.getPerson() %>
+						</div>
+					</td>
+					<%
+				if((i+1)%4==0){%>
+				</tr>
+				<tr>
+					<%}
 				i++;	
+			} 
 			}%>
-			</tr>
-		</table>
+				</tr>
+			</table>
     </div>
 </div>
 <!-- 본문 끝 -->
