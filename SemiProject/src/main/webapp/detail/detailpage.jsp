@@ -114,7 +114,7 @@ function deleteReview() {
 	                  if(rdto.getMnum().equals(mnum)) { %>
 	                  <a href="index.jsp?boramMain=review/u_writeReview.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>">수정</a>
 	                  |
-	                  <a href="index.jsp?boramMain=review/d_reviewDelAction.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>" onclick="return deleteReview()">삭제</a>
+	                  <a href="review/d_reviewDelAction.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>" onclick="return deleteReview()">삭제</a>
 	                  <%
 	                  }
 	                  
