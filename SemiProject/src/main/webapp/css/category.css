@@ -119,12 +119,27 @@ span.sortSelect>select>option{
   text-align: left;
   color: #323232;
 }
-.category-img {
+
+div.imgbox{
+	overflow: hidden;
+    border-radius: 10px;
+    width: 233px;
+    height: 155px;
+ }
+img.category-img {
   width: 230px;
   height: 150px;
   border-radius: 10px;
   cursor: pointer;
 }
+  
+img.category-img:hover{
+	transform:scale(1.1);             /*  default */
+	-webkit-transform:scale(1.1);     /*  크롬 */
+	-moz-transform:scale(1.1);       /* FireFox */
+	-o-transform:scale(1.1);           /* Opera */
+}
+
 .category-lesson>p {
   font-family: NotoSansKR;
   font-size: 16px;

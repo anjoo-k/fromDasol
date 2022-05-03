@@ -240,10 +240,13 @@ else if(request.getAttribute("category").equals("h"))
 			%>
 					<td>
 						<div class="category-lesson">
+						<div class="imgbox">
 							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
 								class="category-img" lnum="<%=dto.getLnum()%>">
+						</div>
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
 							<p class="lesson-price"><%=dto.getPrice() %>원
+							<br><br><br>
 							</p>
 						</div>
 					</td>
@@ -266,10 +269,13 @@ else if(request.getAttribute("category").equals("h"))
 			%>
 					<td>
 						<div class="category-lesson">
+						<div class="imgbox">
 							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
 								class="category-img" lnum="<%=dto.getLnum()%>">
+						</div>
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
 							<p class="lesson-price"><%=dto.getPrice() %>원
+							<br><br><br>
 							</p>
 						</div>
 					</td>
@@ -292,10 +298,13 @@ else if(request.getAttribute("category").equals("h"))
 			%>
 					<td>
 						<div class="category-lesson">
+						<div class="imgbox">
 							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
 								class="category-img" lnum="<%=dto.getLnum()%>">
+						</div>
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
 							<p class="lesson-price"><%=dto.getPrice() %>원
+							<br><br><br>
 							</p>
 						</div>
 					</td>
@@ -318,10 +327,13 @@ else if(request.getAttribute("category").equals("h"))
 			%>
 					<td>
 						<div class="category-lesson">
+						<div class="imgbox">
 							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
 								class="category-img" lnum="<%=dto.getLnum()%>">
+						</div>
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
 							<p class="lesson-price"><%=dto.getPrice() %>원
+							<br><br><br>
 							</p>
 						</div>
 					</td>
