@@ -1,3 +1,4 @@
+<%@page import="com.mysql.cj.util.StringUtils"%>
 <%@page import="dao.ReviewDao"%>
 <%@page import="dto.ReviewDto"%>
 <%@page import="dto.LessonDto"%>
@@ -104,25 +105,28 @@ String lnum = request.getParameter("lnum");
 		
 		function submitContents(elClickedObj) {
 		
+			
 		    // 에디터의 내용이 textarea에 적용된다.
-		
 		    oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", [ ]);
 		    
-		    // 별점 입력 필수!!
-		    var check = $("input:radio[id='1-star']").is(":checked");
-		    if(!check) {
+		   	// 별점 입력 필수!!
+		    /* var checkStar = $("input:radio[name='rating']").is(":checked");
+		    if(!checkStar) {
 		    	return alert("별점을 입력해주세요");
-		    }
-		
+		    } */
+		    
+		 	// 텍스트 입력 필수!!
+		    var checkText = $("#content").val();
+			
+		    if(checkText != null) {
 		    // 에디터의 내용에 대한 값 검증은 이곳에서
-		
 		    // document.getElementById("textAreaContent").value를 이용해서 처리한다.
 		    try {
 		        elClickedObj.form.submit();
 		    } catch(e) { 
 		
 		    }
-		
+		    }
 		}
 		
 		// textArea에 이미지 첨부
