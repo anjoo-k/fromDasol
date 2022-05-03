@@ -62,7 +62,7 @@
 		//alert(<%=num%>);
 		alert("탈퇴 되었습니다");
 		
-		//num값을 받아준다. 왜냐면 deleteMember메서드 파라미터 값이 num이라. 같이 보내야함
+		//num값을 받고
 		let mnum= $("#delnum").val();
 		
 		//이름, 이메일, 비밀번호 읽기
