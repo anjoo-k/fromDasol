@@ -245,7 +245,6 @@ else if(request.getAttribute("category").equals("h"))
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
 							<p class="lesson-price"><%=dto.getPrice() %>원
 							</p>
-							<%=dto.getPerson() %>
 						</div>
 					</td>
 					<%
@@ -272,7 +271,6 @@ else if(request.getAttribute("category").equals("h"))
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
 							<p class="lesson-price"><%=dto.getPrice() %>원
 							</p>
-							<%=dto.getPerson() %>
 						</div>
 					</td>
 					<%
@@ -299,7 +297,6 @@ else if(request.getAttribute("category").equals("h"))
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
 							<p class="lesson-price"><%=dto.getPrice() %>원
 							</p>
-							<%=dto.getPerson() %>
 						</div>
 					</td>
 					<%
@@ -326,7 +323,6 @@ else if(request.getAttribute("category").equals("h"))
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
 							<p class="lesson-price"><%=dto.getPrice() %>원
 							</p>
-							<%=dto.getPerson() %>
 						</div>
 					</td>
 					<%
