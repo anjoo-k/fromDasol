@@ -1,3 +1,4 @@
+<%@page import="java.text.NumberFormat"%>
 <%@page import="dto.SignupDto"%>
 <%@page import="dao.SignupDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
@@ -38,6 +39,9 @@ LessonDto ldto = ldao.getData(lnum);
 /* 마이클래스에 해당하는 클래스 있는 경우 장바구니 버튼 대신 마이클래스버튼 추가 */
 SignupDao sdao=new SignupDao();
 SignupDto sdto=new SignupDto();
+
+//가격 콤마
+NumberFormat nf=NumberFormat.getInstance();
 %>
 <script type="text/javascript">
 
@@ -197,7 +201,7 @@ function deleteReview() {
 	      <!-- 가격 -->
 	      <tr>
 	         <td>
-	            <p class="price"><%=ldto.getPrice()%>원</p>
+	            <p class="price"><%=nf.format(ldto.getPrice())%>원</p>
 	         </td>
 	      </tr>
 	      <!-- 버튼 -->
