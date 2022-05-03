@@ -1,3 +1,5 @@
+<%@page import="java.text.Format"%>
+<%@page import="java.text.NumberFormat"%>
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.LessonDao"%>
@@ -113,6 +115,8 @@ else
 	category="기타";
 
 String opt=request.getParameter("opt");
+//가격 콤마
+NumberFormat nf=NumberFormat.getInstance();
 %>
 <body>
 <%
@@ -245,7 +249,7 @@ else if(request.getAttribute("category").equals("h"))
 								class="category-img" lnum="<%=dto.getLnum()%>">
 						</div>
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
-							<p class="lesson-price"><%=dto.getPrice() %>원
+							<p class="lesson-price"><%=nf.format(dto.getPrice()) %>원
 							<br><br><br>
 							</p>
 						</div>
@@ -274,7 +278,7 @@ else if(request.getAttribute("category").equals("h"))
 								class="category-img" lnum="<%=dto.getLnum()%>">
 						</div>
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
-							<p class="lesson-price"><%=dto.getPrice() %>원
+							<p class="lesson-price"><%=nf.format(dto.getPrice()) %>원
 							<br><br><br>
 							</p>
 						</div>
@@ -303,7 +307,7 @@ else if(request.getAttribute("category").equals("h"))
 								class="category-img" lnum="<%=dto.getLnum()%>">
 						</div>
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
-							<p class="lesson-price"><%=dto.getPrice() %>원
+							<p class="lesson-price"><%=nf.format(dto.getPrice()) %>원
 							<br><br><br>
 							</p>
 						</div>
@@ -332,7 +336,7 @@ else if(request.getAttribute("category").equals("h"))
 								class="category-img" lnum="<%=dto.getLnum()%>">
 						</div>
 							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
-							<p class="lesson-price"><%=dto.getPrice() %>원
+							<p class="lesson-price"><%=nf.format(dto.getPrice()) %>원
 							<br><br><br>
 							</p>
 						</div>
