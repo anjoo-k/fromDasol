@@ -7,13 +7,11 @@
 <meta charset="UTF-8">
 <title>회원가입 email 중복체크</title>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-
-</head>
 <style>
 *{
    font-family: 'Noto Sans KR', sans-serif !important;
    color:#363636;
-   font-weight: 500;
+   
 }
 
 .temail{
@@ -75,6 +73,8 @@
     margin-left: 10px;
 }
 </style>
+</head>
+
 <body>
 <% 
 request.setCharacterEncoding("utf-8");
