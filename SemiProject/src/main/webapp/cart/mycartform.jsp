@@ -13,22 +13,40 @@
 <title>Insert title here</title>
 <% 
 SignupDao sdao=new SignupDao();
-
 %>
 <script type="text/javascript">
 $(function(){
 	
 	//전체 체크박스 선택/해제
 	$("#allcheck").click(function() {
-		
-		var a=$(this).is(":checked");
-		if(a) 
-		{
-			$(".cnum").attr("checked",true); 
-		} else {
-			$(".cnum").attr("checked",false);
-		}
+		if($("#allcheck").is(":checked")) $("input[name=cnum]").prop("checked", true);
+		else $("input[name=cnum]").prop("checked", false);
 	});
+	
+	$("input[name=cnum]").click(function() {
+		var total = $("input[name=cnum]").length;
+		var checked = $("input[name=cnum]:checked").length;
+		
+		if(total != checked) $("#allcheck").prop("checked", false);
+		else $("#allcheck").prop("checked", true); 
+	});
+	
+
+	//[이다솔] 총금액 구하기
+	
+	$("input:checkbox").click(function() {
+		var allpri=0;
+		$("input[name=cnum]").each(function (i,ele) {
+			if($(ele).is(":checked")){
+				allpri+=parseInt($(ele).parent().attr("cbprice"));
+			}
+			
+		})
+		
+		$(".allPrice").find("span").text(allpri);
+	})
+	
+	
 	
 	//결제하기 버튼 클릭시
 	$("#paycart").click(function(){
@@ -141,17 +159,17 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 			</tr>
 			<tbody>
 			<% 
-			int allmoney=0;
 			NumberFormat nf = NumberFormat.getInstance();
-			
+			int allmoney=0;
 			for(int i=0;i<list.size();i++)
 			{
 				HashMap<String,String> map=list.get(i);
 				int price = Integer.parseInt(map.get("price"));
+				
 				%>
 				
 				<tr>
-					<td class="mycartCb">
+					<td class="mycartCb" cbprice=<%=price %>>
 						<input type="checkbox" name="cnum" cnum="<%= map.get("cnum") %>" class="cnum" checked="checked">
 					</td>
 					<td>
