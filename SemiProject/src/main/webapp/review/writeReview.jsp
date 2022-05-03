@@ -96,32 +96,31 @@ String lnum = request.getParameter("lnum");
 		
 		function submitContents(elClickedObj) {
 			
-			var checkText = $("textarea").val();
-			if(checkText == null) {
-		    	return alert("한줄평이라도 작성해주세요");
-		    }
-			
 		    // 에디터의 내용이 textarea에 적용된다.
-		
 		    oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", [ ]);
 		    
+		    
+		 	// 별점 입력 필수!!
 		    var checkStar = $("input:radio[name='rating']").is(":checked");
-		    
-		    
-		    /* if(!checkStar) {
+		    if(!checkStar) {
 		    	return alert("별점을 입력해주세요");
-		    } */
-		   
-		    
-		
-		    // 에디터의 내용에 대한 값 검증은 이곳에서
-		
-		    // document.getElementById("textAreaContent").value를 이용해서 처리한다.
-		    try {
-		        elClickedObj.form.submit();
-		    } catch(e) { 
-		
 		    }
+		    
+		 	// 텍스트 입력 필수!!
+		    var checkText = $("#content").val();
+			if(checkText.length == 0) {
+				return alert("텍스트를 입력해주세요");
+			}
+			else {
+				try {
+					elClickedObj.form.submit();
+				} catch(e) {
+					
+				}
+			}
+		   
+			// 에디터의 내용에 대한 값 검증은 이곳에서
+		    // document.getElementById("textAreaContent").value를 이용해서 처리한다.
 		
 		}
 		
