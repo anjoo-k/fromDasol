@@ -117,7 +117,7 @@ div.header > div.headercontent > a.logo{
 	margin-top: 20px;
 }
 div.header > div.headercontent > a.logo img{
-	width: 100%;
+	width: 106px; height: 16px;
 }
 div.header > div.headercontent > div.headerlogin{
     font-size: 16px;
