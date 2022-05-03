@@ -191,7 +191,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 			<tfoot>
 				<tr>
 					<td colspan="3">
-						<div class="allPrice">총 결재금액 : <span><%= nf.format(allmoney) %></span>원</div>
+						<div class="allPrice">총 결제금액 : <span><%= nf.format(allmoney) %></span>원</div>
 					</td>
 					
 				</tr>			
