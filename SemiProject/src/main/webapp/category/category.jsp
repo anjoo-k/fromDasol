@@ -11,6 +11,24 @@
 <title>BORAM3 CLASS</title>
 
 <script type="text/javascript">
+//url 파라미터 값 가져오기
+function getParam(params, paramName) { 
+    var returnVal;
+    var url = params == '' ? location.href : params;
+
+    //get 파라미터 값을 가져올 수 있는 ? 를 기점으로 slice 한 후 split 으로 나눔
+    var parameters = (url.slice(url.indexOf('?') + 1, url.length)).split('&');
+
+    //나누어진 값의 비교를 통해 paramName 으로 요청된 데이터의 값만 return
+    for (var i = 0; i < parameters.length; i++) {
+        var varName = parameters[i].split('=')[0];
+        if (varName.toUpperCase() == paramName.toUpperCase()) {
+        	returnVal = parameters[i].split('=')[1];
+            return decodeURIComponent(returnVal);
+        }
+    }
+};	
+
 $(function() {
 	$("select.sortSelect").focus(function() {
 		$(this).parent().css("background","url('image/arrow-up.png') no-repeat 93% 50%/15px auto");
@@ -26,7 +44,7 @@ $(function() {
 	$(".category-img").click(function(){
 		var lnum=$(this).attr("lnum");
 		location.href='index.jsp?boramMain=detail/detailpage.jsp?lnum='+lnum;
-	});
+	});	
 	//클래스제목 클릭시 디테일페이지로
 	$(".lesson-title").click(function(){
 		var lnum=$(this).attr("lnum");
@@ -34,10 +52,34 @@ $(function() {
 	});
 	
 	$("select.sortSelect").change(function(){
-		var option=$(this).val();
-		location.href = location.href + "&option=" + option;
+		var opt = $(this).val();
+		// ?을 기점으로 배열 슬라이스 => ex)http://localhost:8081/SemiProject/src/index.jsp
+		var url = location.href.split("?")[0];
+		// location.href.split("?")[2]; 와 같음 => ex)category=a&opt=highprice 
+		var params = location.href.substring(location.href.indexOf('boramMain='));
+		// category의 값을 cate에 넘김
+		var cate = getParam(params, 'category');
+				
+		location.href = url + '?boramMain=category/category.jsp?category=' + cate + '&opt=' + opt;
 	});
+	
+	initSort();
 });
+
+function initSort() {
+	//opt값을 받아서 select에서 opt값과 일치하는 옵션 selected
+	var opt = getParam('', 'opt');
+	
+	$("#selectopt option").removeAttr('selected');
+	
+	if (opt == "toppopular") {
+		$("#selectopt > option[value='toppopular']").attr("selected","selected");
+	} else if (opt == "highprice") {
+		$("#selectopt > option[value='highprice']").attr("selected","selected");
+	} else if (opt == "lowprice") {
+		$("#selectopt > option[value='lowprice']").attr("selected","selected");
+	}
+}
 </script>
 
 </head>
@@ -48,6 +90,7 @@ LessonDao ldao = new LessonDao();
 LessonDto ldto = new LessonDto();
 
 String category = request.getParameter("category");
+
 request.setAttribute("category", category);
 
 if(request.getAttribute("category").equals("a"))
@@ -69,17 +112,16 @@ else if(request.getAttribute("category").equals("h"))
 else
 	category="기타";
 
-String option=request.getParameter("option");
+String opt=request.getParameter("opt");
 %>
 <body>
 <%
 //클래스 개수
-LessonDao cdao=new LessonDao();
-int totalCount=cdao.getTotalCount(category);
+int totalCount=ldao.getTotalCount(category);
 
 String bannerimage=null;
 
-if(request.getAttribute("category").equals("toppopular"))
+if(request.getAttribute("category").equals("a"))
 	bannerimage="image/banner-01.png";
 else if(request.getAttribute("category").equals("b"))
 	bannerimage="image/banner-02.png";
@@ -175,10 +217,10 @@ else if(request.getAttribute("category").equals("h"))
 							클래스<span><%=totalCount%></span>개
 						</span>
 						<span class="sortSelect">
-							<select class="sortSelect">
-								<option value="toppopular">인기도순</option>
-								<option value="highprice">높은가격순</option>
-								<option value="lowprice">낮은가격순</option>
+							<select class="sortSelect" name="selectopt" id="selectopt">
+								<option value="toppopular" selected="selected">인기도순</option>
+								<option value="highprice" >높은가격순</option>
+								<option value="lowprice" >낮은가격순</option>
 							</select>
 						</span>
 				    </div>
@@ -190,8 +232,35 @@ else if(request.getAttribute("category").equals("h"))
 
 				<tr>
 			<%
-			if(option=="toppopular")
+			if(opt==null)
 			{
+			List<LessonDto> list = ldao.getCategoryData(category);
+			for(LessonDto dto:list)
+			{
+			%>
+					<td>
+						<div class="category-lesson">
+							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
+								class="category-img" lnum="<%=dto.getLnum()%>">
+							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
+							<p class="lesson-price"><%=dto.getPrice() %>원
+							</p>
+							<%=dto.getPerson() %>
+						</div>
+					</td>
+					<%
+				if((i+1)%4==0){%>
+				</tr>
+				<tr>
+					<%}
+				i++;	
+			}%>
+			<%} 
+			
+			
+			
+			else if(opt.equals("toppopular")) 
+			{	
 			List<LessonDto> personlist = ldao.personSort(category);
 			for(LessonDto dto:personlist)
 			{
@@ -214,8 +283,11 @@ else if(request.getAttribute("category").equals("h"))
 				i++;	
 			}%>
 			<%} 
-			else if(option=="highprice") 
-			{	
+			
+			
+			
+			else if(opt.equals("highprice")) 
+			{
 			List<LessonDto> highpricelist = ldao.highpriceSort(category);
 			for(LessonDto dto:highpricelist)
 			{
@@ -238,7 +310,10 @@ else if(request.getAttribute("category").equals("h"))
 				i++;	
 			}%>
 			<%} 
-			else if(option=="lowprice")
+			
+			
+			
+			else if(opt.equals("lowprice"))
 			{
 			List<LessonDto> lowpricelist = ldao.lowpriceSort(category);
 			for(LessonDto dto:lowpricelist)
@@ -260,32 +335,11 @@ else if(request.getAttribute("category").equals("h"))
 				<tr>
 					<%}
 				i++;	
-			}%>
-			<%} 
-			else
-			{
-			List<LessonDto> list = ldao.getCategoryData(category);
-			for(LessonDto dto:list)
-			{
-			%>
-					<td>
-						<div class="category-lesson">
-							<img src="savePhoto/<%=dto.getPhoto() %>" alt=""
-								class="category-img" lnum="<%=dto.getLnum()%>">
-							<p class="lesson-title" lnum="<%=dto.getLnum()%>"><%=dto.getTitle() %></p>
-							<p class="lesson-price"><%=dto.getPrice() %>원
-							</p>
-							<%=dto.getPerson() %>
-						</div>
-					</td>
-					<%
-				if((i+1)%4==0){%>
-				</tr>
-				<tr>
-					<%}
-				i++;	
 			} 
 			}%>
+			
+			
+			
 				</tr>
 			</table>
     </div>
