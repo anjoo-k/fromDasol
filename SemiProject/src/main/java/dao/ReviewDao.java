@@ -15,6 +15,40 @@ public class ReviewDao {
 
 	DbConnect db=new DbConnect();
 	
+	//[신지환] 해당 리뷰 데이터 반환
+	public ReviewDto getData(String rnum) {
+		ReviewDto dto = new ReviewDto();
+		
+		Connection conn = db.getConnection();
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		String sql = "select * from review where rnum=?";
+		
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setString(1, rnum);
+			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				dto.setRnum(rs.getString("rnum"));
+				dto.setLnum(rs.getString("lnum"));
+				dto.setMnum(rs.getString("mnum"));
+				dto.setRstar(rs.getInt("rstar"));
+				dto.setRcontents(rs.getString("rcontents"));
+				dto.setRday(rs.getTimestamp("rday"));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			db.dbClose(rs, pstmt, conn);
+		}
+		
+		return dto;
+	}
+	
 	//[이다솔]로그인 중인 회원의 리뷰목록 조회
 	public List<ReviewDto> getMyReview(String mnum) {
 		

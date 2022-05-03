@@ -1,3 +1,5 @@
+<%@page import="dao.ReviewDao"%>
+<%@page import="dto.ReviewDto"%>
 <%@page import="dto.LessonDto"%>
 <%@page import="dao.LessonDao"%>
 <%@page import="dao.MemberDao"%>
@@ -58,14 +60,19 @@ String lnum = request.getParameter("lnum");
 						  <label for="3-stars" class="star">&#9733;</label>
 						  <input type="radio" id="2-stars" name="rating" value="2" />
 						  <label for="2-stars" class="star">&#9733;</label>
-						  <input type="radio" id="1-star" name="rating" value="1" />
+						  <input type="radio" id="1-star" name="rating" value="1" required="required" />
 						  <label for="1-star" class="star">&#9733;</label>
-						</div>		
+						</div>
 					</td>
 				</tr>
 				<tr>
 					<td>
-						<textarea name="content" id="content" required="required" style="width: 100%;height: 300px; background-color: #fff; display: none;"></textarea>		
+					<%
+					ReviewDao rdao = new ReviewDao();
+					ReviewDto rdto = rdao.getData(rnum);
+					%>
+						<textarea name="content" id="content" required="required"
+						style="width: 100%;height: 300px; background-color: #fff; display: none;"><%=rdto.getRcontents()%></textarea>		
 					</td>
 				</tr>
 				<tr>
@@ -100,8 +107,12 @@ String lnum = request.getParameter("lnum");
 		    // 에디터의 내용이 textarea에 적용된다.
 		
 		    oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", [ ]);
-		
-		 
+		    
+		    // 별점 입력 필수!!
+		    var check = $("input:radio[id='1-star']").is(":checked");
+		    if(!check) {
+		    	return alert("별점을 입력해주세요");
+		    }
 		
 		    // 에디터의 내용에 대한 값 검증은 이곳에서
 		
