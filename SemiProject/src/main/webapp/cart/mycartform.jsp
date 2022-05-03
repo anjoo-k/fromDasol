@@ -142,7 +142,7 @@ List<HashMap<String,String>> list=dao.getCartList(email);
 			<tbody>
 			<% 
 			int allmoney=0;
-			NumberFormat nf = NumberFormat.getCurrencyInstance();
+			NumberFormat nf = NumberFormat.getInstance();
 			
 			for(int i=0;i<list.size();i++)
 			{
