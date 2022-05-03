@@ -27,7 +27,7 @@
 		response.sendRedirect("../index.jsp?boramMain=layout/main.jsp");
 	}else{%>
 		<script type="text/javascript">
-			alert("이름과 이메일이 틀렸습니다");
+			alert("계정 정보가 맞지 않습니다");
 			history.back();
 		</script>
 	<%}
