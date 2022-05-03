@@ -13,7 +13,7 @@ LessonDao ldao = new LessonDao();
 LessonDto ldto = new LessonDto();
 
 String loginok = (String)session.getAttribute("loginok");
-NumberFormat nf = NumberFormat.getCurrencyInstance();
+NumberFormat nf = NumberFormat.getInstance();
 %>
 <style type="text/css">
 .swipertitle {
