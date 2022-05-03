@@ -63,7 +63,8 @@ String lnum = request.getParameter("lnum");
 				</tr>
 				<tr>
 					<td>
-						<textarea name="content" id="content" required="required" style="width: 100%;height: 300px; background-color: #fff; display: none;"></textarea>		
+						<textarea name="content" id="content" required="required"
+						style="width: 100%;height: 300px; background-color: #fff; display: none;"></textarea>		
 					</td>
 				</tr>
 				<tr>
@@ -94,16 +95,24 @@ String lnum = request.getParameter("lnum");
 		//‘저장’ 버튼을 누르는 등 저장을 위한 액션을 했을 때 submitContents가 호출된다고 가정한다.
 		
 		function submitContents(elClickedObj) {
-		
+			
+			var checkText = $("textarea").val();
+			if(checkText == null) {
+		    	return alert("한줄평이라도 작성해주세요");
+		    }
+			
 		    // 에디터의 내용이 textarea에 적용된다.
 		
 		    oEditors.getById["content"].exec("UPDATE_CONTENTS_FIELD", [ ]);
 		    
-		    // 별점 입력 필수!!
-		    var check = $("input:radio[id='1-star']").is(":checked");
-		    if(!check) {
+		    var checkStar = $("input:radio[name='rating']").is(":checked");
+		    
+		    
+		    /* if(!checkStar) {
 		    	return alert("별점을 입력해주세요");
-		    }
+		    } */
+		   
+		    
 		
 		    // 에디터의 내용에 대한 값 검증은 이곳에서
 		
