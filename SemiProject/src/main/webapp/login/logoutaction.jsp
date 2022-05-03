@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <%
 	session.removeAttribute("loginok");
-
+	session.removeAttribute("emailok");
 	response.sendRedirect("../index.jsp");
 
 %>
