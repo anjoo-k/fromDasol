@@ -108,7 +108,7 @@ function deleteReview() {
 	                  if(rdto.getMnum().equals(mnum)) { %>
 	                  <a href="index.jsp?boramMain=review/u_writeReview.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>">수정</a>
 	                  |
-	                  <a href="index.jsp?boramMain=review/d_reviewDelAction.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>"
+	                  <a href="review/d_reviewDelAction.jsp?rnum=<%=rdto.getRnum()%>&lnum=<%=lnum%>"
 	                  onclick="return deleteReview()">삭제</a>
 	                  <%
 	                  }
@@ -300,6 +300,8 @@ function kakaoShare() {
 				var a = confirm("장바구니에 클래스가 담겼습니다\n장바구니로 이동하시겠습니까?");
 				if(a) {
 					location.href = "index.jsp?boramMain=cart/mycartform.jsp";
+				}else{
+					location.reload();
 				}
 			}
 			

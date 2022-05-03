@@ -30,7 +30,7 @@ dto.setRcontents(rcontents);
 ReviewDao dao = new ReviewDao();
 dao.insertReview(dto);
 
-response.sendRedirect("../index.jsp?boramMain=detail/detailpage.jsp?lnum="+lnum);
+response.sendRedirect("../index.jsp?boramMain=mypage/myclass.jsp");
 %>
 </body>
 </html>

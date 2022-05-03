@@ -31,7 +31,7 @@ dto.setRcontents(rcontents);
 ReviewDao dao = new ReviewDao();
 dao.updateReview(dto);
 
-response.sendRedirect("../index.jsp?boramMain=detail/detailpage.jsp?lnum="+lnum);
+response.sendRedirect("../index.jsp?boramMain=mypage/myreview.jsp");
 %>
 <body>
 

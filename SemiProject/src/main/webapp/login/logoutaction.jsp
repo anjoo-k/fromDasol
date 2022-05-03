@@ -3,6 +3,6 @@
 <%
 	session.removeAttribute("loginok");
 
-	response.sendRedirect("../index.jsp?boramMain=login/loginmain.jsp");
+	response.sendRedirect("../index.jsp");
 
 %>
