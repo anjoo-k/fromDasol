@@ -56,21 +56,24 @@
 		
 			   
 <script type="text/javascript">
-		
+	 
 		//삭제확인 이벤트
 		$("button.dropbutton").click(function () {		
 		//alert(<%=num%>);
-		alert("탈퇴 되었습니다");
+		let drop = confirm("정말 탈퇴 하시겠습니까?");
+	 	
+	 	if (drop==true) {
+	 		//num값을 받고
+			let mnum= $("#delnum").val();
+			
+			//이름, 이메일, 비밀번호 읽기
+			let name=$("#delName").val();
+			let email=$("#delEmail").val();
+			let password=$("#delPass").val();			
+			//삭제파일 호출
+			location.href="member/memberdelete.jsp?mnum="+mnum+"&name="+name+"&email="+email+"&password="+password;
+		}
 		
-		//num값을 받고
-		let mnum= $("#delnum").val();
-		
-		//이름, 이메일, 비밀번호 읽기
-		let name=$("#delName").val();
-		let email=$("#delEmail").val();
-		let password=$("#delPass").val();			
-		//삭제파일 호출
-		location.href="member/memberdelete.jsp?mnum="+mnum+"&name="+name+"&email="+email+"&password="+password;
 	});
 
 
