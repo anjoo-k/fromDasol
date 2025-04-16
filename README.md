@@ -11,13 +11,12 @@
     
 
 ## Member Service - Snowball Class
-Spring Boot 기반 MSA 아키텍처에서 회원 인증 및 관리 기능을 담당하는 마이크로서비스입니다.  
+Spring Boot 기반 MSA 아키텍처에서 회원 인증 및 관리 기능을 담당하는 마이크로서비스입니다.
 JWT 인증, Spring Security를 포함한 보안 로직을 구현했습니다.
 
      
    
 ## 주요 기능
-
 - 회원가입 / 로그인 / 로그아웃
 - JWT Access & Refresh Token 발급 및 검증
 - 회원 정보 조회 / 수정 / 삭제
@@ -25,7 +24,6 @@ JWT 인증, Spring Security를 포함한 보안 로직을 구현했습니다.
 
    
 ## 기술 스택
-
 | 분류       | 사용 기술                           |
 |------------|-------------------------------------|
 | Language   | Java 17                             |
