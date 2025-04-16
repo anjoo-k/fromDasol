@@ -39,7 +39,7 @@ JWT 인증, Spring Security를 포함한 보안 로직을 구현했습니다.
 ## 프로젝트 구조 요약
 ```
 member/ 
-  ├── config/ # Security, Feign 설정, 인증 필터 등 
+  ├── config/ # Security/Feign 설정, 인증 필터 등 
   ├── controller/ # REST API 컨트롤러 
   ├── dto/ # 요청/응답 DTO 
   ├── service/ # 핵심 비즈니스 로직 
