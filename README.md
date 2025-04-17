@@ -1,22 +1,27 @@
-리드미 연습
-팀원 누르면 그사람 깃허브로 가도록 변경
-눈송이 이미지 넣기
-엔터넣기
-목차넣기
-메인페이지 캡쳐?
-프로젝트 구조 찐대로 변경
-블로그에 글좀 써야하나?
+<div align="center">
 
-# 프로젝트 소개
+### [온라인 강의 수강 사이트 Snowball]
+<img src="https://github.com/user-attachments/assets/3a6b5eee-dc1f-4977-b8c8-ea5d97158b07" width="200" height="200"/>
+
+</div>
+
+## 목차
+- [프로젝트 소개](#-프로젝트-소개)    
+    - [Member Service](#-Member-Service)    
+- [주요 기능](#-주요-기능)    
+- [프로젝트 구조 요약](#-프로젝트-구조-요약)    
+- [팀원 및 역할](#-팀원-및-역할)    
+
+<br/>
+
+## 프로젝트 소개
 온라인 강의를 들을 수 있는 사이트를 구현한 프로젝트
 
-    
+> ### Member Service
+>    Spring Boot 기반 MSA 아키텍처에서 회원 인증 및 관리 기능을 담당하는 마이크로서비스입니다.   
+>    JWT 인증, Spring Security를 포함한 보안 로직을 구현했습니다.
 
-## Member Service - Snowball Class
-Spring Boot 기반 MSA 아키텍처에서 회원 인증 및 관리 기능을 담당하는 마이크로서비스입니다.
-JWT 인증, Spring Security를 포함한 보안 로직을 구현했습니다.
-
-     
+<br/>
    
 ## 주요 기능
 - 회원가입 / 로그인 / 로그아웃
@@ -24,34 +29,39 @@ JWT 인증, Spring Security를 포함한 보안 로직을 구현했습니다.
 - 회원 정보 조회 / 수정 / 삭제
 - 이메일로 임시 비밀번호 발급
 
-   
+<br/>
+
 ## 기술 스택
 | 분류       | 사용 기술                           |
 |------------|-------------------------------------|
 | Language   | Java 17                             |
-| Framework  | Spring Boot 3, Spring Security 6.2.1    |
-| Database  | MySQL                                |
+| Framework  | Spring Boot 3, Spring Security 6.2.1   |
+| Database   | MySQL                               |
 | Auth       | JWT (Access Token / Refresh Token)  |
-| Docs       | Swagger                             |
-| Infra      | Docker, GCP                         |
+| Deploy     | Docker, GCP                         |
 
-   
+<br/>
+
 ## 프로젝트 구조 요약
 ```
 member/ 
   ├── config/ # Security/Feign 설정, 인증 필터 등 
   ├── controller/ # REST API 컨트롤러 
-  ├── dto/ # 요청/응답 DTO 
-  ├── service/ # 핵심 비즈니스 로직 
+  ├── dto/ # 요청/응답 DTO
+  ├── entity/ #JPA 엔티티
+  ├── handler/ #예외 처리 핸들러
+  ├── jwt/ #JWT 생성/검증, 관련 필터
   ├── repository/ # 멤버/토큰 저장
-  ├── util/ # JWT 유틸, 토큰 파서 등 
+  ├── service/ # 핵심 비즈니스 로직
   └── Application.java
 ```
-   
+
+<br/>
+
 ## 팀원 및 역할
 
 | 이름     | 역할                |
 |----------|-----------------------|
-| 김남주  | Backend(member, review, view)|
-| 안병현  | Backend(payment, cart, view)|
-| 전찬의  | Infra, Deploy, Backend(lesson, admin, view) |
+| [김남주](https://github.com/anjoo-k)  | Backend(**member**, review, view)|
+| [안병현](https://github.com/bhyunnie)  | Backend(payment, cart, view)|
+| [전찬의](https://github.com/orgs/snowball-class/people/jerry0339)  | Infra, Deploy, Backend(lesson, admin, view) |
